@@ -347,7 +347,7 @@ Header Area
                                         </ul>
                                     </li>
 
-                                    {{-- <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children">
                                         <a href="#">PAGES</a>
                                         <ul class="sub-menu">
                                             <li><a href="about">About Us</a></li>
@@ -362,7 +362,7 @@ Header Area
                                             <li><a href="testimonial">Testimonial</a></li>
                                             <li><a href="error">Error Page</a></li>
                                         </ul>
-                                    </li> --}}
+                                    </li>
                                     <li>
                                         <a href="contact">CONTACT</a>
                                     </li>
