@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Admin\Controllers;
+
+use App\Models\Article;
+use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Form;
+use Encore\Admin\Grid;
+use Encore\Admin\Show;
+use Auth;
+
+class ArticleController extends AdminController
+{
+    /**
+     * Title for current resource.
+     *
+     * @var string
+     */
+    protected $title = 'Article';
+
+    /**
+     * Make a grid builder.
+     *
+     * @return Grid
+     */
+    protected function grid()
+    {
+        $grid = new Grid(new Article());
+
+        $grid->column('id', __('Id'));
+        $grid->column('titre', __('Titre'));
+        $grid->column('contenu', __('Contenu'));
+        $grid->column('image_couverture', __('Image couverture'))->image();
+        $grid->column('slug', __('Slug'));
+        $grid->column('auteur_id', __('Auteur id'));
+        $grid->column('est_actif', __('Est actif'));
+        $grid->column('created_at', __('Created at'))->display(function ($date) {
+        return \Carbon\Carbon::parse($date)->format('d/m/Y');
+    });
+
+        // $grid->column('created_by', __('Created by'));
+        // $grid->column('updated_at', __('Updated at'));
+        // $grid->column('updated_by', __('Updated by'));
+        // $grid->column('deleted_at', __('Deleted at'));
+        // $grid->column('deleted_by', __('Deleted by'));
+
+        return $grid;
+    }
+
+    /**
+     * Make a show builder.
+     *
+     * @param mixed $id
+     * @return Show
+     */
+    protected function detail($id)
+    {
+        $show = new Show(Article::findOrFail($id));
+
+        $show->field('id', __('Id'));
+        $show->field('titre', __('Titre'));
+        $show->field('contenu', __('Contenu'));
+        $show->field('image_couverture', __('Image couverture'));
+        $show->field('slug', __('Slug'));
+        $show->field('auteur_id', __('Auteur id'));
+        $show->field('est_actif', __('Est actif'));
+        $show->field('created_at', __('Created at'));
+        $show->field('created_by', __('Created by'));
+        $show->field('updated_at', __('Updated at'));
+        $show->field('updated_by', __('Updated by'));
+        $show->field('deleted_at', __('Deleted at'));
+        $show->field('deleted_by', __('Deleted by'));
+
+        return $show;
+    }
+
+    /**
+     * Make a form builder.
+     *
+     * @return Form
+     */
+    protected function form()
+    {
+        $form = new Form(new Article());
+
+        $form->text('titre', __('Titre'));
+        $form->textarea('contenu', __('Contenu'));
+        $form->image('image_couverture', __('Image couverture'))->removable()->uniqueName();
+        $form->text('slug', __('Slug'));
+        $form->number('auteur_id', __('Auteur id'));
+        $form->switch('est_actif', __('Est actif'))->default(1);
+        $form->hidden('created_by', 'Created by')->default(Auth::guard('admin')->user()->id);
+        $form->hidden('updated_by', 'Updated by')->default(Auth::guard('admin')->user()->id);
+        // $form->number('deleted_by', __('Deleted by'));
+
+        return $form;
+    }
+}
