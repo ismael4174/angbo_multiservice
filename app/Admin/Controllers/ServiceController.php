@@ -36,7 +36,7 @@ class ServiceController extends AdminController
         $grid->column('titre', __('Titre'));
         $grid->column('description', __('Description'));
         $grid->column('image', __('Image'))->image();
-        // $grid->column('galerie', __('Galerie'))->image();
+        $grid->column('galerie', __('Galerie'))->image();
         $grid->column('slug', __('Slug'));
         $grid->column('ordre_affichage', __('Ordre affichage'));
         $grid->column('est_actif', __('Est actif'));
@@ -67,7 +67,7 @@ class ServiceController extends AdminController
         $show->field('titre', __('Titre'));
         $show->field('description', __('Description'));
         $show->field('image', __('Image'));
-        // $show->field('galerie', __('Galerie'));
+        $show->field('galerie', __('Galerie'));
         $show->field('slug', __('Slug'));
         $show->field('ordre_affichage', __('Ordre affichage'));
         $show->field('est_actif', __('Est actif'));
@@ -94,11 +94,11 @@ class ServiceController extends AdminController
         $form->text('titre', __('Titre'));
         $form->textarea('description', __('Description'));
         $form->image('image', __('Image'))->removable()->uniqueName();
-        // $form->multipleImage('galerie', __('Galerie'))
-        //     ->removable()
-        //     ->uniqueName()
-        //     ->sortable()
-        //     ->help('Sélectionnez plusieurs images pour la galerie du produit.');
+        $form->multipleImage('galerie', __('Galerie'))
+            ->removable()
+            ->uniqueName()
+            ->sortable()
+            ->help('Sélectionnez plusieurs images pour la galerie du produit.');
         $form->text('slug', __('Slug'));
         $form->number('ordre_affichage', __('Ordre affichage'));
         $form->switch('est_actif', __('Est actif'))->default(1);
