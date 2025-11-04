@@ -91,7 +91,7 @@ class AgenceController extends AdminController
         $form->decimal('latitude', __('Latitude'));
         $form->decimal('longitude', __('Longitude'));
         $form->text('ville', __('Ville'));
-        $form->text('pays', __('Pays'))->default('Côte d'Ivoire');
+        $form->text('pays', __('Pays'))->default('Côte d\'Ivoire');
         $form->textarea('description', __('Description'));
         $form->text('statut', __('Statut'))->default('active');
 
