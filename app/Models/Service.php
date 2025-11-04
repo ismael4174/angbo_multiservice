@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $titre
  * @property string|null $description
  * @property string|null $image
- * @property array|null $galerie
  * @property string|null $slug
  * @property int|null $ordre_affichage
  * @property bool|null $est_actif
@@ -45,7 +44,7 @@ class Service extends Model
 		'type_service_id' => 'int',
 		'ordre_affichage' => 'int',
 		'est_actif' => 'bool',
-        'galerie' => 'json',
+        // 'galerie' => 'json',
 		'created_by' => 'int',
 		'updated_by' => 'int',
 		'deleted_by' => 'int'

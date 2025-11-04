@@ -49,7 +49,7 @@
                                 <h3 class="service-card_title h4"><a href="service-details">{{ $service->titre }}</a></h3>
                                 {{-- <p class="service-card_text">{{ $service->description}}</p> --}}
                                 <p class="service-card_text">{{ Str::limit($service->description, 80, '...') }}</p>
-                                <a class="line-btn" href="service-details">READ MORE</a>
+                                <a class="line-btn" href="service-details">VOIR PLUS</a>
                                 {{-- <a href="{{ route('activite.shows', $activite->id) }}" class="btn btn-primary"
                                     style="margin-top: 10px;">Voir plus</a> --}}
 

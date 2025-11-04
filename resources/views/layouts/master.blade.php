@@ -179,7 +179,7 @@ Mobile Menu
                         <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.goggle.com/"><i class="fa-brands fa-google"></i></a>
                         <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
+                        {{-- <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a> --}}
                     </div>
                 </div>
             </div>
@@ -352,13 +352,17 @@ Header Area
                             <div class="menu-area">
                                 <nav class="main-menu d-none d-lg-inline-block">
                                     <ul>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">ACCUEIL</a>
+                                        {{-- <li class="menu-item-has-children">
+                                            <a href="/">ACCUEIL</a>
                                             <ul class="sub-menu">
                                                 <li><a href="/">Home Automotive Repair</a></li>
                                                 <li><a href="home-car-dealer">Home Car Dealer</a></li>
                                                 <li><a href="home-logistic">Home Logistic Dealer</a></li>
                                             </ul>
+                                        </li> --}}
+
+                                        <li>
+                                            <a href="/">ACCUEIL</a>
                                         </li>
 
                                         <li>
