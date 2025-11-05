@@ -53,6 +53,9 @@ Route::get('/home-car-dealer', function () {
 Route::get('/home-logistic', function () {
     return view('home-logistic');
 });
+Route::get('/home-repair', function () {
+    return view('index');
+});
 Route::get('/project-details', function () {
     return view('project-details');
 });
