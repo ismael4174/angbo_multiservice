@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Agence;
-use App\Models\ServiceAgence;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -36,17 +35,8 @@ class AgenceController extends AdminController
         $grid->column('latitude', __('Latitude'));
         $grid->column('longitude', __('Longitude'));
         $grid->column('ville', __('Ville'));
-        $grid->column('commune', __('Commune'));
-        $grid->column('quartier', __('Quartier'));
-        $grid->column('localisation', __('Localisation'));
         $grid->column('pays', __('Pays'));
         $grid->column('description', __('Description'));
-        $grid->column('heure_ouverture', __('Heure ouverture'));
-        $grid->column('heure_fermeture', __('Heure fermeture'));
-        $grid->column('service_agences_id', __('Service agences id'))->display(function ($id) {
-            $query = ServiceAgence::find($id);
-            return $query ? $query->nom : 'Non renseigné';
-        });
         $grid->column('statut', __('Statut'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -74,14 +64,8 @@ class AgenceController extends AdminController
         $show->field('latitude', __('Latitude'));
         $show->field('longitude', __('Longitude'));
         $show->field('ville', __('Ville'));
-        $show->field('commune', __('Commune'));
-        $show->field('quartier', __('Quartier'));
-        $show->field('localisation', __('Localisation'));
         $show->field('pays', __('Pays'));
         $show->field('description', __('Description'));
-        $show->field('heure_ouverture', __('Heure ouverture'));
-        $show->field('heure_fermeture', __('Heure fermeture'));
-        $show->field('service_agences_id', __('Service agences id'));
         $show->field('statut', __('Statut'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -107,14 +91,8 @@ class AgenceController extends AdminController
         $form->decimal('latitude', __('Latitude'));
         $form->decimal('longitude', __('Longitude'));
         $form->text('ville', __('Ville'));
-        $form->text('commune', __('Commune'));
-        $form->text('quartier', __('Quartier'));
-        $form->textarea('localisation', __('Localisation'));
         $form->text('pays', __('Pays'))->default('Côte d\'Ivoire');
         $form->textarea('description', __('Description'));
-        $form->datetime('heure_ouverture', __('Heure ouverture'))->default(date('Y-m-d H:i:s'));
-        $form->datetime('heure_fermeture', __('Heure fermeture'))->default(date('Y-m-d H:i:s'));
-        $form->number('service_agences_id', __('Service agences id'))->options(ServiceAgence::all()->pluck('nom', 'id'));
         $form->text('statut', __('Statut'))->default('active');
 
         return $form;
