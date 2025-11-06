@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Caroussel;
+use App\Models\TypeCarousel;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -65,11 +66,15 @@ class CarousselController extends AdminController
     {
         $form = new Form(new Caroussel());
 
-        $form->number('type_carousel_id', __('Type carousel id'));
-        $form->text('titre', __('Titre'));
-        $form->text('sous_titre', __('Sous titre'));
-        $form->text('description', __('Description'));
-        $form->text('photo', __('Photo'));
+        $form->select('type_carousel_id', __('Type de carrousel'))
+            ->options(TypeCarousel::pluck('nom', 'id'))
+            ->required();
+
+        $form->text('titre', __('Titre'))->required();
+        $form->text('sous_titre', __('Sous-titre'));
+        $form->textarea('description', __('Description'));
+        $form->image('photo', __('Photo'));
+
 
         return $form;
     }

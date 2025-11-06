@@ -57,7 +57,7 @@
 </head>
 
 
-<body class="theme-red">
+<body>
     <!--==============================
     Preloader
 ==============================-->
@@ -418,96 +418,29 @@ Header Area
     Hero Area 03
 ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
-        <div class="as-carousel hero-slider-3" data-fade="true" data-slide-show="1" data-md-slide-show="1"
-            data-dots="false" data-arrows="true" data-xl-arrows="true" data-ml-arrows="true"
+        <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1"
+            data-dots="true" data-arrows="true" data-xl-arrows="true" data-ml-arrows="true"
             data-adaptive-height="true">
-
-            <div class="as-hero-slide">
-                <div class="as-hero-bg" data-bg-src="assets/img/hero/hero_bg_3_1.png"></div>
-                <div class="watermark">DEALARO</div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-9 col-lg-9 col-md-10">
-                            <div class="hero-style3">
-                                <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s">ACCELERATED
-                                    SOLUTION</span>
-                                <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.2s">Beyond
-                                    Shipment, We Deliver Solutions</h1>
-                                <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.3s">
-                                    Energistically monetize visionary channels vis-a-vis holistic best practices.
-                                    Professionally
-                                    disseminate inexpensive supply chains for distinctive growth strategies.</p>
-                                <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
-                                    <a href="service" class="as-btn style2">OUR SERVICES</a>
-                                    <a href="https://www.youtube.com/watch?v=P7fi4hP_y80"
-                                        class="play-btn popup-video">
-                                        <i class="fa-sharp fa-solid fa-play"></i>How it work
-                                    </a>
+            @foreach ($slides as $slide)
+                <div class="as-hero-slide">
+                    <div class="as-hero-bg" data-bg-src="{{ asset('uploads/' . $slide->photo) }}"></div>
+                    <div class="watermark">ANGBO</div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-9 col-md-10">
+                                <div class="hero-style3">
+                                    <span class="hero-subtitle" data-ani="slideinleft"
+                                        data-ani-delay="0.1s">{{ $slide->sous_titre }}</span>
+                                    <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.2s">
+                                        {{ $slide->titre }}</h1>
+                                    <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.3s">
+                                        {{ $slide->description }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="as-hero-slide">
-                <div class="as-hero-bg" data-bg-src="assets/img/hero/hero_bg_3_2.png"></div>
-                <div class="watermark">DEALARO</div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-9 col-lg-9 col-md-10">
-                            <div class="hero-style3">
-                                <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s">ACCELERATED
-                                    SOLUTION
-                                </span>
-                                <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.2s">
-                                    Precision Logistics, Timely Results</h1>
-                                <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.3s">
-                                    Energistically monetize visionary channels vis-a-vis holistic best practices.
-                                    Professionally
-                                    disseminate inexpensive supply chains for distinctive growth strategies.</p>
-                                <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
-                                    <a href="service" class="as-btn style2">OUR SERVICES</a>
-                                    <a href="https://www.youtube.com/watch?v=P7fi4hP_y80"
-                                        class="play-btn popup-video">
-                                        <i class="fa-sharp fa-solid fa-play"></i>How it work
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="as-hero-slide">
-                <div class="as-hero-bg" data-bg-src="assets/img/hero/hero_bg_3_3.png"></div>
-                <div class="watermark">DEALARO</div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-9 col-lg-9 col-md-10">
-                            <div class="hero-style3">
-                                <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s">ACCELERATED
-                                    SOLUTION
-                                </span>
-                                <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.2s">
-                                    Streamlining Global Movement With Care</h1>
-                                <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.3s">
-                                    Energistically monetize visionary channels vis-a-vis holistic best practices.
-                                    Professionally
-                                    disseminate inexpensive supply chains for distinctive growth strategies.</p>
-                                <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
-                                    <a href="service" class="as-btn style2">OUR SERVICES</a>
-                                    <a href="https://www.youtube.com/watch?v=P7fi4hP_y80"
-                                        class="play-btn popup-video">
-                                        <i class="fa-sharp fa-solid fa-play"></i>How it work
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
     <!--======== / Hero Section ========-->
@@ -528,64 +461,50 @@ Header Area
                         <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
                         <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
                             <h3 class="counter-title"><span class="counter-number">22</span></h3>
-                            <span class="counter-text">YEARS <br>
-                                EXPERIENCE</span>
+                            <span class="counter-text">Années <br>
+                                d'Expérience</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="title-area about-wrap-3 mb-0">
-                        <h3 class="sub-title">ABOUT OUR COMPANY</h3>
+                        <h3 class="sub-title">À PROPOS DE NOTRE ENTREPRISE</h3>
                         <h2 class="sec-title">About Dealaro Transport &
                             Logistic Solutions.</h2>
                         <p class="content">Quickly predominate cross functional outsourcing before enterprise-wide
                             expertise. Enthusiastically architect bleeding-edge models whereas prospective
                             web-readiness. Energistically disseminate quality benefits.</p>
-                        <div class="about-grid-wrap as-carousel row" data-slide-show="3" data-lg-slide-show="2"
-                            data-md-slide-show="3" data-sm-slide-show="2" data-xs-slide-show="1">
-                            <div class="col-lg-4">
-                                <div class="about-grid-item">
-                                    <div class="icon">
-                                        <img src="assets/img/about/about-icon-3-1.svg" alt="icon">
-                                    </div>
-                                    <h4 class="title h5">Transparent
-                                        Pricing</h4>
-                                </div>
+
+                        <div class="list-column2">
+                            <div class="checklist">
+                                <ul>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> We’re Here When You Need
+                                        Us</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> Service & Maintenance
+                                    </li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> In House Financing</li>
+                                </ul>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="about-grid-item">
-                                    <div class="icon">
-                                        <img src="assets/img/about/about-icon-3-2.svg" alt="icon">
-                                    </div>
-                                    <h4 class="title h5">Real Time
-                                        Tracking</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="about-grid-item">
-                                    <div class="icon">
-                                        <img src="assets/img/about/about-icon-3-3.svg" alt="icon">
-                                    </div>
-                                    <h4 class="title h5">Warehoues
-                                        Storage</h4>
-                                </div>
+                            <div class="checklist">
+                                <ul>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> Best Collection</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> Famous Brands</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img">Trusted Car Dealer</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="about-btn-group">
-                            <a class="as-btn mt-0" href="about">ABOUT MORE</a>
-                            <div class="about-grid">
-                                <div class="about-profile-thumb">
-                                    <img src="assets/img/about/about_profile.png" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <img src="assets/img/about/signeture2.svg" alt="img">
-                                    <p class="about-profile-desig">CEO, Of Company</p>
-                                </div>
+                    </div>
+                    <div class="about-btn-group" style="display: flex; justify-content: flex-end;">
+                        <div class="about-grid">
+                            <div class="media-body">
+                                <img src="assets/img/about/signeture2.svg" alt="img">
+                                <p class="about-profile-desig">CEO, Of Company</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!--==============================
@@ -594,8 +513,8 @@ Header Area
     <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
-                <span class="sub-title"><span class="double-line"></span> OUR SERVICES</span>
-                <h2 class="sec-title">Explore Our Services</h2>
+                <span class="sub-title"><span class="double-line"></span> NOS SERVICES</span>
+                <h2 class="sec-title">Découvrez nos services</h2>
             </div>
             <div class="service-slider2 row as-carousel g-0" data-slide-show="3" data-lg-slide-show="3"
                 data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1" data-dots="false"
@@ -612,7 +531,7 @@ Header Area
                         <p class="service-card_text">Energistically reconceptualize ubiquitous solution wherea
                             market-driven expertise. Synergistical empower parallel processes with highly efficient
                             infomediaries.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
+                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
                     </div>
                 </div>
 
@@ -627,7 +546,7 @@ Header Area
                         <h3 class="service-card_title h4"><a href="service-details">Air Transportation</a></h3>
                         <p class="service-card_text">Transport reconceptualize ubiquitous solution wherea market-driven
                             expertise. Synergistical empower parallel processes with highly efficient infomediaries.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
+                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
                     </div>
                 </div>
 
@@ -643,7 +562,7 @@ Header Area
                         <p class="service-card_text">Reconceptualize energistically ubiquitous solution wherea
                             market-driven expertise. Synergistical empower parallel processes with highly efficient
                             infomediaries.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
+                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
                     </div>
                 </div>
 
@@ -659,7 +578,7 @@ Header Area
                         <p class="service-card_text">Energistically reconceptualize ubiquitous solution wherea
                             market-driven expertise. Synergistical empower parallel processes with highly efficient
                             infomediaries.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
+                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
                     </div>
                 </div>
 
@@ -674,7 +593,7 @@ Header Area
                         <h3 class="service-card_title h4"><a href="service-details">Air Transportation</a></h3>
                         <p class="service-card_text">Transport reconceptualize ubiquitous solution wherea market-driven
                             expertise. Synergistical empower parallel processes with highly efficient infomediaries.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
+                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
                     </div>
                 </div>
 
@@ -690,297 +609,21 @@ Header Area
                         <p class="service-card_text">Reconceptualize energistically ubiquitous solution wherea
                             market-driven expertise. Synergistical empower parallel processes with highly efficient
                             infomediaries.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
+                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
                     </div>
                 </div>
 
             </div>
 
-            <p class="text-center mt-4 mb-0">Ligistic & Transport Solutions Saves Your Time. <a class="line-btn ms-1"
-                    href="service-details">Find Your Solutions <i class="fa fa-arrow-right"></i></a></p>
+            {{-- <p class="text-center mt-4 mb-0">Ligistic & Transport Solutions Saves Your Time. <a class="line-btn ms-1"
+                    href="service-details">Find Your Solutions <i class="fa fa-arrow-right"></i></a></p> --}}
         </div>
     </div>
 
-    <!--==============================
-    Contact Area
-==============================-->
-    <div class="contact-area space-bottom">
-        <div class="contact-anime-img-1 shape-mockup moving d-none d-lg-block" style="right: 0px; bottom: 10%;"><img
-                src="assets/img/normal/truck.png" alt="img"></div>
-
-        <div class="container">
-            <div class="contact-tab filter-menu-active indicator-active">
-                <button data-filter=".cat1" class="active" type="button"><img
-                        src="assets/img/icon/contact-tab-1.svg" alt=""> REQUEST A QUOTE</button>
-                <button data-filter=".cat2" type="button"><img src="assets/img/icon/contact-tab-2.svg"
-                        alt="">TRACK & TRACE</button>
-            </div>
-            <div class="contact-box-form filter-active-cat1">
-                <div class="filter-item w-100 cat1">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <form action="mail.php" method="POST" class="quote-form ajax-contact">
-                                <h6 class="form-title">Personal Information :</h6>
-                                <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Your Name">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Your Email">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="tel" class="form-control" name="number" id="number"
-                                            placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <h6 class="form-title mt-3">Shipment Information :</h6>
-                                <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <select name="subject" id="subject1" class="form-select style2">
-                                            <option value="" disabled="" selected="" hidden="">
-                                                Freight Type</option>
-                                            <option value="Web Development">Web Development</option>
-                                            <option value="Brand Marketing">Brand Marketing</option>
-                                            <option value="UI/UX Designing">UI/UX Designing</option>
-                                            <option value="Digital Marketing">Digital Marketing</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="text" class="form-control" name="city" id="city1"
-                                            placeholder="City of Departure">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="text" class="form-control" name="city" id="city2"
-                                            placeholder="Delivery City">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <select name="subject" id="subject2" class="form-select style2">
-                                            <option value="" disabled="" selected="" hidden="">
-                                                Incotems</option>
-                                            <option value="Web Development">Web Development</option>
-                                            <option value="Brand Marketing">Brand Marketing</option>
-                                            <option value="UI/UX Designing">UI/UX Designing</option>
-                                            <option value="Digital Marketing">Digital Marketing</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="weight" id="weight1"
-                                            placeholder="Weight">
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="height" id="height1"
-                                            placeholder="Height">
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="weight" id="weight"
-                                            placeholder="Weight">
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="height" id="height"
-                                            placeholder="Height">
-                                    </div>
-                                    <ul class="form-check-list col-12">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck1" checked>
-                                                <label class="form-check-label" for="formcheck1">
-                                                    Freight
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck2">
-                                                <label class="form-check-label" for="formcheck2">
-                                                    Packaging
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck3">
-                                                <label class="form-check-label" for="formcheck3">
-                                                    Express Delivery
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck4">
-                                                <label class="form-check-label" for="formcheck4">
-                                                    Road Freight
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck5">
-                                                <label class="form-check-label" for="formcheck5">
-                                                    Air Freight
-                                                </label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="form-btn col-12">
-                                        <button class="as-btn btn-fw">REQUEST A QUOTE</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="contact-box-wrap bg-theme">
-                                <h3 class="text-white">Take Your Career to
-                                    Next Level</h3>
-                                <p class="text-white mb-0">Dynamically conceptualize optimal e-services wherea premier
-                                    intellectual capital. Authoritatively restore.</p>
-                                <a class="as-btn style-white" href="contact">CONTACT US</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-item w-100 cat2">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <form action="mail.php" method="POST" class="quote-form ajax-contact">
-                                <h6 class="form-title">Personal Information :</h6>
-                                <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <input type="text" class="form-control" name="name" id="name2"
-                                            placeholder="Your Name">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="email" class="form-control" name="email" id="email2"
-                                            placeholder="Your Email">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="tel" class="form-control" name="number" id="number2"
-                                            placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <h6 class="form-title mt-3">Shipment Information :</h6>
-                                <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <select name="subject" id="subject3" class="form-select style2">
-                                            <option value="" disabled="" selected="" hidden="">
-                                                Freight Type</option>
-                                            <option value="Web Development">Web Development</option>
-                                            <option value="Brand Marketing">Brand Marketing</option>
-                                            <option value="UI/UX Designing">UI/UX Designing</option>
-                                            <option value="Digital Marketing">Digital Marketing</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="text" class="form-control" name="city" id="city3"
-                                            placeholder="City of Departure">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <input type="text" class="form-control" name="city" id="city4"
-                                            placeholder="Delivery City">
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <select name="subject" id="subject4" class="form-select style2">
-                                            <option value="" disabled="" selected="" hidden="">
-                                                Incotems</option>
-                                            <option value="Web Development">Web Development</option>
-                                            <option value="Brand Marketing">Brand Marketing</option>
-                                            <option value="UI/UX Designing">UI/UX Designing</option>
-                                            <option value="Digital Marketing">Digital Marketing</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="weight" id="weight3"
-                                            placeholder="Weight">
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="height" id="height3"
-                                            placeholder="Height">
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="weight" id="weight4"
-                                            placeholder="Weight">
-                                    </div>
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                        <input type="number" class="form-control" name="height" id="height4"
-                                            placeholder="Height">
-                                    </div>
-                                    <ul class="form-check-list col-12">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck6" checked>
-                                                <label class="form-check-label" for="formcheck6">
-                                                    Freight
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck7">
-                                                <label class="form-check-label" for="formcheck7">
-                                                    Packaging
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck8">
-                                                <label class="form-check-label" for="formcheck8">
-                                                    Express Delivery
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck9">
-                                                <label class="form-check-label" for="formcheck9">
-                                                    Road Freight
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="formcheck10">
-                                                <label class="form-check-label" for="formcheck10">
-                                                    Air Freight
-                                                </label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="form-btn col-12">
-                                        <button class="as-btn btn-fw">REQUEST A QUOTE</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="contact-box-wrap bg-theme">
-                                <h3 class="text-white">Take Your Career to
-                                    Next Level</h3>
-                                <p class="text-white mb-0">Dynamically conceptualize optimal e-services wherea premier
-                                    intellectual capital. Authoritatively restore.</p>
-                                <a class="as-btn style-white" href="contact">CONTACT US</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--==============================
     Why-choose-us Area 03
 ==============================-->
-    <div class="wcu-area-3" data-bg-src="assets/img/bg/wcu-bg.png">
+    {{-- <div class="wcu-area-3" data-bg-src="assets/img/bg/wcu-bg.png">
         <div class="container-fluid p-0">
             <div class="row gx-0">
                 <div class="col-xl-5 order-xl-2">
@@ -993,7 +636,7 @@ Header Area
                 <div class="col-xl-7 order-xl-1">
                     <div class="wcu-wrap3 space-top">
                         <div class="title-area">
-                            <span class="sub-title">WHY CHOOSE US </span>
+                            <span class="sub-title">POURQUOI NOUS CHOISIR </span>
                             <h2 class="sec-title text-white">We Provide Special Service In The
                                 Transportation Since 1998</h2>
                             <p class="content">Appropriately integrate visionary platforms after flexible value.
@@ -1031,11 +674,11 @@ Header Area
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--==============================
     Counter Area 03
 ==============================-->
-    <div class="container space-top pt-xl-0 pb-xl-0">
+    {{-- <div class="container space-top pt-xl-0 pb-xl-0">
         <div class="counter-area3 text-center" data-bg-src="assets/img/bg/counter_bg.png">
             <div class="row gy-25 justify-content-center">
                 <div class="col-sm-6 col-xl-3">
@@ -1084,11 +727,11 @@ Header Area
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--==============================
     Team Area 02
 ==============================-->
-    <section class="team-area-2 space">
+    {{-- <section class="team-area-2 space">
         <div class="container">
             <div class="title-area text-center">
                 <h3 class="sub-title"><span class="double-line"></span> TEAM MEMBERS</h3>
@@ -1175,8 +818,7 @@ Header Area
                                         class="fa-brands fa-twitter"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i
                                         class="fa-brands fa-linkedin-in"></i></a>
-                                <a target="_blank" href="https://google.com/"><i
-                                        class="fa-brands fa-google"></i></a>
+                                <a target="_blank" href="https://google.com/"><i class="fa-brands fa-google"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1272,15 +914,15 @@ Header Area
 
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--==============================
 Process Area
 ==============================-->
     <section class="process-sec bg-smoke2 space" data-bg-src="assets/img/bg/work-process-bg.png">
         <div class="container">
             <div class="title-area text-center">
-                <span class="sub-title"><span class="double-line"></span> HOW IT WORK</span>
-                <h2 class="sec-title">Easy 3-Step Working Process</h2>
+                <span class="sub-title"><span class="double-line"></span> COMMENT ÇA MARCHE</span>
+                <h2 class="sec-title">Processus en (3) trois étapes</h2>
             </div>
             <div class="row gy-40 justify-content-center">
                 <div class="col-md-6 col-lg-4 process-box-wrap">
@@ -1290,11 +932,10 @@ Process Area
                             <div class="process-box_number">01</div>
                             <img class="arrow" src="assets/img/icon/arrow-left.svg" alt="img">
                         </div>
-                        <h2 class="process-box_title box-title">Replenishment
-                            & Picking</h2>
-                        <p class="process-box_text">Professionally unleash collaborative e-services
-                            whereas frictionless niches. Conveniently
-                            mesh cooperative quality vectors.</p>
+                        <h2 class="process-box_title box-title">Réapprovisionnement et préparation des commandes</h2>
+                        <p class="process-box_text">Simplifiez votre réapprovisionnement et la préparation de vos
+                            commandes grâce à des processus collaboratifs, rapides et fiables, pour une gestion sans
+                            faille de vos stocks.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 process-box-wrap">
@@ -1304,11 +945,9 @@ Process Area
                             <div class="process-box_number">02</div>
                             <img class="arrow mt-5" src="assets/img/icon/arrow-left2.svg" alt="img">
                         </div>
-                        <h2 class="process-box_title box-title">Transportation
-                            Process</h2>
-                        <p class="process-box_text">Transportation unleash collaborative e-services
-                            whereas frictionless niches. Conveniently
-                            mesh cooperative quality vectors.</p>
+                        <h2 class="process-box_title box-title">Processus de transport</h2>
+                        <p class="process-box_text">Notre processus de transport assure une livraison fluide et fiable
+                            de vos commandes, en combinant efficacité et collaboration à chaque étape.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 process-box-wrap">
@@ -1317,11 +956,9 @@ Process Area
                             <img class="process-icon" src="assets/img/icon/process-icon-3-3.svg" alt="icon">
                             <div class="process-box_number">03</div>
                         </div>
-                        <h2 class="process-box_title box-title">Packaging
-                            & Distribution</h2>
-                        <p class="process-box_text">Distribution unleash collaborative e-services
-                            whereas frictionless niches. Conveniently
-                            mesh cooperative quality vectors.</p>
+                        <h2 class="process-box_title box-title">Emballage et distribution</h2>
+                        <p class="process-box_text">Nous garantissons un emballage rigoureux et une distribution fiable
+                            de vos commandes, en alliant précision et processus collaboratifs efficaces.</p>
                     </div>
                 </div>
             </div>
@@ -1330,7 +967,7 @@ Process Area
     <!--==============================
 Price Area
 ==============================-->
-    <section class="space">
+    {{-- <section class="space">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-7 col-md-9">
@@ -1445,7 +1082,7 @@ Price Area
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--==============================
     Portfolio Area 02
 ==============================-->
@@ -1455,12 +1092,8 @@ Price Area
             <div class="row">
                 <div class="col-lg-9">
                     <div class="title-area mb-lg-0 text-lg-start text-center">
-                        <span class="sub-title"><span class="double-line d-lg-none"></span> OUR PROJECTS</span>
-                        <h2 class="sec-title text-white mb-0">Explore Our Recent Projects</h2>
+                        <span class="sub-title"><span class="double-line d-lg-none"></span> NOTRE GALERIE</span>
                     </div>
-                </div>
-                <div class="col-lg-3 text-lg-end text-center">
-                    <a class="as-btn style2" href="contact">VIEW MORE PROJECTS</a>
                 </div>
             </div>
         </div>
@@ -1473,82 +1106,9 @@ Price Area
                         <div class="portfolio-card_img">
                             <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
-
                         <div class="card_content">
                             <div>
-                                <a href="assets/img/portfolio/portfolio_2-1.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
                                 <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-2.png" alt="img">
-                        </div>
-
-                        <div class="card_content">
-                            <div>
-                                <a href="assets/img/portfolio/portfolio_2-2.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
-                                <h3 class="card_title box-title text-white">international port freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-3.png" alt="img">
-                        </div>
-
-                        <div class="card_content">
-                            <div>
-                                <a href="assets/img/portfolio/portfolio_2-3.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
-                                <h3 class="card_title box-title text-white">international port freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-4.png" alt="img">
-                        </div>
-
-                        <div class="card_content">
-                            <div>
-                                <a href="assets/img/portfolio/portfolio_2-4.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-5.png" alt="img">
-                        </div>
-
-                        <div class="card_content">
-                            <div>
-                                <a href="assets/img/portfolio/portfolio_2-5.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
                             </div>
                         </div>
                     </div>
@@ -1558,14 +1118,9 @@ Price Area
                         <div class="portfolio-card_img">
                             <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
-
                         <div class="card_content">
                             <div>
-                                <a href="assets/img/portfolio/portfolio_2-1.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
                                 <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
                             </div>
                         </div>
                     </div>
@@ -1573,16 +1128,11 @@ Price Area
                 <div class="item col">
                     <div class="portfolio-card2">
                         <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-2.png" alt="img">
+                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
-
                         <div class="card_content">
                             <div>
-                                <a href="assets/img/portfolio/portfolio_2-2.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
                                 <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
                             </div>
                         </div>
                     </div>
@@ -1590,16 +1140,11 @@ Price Area
                 <div class="item col">
                     <div class="portfolio-card2">
                         <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-3.png" alt="img">
+                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
-
                         <div class="card_content">
                             <div>
-                                <a href="assets/img/portfolio/portfolio_2-3.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
                                 <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
                             </div>
                         </div>
                     </div>
@@ -1607,16 +1152,11 @@ Price Area
                 <div class="item col">
                     <div class="portfolio-card2">
                         <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-4.png" alt="img">
+                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
-
                         <div class="card_content">
                             <div>
-                                <a href="assets/img/portfolio/portfolio_2-4.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
                                 <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
                             </div>
                         </div>
                     </div>
@@ -1624,16 +1164,35 @@ Price Area
                 <div class="item col">
                     <div class="portfolio-card2">
                         <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-5.png" alt="img">
+                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
-
                         <div class="card_content">
                             <div>
-                                <a href="assets/img/portfolio/portfolio_2-5.png" class="popup-image icon"><i
-                                        class="fa-light fa-down-left-and-up-right-to-center"></i></a>
                                 <h3 class="card_title box-title text-white">international air freight</h3>
-                                <p class="card_text text-white">Collaboratively communicate plug-and-play core
-                                    competencies before cutting-edge sources.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col">
+                    <div class="portfolio-card2">
+                        <div class="portfolio-card_img">
+                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
+                        </div>
+                        <div class="card_content">
+                            <div>
+                                <h3 class="card_title box-title text-white">international air freight</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col">
+                    <div class="portfolio-card2">
+                        <div class="portfolio-card_img">
+                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
+                        </div>
+                        <div class="card_content">
+                            <div>
+                                <h3 class="card_title box-title text-white">international air freight</h3>
                             </div>
                         </div>
                     </div>
@@ -1642,326 +1201,12 @@ Price Area
         </div>
     </div>
     <!--==============================
-    Faq Area
-==============================-->
-    <section class="faq-area space">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <div class="faq-thumb text-lg-end"><img src="assets/img/normal/faq-thumb.png" alt="img">
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                    <div class="title-area">
-                        <span class="sub-title">FAQ’S</span>
-                        <h2 class="sec-title">Frequently Asked Any
-                            Question?</h2>
-                        <p class="content">Proactively synergize diverse e-commerce whereas corporate relationships.
-                            Credibly drive focused interfaces before error-free solutions. Objectively brand end-to-end.
-                        </p>
-                    </div>
-                    <div class="accordion-area accordion" id="faqAccordion">
 
-                        <div class="accordion-card active">
-                            <div class="accordion-header" id="collapse-item-1">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                                    Is it Full Transport & Logistics Company?</button>
-                            </div>
-                            <div id="collapse-1" class="accordion-collapse collapse show"
-                                aria-labelledby="collapse-item-1" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p class="faq-text">Uniquely empower backend resources vis-a-vis 24/365 testing
-                                        procedures. Holisticly myocardinate accurate networks through end-to-end process
-                                        improvements. Proactively grow timely.</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="accordion-card ">
-                            <div class="accordion-header" id="collapse-item-2">
-                                <button class="accordion-button collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false"
-                                    aria-controls="collapse-2"> How to Create my Project in Company?</button>
-                            </div>
-                            <div id="collapse-2" class="accordion-collapse collapse "
-                                aria-labelledby="collapse-item-2" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p class="faq-text">Professionally disseminate highly efficient human capital
-                                        through optimal technology. Distinctively enhance tactical data and innovative
-                                        content human capital.</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="accordion-card ">
-                            <div class="accordion-header" id="collapse-item-3">
-                                <button class="accordion-button collapsed" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false"
-                                    aria-controls="collapse-3"> How to Work in Process of Transport Company?</button>
-                            </div>
-                            <div id="collapse-3" class="accordion-collapse collapse "
-                                aria-labelledby="collapse-item-3" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p class="faq-text">Uniquely empower backend resources vis-a-vis 24/365 testing
-                                        procedures. Holisticly myocardinate accurate networks through end-to-end process
-                                        improvements. Proactively grow timely.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--==============================
-    Testimonial Area 3
-==============================-->
-    <section class="testiomonial-area3 space" data-bg-src="assets/img/testimonial/testi_bg2.png">
-        <div class="container">
-            <div class="title-area">
-                <span class="sub-title">TESTIMONIALS</span>
-                <h2 class="sec-title">Our Customer Feedback</h2>
-            </div>
-            <div class="row testimonial-slider3 as-carousel arrow-style-2" data-slide-show="3"
-                data-lg-slide-show="2" data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1"
-                data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-lg-arrows="true"
-                data-md-arrows="true">
-                <div class="col">
-                    <div class="testi-box3">
-                        <div class="quote-icon">
-                            <img src="assets/img/testimonial/quote-icon2.svg" alt="img">
-                        </div>
-                        <p class="testi_content"> Compellingly deploy premier web services via granular total linkage.
-                            Professionally strategize resource maximizing portals for cross-unit systems. Monotonectally
-                            Quality vectors with virtual supply chains.</p>
-                        <div class="testi-box_profile">
-                            <div class="thumb">
-                                <img src="assets/img/testimonial/testi-profile-1.png" alt="img">
-                            </div>
-                            <div class="details">
-                                <h4 class="testi-box_name">Imon Hossain</h4>
-                                <span class="testi-box_desig">UI/UX Designer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="testi-box3">
-                        <div class="quote-icon">
-                            <img src="assets/img/testimonial/quote-icon2.svg" alt="img">
-                        </div>
-                        <p class="testi_content"> Professionally deploy premier web services via granular total
-                            linkage. Compellingly strategize resource maximizing portals for cross-unit systems.
-                            Monotonectally Quality vectors with virtual supply chains.</p>
-                        <div class="testi-box_profile">
-                            <div class="thumb">
-                                <img src="assets/img/testimonial/testi-profile-2.png" alt="img">
-                            </div>
-                            <div class="details">
-                                <h4 class="testi-box_name">Jenifer Lopez</h4>
-                                <span class="testi-box_desig">Web Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="testi-box3">
-                        <div class="quote-icon">
-                            <img src="assets/img/testimonial/quote-icon2.svg" alt="img">
-                        </div>
-                        <p class="testi_content">Monotonectal deploy premier web services via granular total linkage.
-                            Professionally strategize resource maximizing portals for cross-unit systems. Compelling
-                            Quality vectors with virtual supply chains.</p>
-                        <div class="testi-box_profile">
-                            <div class="thumb">
-                                <img src="assets/img/testimonial/testi-profile-3.png" alt="img">
-                            </div>
-                            <div class="details">
-                                <h4 class="testi-box_name">Alex Frunklin</h4>
-                                <span class="testi-box_desig">Web Designer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="testi-box3">
-                        <div class="quote-icon">
-                            <img src="assets/img/testimonial/quote-icon2.svg" alt="img">
-                        </div>
-                        <p class="testi_content"> Compellingly deploy premier web services via granular total linkage.
-                            Professionally strategize resource maximizing portals for cross-unit systems. Monotonectally
-                            Quality vectors with virtual supply chains.</p>
-                        <div class="testi-box_profile">
-                            <div class="thumb">
-                                <img src="assets/img/testimonial/testi-profile-1.png" alt="img">
-                            </div>
-                            <div class="details">
-                                <h4 class="testi-box_name">Imon Hossain</h4>
-                                <span class="testi-box_desig">Front End Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="testi-box3">
-                        <div class="quote-icon">
-                            <img src="assets/img/testimonial/quote-icon2.svg" alt="img">
-                        </div>
-                        <p class="testi_content"> Professionally deploy premier web services via granular total
-                            linkage. Compellingly strategize resource maximizing portals for cross-unit systems.
-                            Monotonectally Quality vectors with virtual supply chains.</p>
-                        <div class="testi-box_profile">
-                            <div class="thumb">
-                                <img src="assets/img/testimonial/testi-profile-2.png" alt="img">
-                            </div>
-                            <div class="details">
-                                <h4 class="testi-box_name">Jenifer Lopez</h4>
-                                <span class="testi-box_desig">UI/UX Designer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="testi-box3">
-                        <div class="quote-icon">
-                            <img src="assets/img/testimonial/quote-icon2.svg" alt="img">
-                        </div>
-                        <p class="testi_content">Monotonectal deploy premier web services via granular total linkage.
-                            Professionally strategize resource maximizing portals for cross-unit systems. Compelling
-                            Quality vectors with virtual supply chains.</p>
-                        <div class="testi-box_profile">
-                            <div class="thumb">
-                                <img src="assets/img/testimonial/testi-profile-3.png" alt="img">
-                            </div>
-                            <div class="details">
-                                <h4 class="testi-box_name">Alex Frunklin</h4>
-                                <span class="testi-box_desig">UI/UX Designer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--==============================
     Blog Area 2
 ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
-            <div class="title-area text-center">
-                <span class="sub-title"><span class="double-line"></span> NEWS & BLOG</span>
-                <h2 class="sec-title">Latest News & Blogs</h2>
-            </div>
-            <div class="blog-slider row as-carousel" data-slide-show="2" data-lg-slide-show="2"
-                data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true"
-                data-xl-arrows="true" data-ml-arrows="true">
-                <div class="col-md-6">
-                    <div class="blog-card style2">
-                        <div class="blog-img">
-                            <img src="assets/img/blog/blog_3_1.png" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="date">
-                                <p>12
-                                    <br>JUNE
-                                </p>
-                            </div>
 
-                            <div class="blog-meta">
-                                <a href="blog"><i class="far fa-user"></i> By Jacklis</a>
-                                <a href="blog"><i class="far fa-comment"></i> Comments(0)</a>
-                            </div>
-                            <h3 class="blog-title"><a href="blog-details">Transhipment Yard For Overseas Cargo
-                                    Rerouting Routines Values</a>
-                            </h3>
-                            <p class="blog-text mb-30">Collaboratively generate flexible web service through go
-                                forward content. Completely coordinate value-added potentialities rather.</p>
-                            <a href="blog-details" class="as-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="blog-card style2">
-                        <div class="blog-img">
-                            <img src="assets/img/blog/blog_3_2.png" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="date">
-                                <p>05
-                                    <br>JULY
-                                </p>
-                            </div>
-
-                            <div class="blog-meta">
-                                <a href="blog"><i class="far fa-user"></i> By Jacklis</a>
-                                <a href="blog"><i class="far fa-comment"></i> Comments(0)</a>
-                            </div>
-                            <h3 class="blog-title"><a href="blog-details">Trusted Logistics Partner and Mutual
-                                    Core Values Completely</a>
-                            </h3>
-                            <p class="blog-text mb-30">Collaboratively generate flexible web service through go
-                                forward content. Completely coordinate value-added potentialities rather.</p>
-                            <a href="blog-details" class="as-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="blog-card style2">
-                        <div class="blog-img">
-                            <img src="assets/img/blog/blog_3_1.png" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="date">
-                                <p>12
-                                    <br>JUNE
-                                </p>
-                            </div>
-
-                            <div class="blog-meta">
-                                <a href="blog"><i class="far fa-user"></i> By Jacklis</a>
-                                <a href="blog"><i class="far fa-comment"></i> Comments(0)</a>
-                            </div>
-                            <h3 class="blog-title"><a href="blog-details">Transhipment Yard For Overseas Cargo
-                                    Rerouting Routines Values</a>
-                            </h3>
-                            <p class="blog-text mb-30">Collaboratively generate flexible web service through go
-                                forward content. Completely coordinate value-added potentialities rather.</p>
-                            <a href="blog-details" class="as-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="blog-card style2">
-                        <div class="blog-img">
-                            <img src="assets/img/blog/blog_3_2.png" alt="blog image">
-                        </div>
-                        <div class="blog-content">
-                            <div class="date">
-                                <p>05
-                                    <br>JULY
-                                </p>
-                            </div>
-
-                            <div class="blog-meta">
-                                <a href="blog"><i class="far fa-user"></i> By Jacklis</a>
-                                <a href="blog"><i class="far fa-comment"></i> Comments(0)</a>
-                            </div>
-                            <h3 class="blog-title"><a href="blog-details">Trusted Logistics Partner and Mutual
-                                    Core Values Completely</a>
-                            </h3>
-                            <p class="blog-text mb-30">Collaboratively generate flexible web service through go
-                                forward content. Completely coordinate value-added potentialities rather.</p>
-                            <a href="blog-details" class="as-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!--==============================
@@ -1988,8 +1233,7 @@ Price Area
                                     <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
                                     <a href="https://www.goggle.com/"><i class="fa-brands fa-google"></i></a>
                                     <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="https://www.pinterest.com/"><i
-                                            class="fa-brands fa-pinterest-p"></i></a>
+                                    <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
                                 </div>
                             </div>
                         </div>

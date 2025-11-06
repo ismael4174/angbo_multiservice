@@ -57,44 +57,6 @@
                         </div>
                     </div>
                 @endforeach
-                {{-- <div class="col-lg-4 col-md-6">
-                <div class="service-card style3">
-                    <div class="thumb">
-                        <img src="assets/img/service/service_s3.png" alt="img">
-                    </div>
-                    <div class="card-details">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-1-3.svg" alt="img">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-page-icon-3.svg" alt="img">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Logistic & Transportation</a></h3>
-                        <p class="service-card_text">Transportation reconceptualize ubiquitous solution wherea market-driven expertise. Synergistical empower parallel.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card style3">
-                    <div class="thumb">
-                        <img src="assets/img/service/service_s5.png" alt="img">
-                    </div>
-                    <div class="card-details">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-1-5.svg" alt="img">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-page-icon-5.svg" alt="img">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Tire & Auto Parts</a></h3>
-                        <p class="service-card_text">Tire & Auto Parts reconceptualize ubiquitous solution wherea market-driven expertise. Synergistical empower parallel.</p>
-                        <a class="line-btn" href="service-details">READ MORE</a>
-                    </div>
-                </div>
-            </div> --}}
-
             </div>
         </div>
     </div>

@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GeneralController::class, 'logistiques']);
+
 Route::Post('/souscription', [GeneralController::class, 'news'])->name('news.submit');
 Route::get('/about', function () {
     return view('about');

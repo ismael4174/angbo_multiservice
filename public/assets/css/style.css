@@ -10327,7 +10327,12 @@ ul.comment-list .as-comment-item:first-child:not(.children .as-comment-item)>.as
 }
 
 .as-hero-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
+  width: 100%;
+  height: 800px;
   inset: 0;
 }
 
@@ -17443,7 +17448,7 @@ span.select2-selection.select2-selection--single:focus {
 
 .service-card.style2 .service-card_text {
   margin-bottom: 32px;
-  border-bottom: 1px solid var(--smoke-color4);
+  /* border-bottom: 1px solid var(--smoke-color4); */
   padding-bottom: 32px;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;

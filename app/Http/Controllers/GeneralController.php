@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caroussel;
 use App\Models\MessagesContact;
 use App\Models\Newsletter;
 use App\Models\Service;
@@ -15,6 +16,12 @@ class GeneralController extends Controller
         // Récupère tous les services
         $services = Service::all();
         return view('service', compact('services'));
+    }
+    public function logistiques()
+    {
+        // Récupère tous les caroussel
+        $slides = Caroussel::all()->where('type_carousel_id', 1);
+        return view('welcome', compact('slides'));
     }
 
     public function stre(Request $request)
