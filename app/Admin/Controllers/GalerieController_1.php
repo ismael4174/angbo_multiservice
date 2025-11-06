@@ -3,11 +3,11 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Galerie;
-use App\Models\TypeCarousel;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Auth;
 
 class GalerieController extends AdminController
 {
@@ -29,20 +29,19 @@ class GalerieController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('titre', __('Titre'));
-        $grid->column('type_carousel_id', __('Type carousel id'))->display(function ($id) {
-            $query = TypeCarousel::find($id);
-            return $query ? $query->nom : 'Non renseigné';
-        });
         $grid->column('fichier', __('Fichier'));
         $grid->column('type', __('Type'));
         $grid->column('description', __('Description'));
         $grid->column('est_visible', __('Est visible'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('created_by', __('Created by'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('updated_by', __('Updated by'));
-        $grid->column('deleted_at', __('Deleted at'));
-        $grid->column('deleted_by', __('Deleted by'));
+        $grid->column('created_at', __('Created at'))->display(function ($date) {
+        return \Carbon\Carbon::parse($date)->format('d/m/Y');
+    });
+
+        // $grid->column('created_by', __('Created by'));
+        // $grid->column('updated_at', __('Updated at'));
+        // $grid->column('updated_by', __('Updated by'));
+        // $grid->column('deleted_at', __('Deleted at'));
+        // $grid->column('deleted_by', __('Deleted by'));
 
         return $grid;
     }
@@ -59,7 +58,6 @@ class GalerieController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('titre', __('Titre'));
-        $show->field('type_carousel_id', __('Type carousel id'));
         $show->field('fichier', __('Fichier'));
         $show->field('type', __('Type'));
         $show->field('description', __('Description'));
@@ -84,14 +82,13 @@ class GalerieController extends AdminController
         $form = new Form(new Galerie());
 
         $form->text('titre', __('Titre'));
-        $form->number('type_carousel_id', __('Type carousel'))->options(TypeCarousel::all()->pluck('nom', 'id'));
-        $form->text('fichier', __('Fichier'));
+        $form->file('fichier', __('Fichier'));
         $form->text('type', __('Type'))->default('image');
         $form->textarea('description', __('Description'));
         $form->switch('est_visible', __('Est visible'))->default(1);
-        $form->number('created_by', __('Created by'));
-        $form->number('updated_by', __('Updated by'));
-        $form->number('deleted_by', __('Deleted by'));
+        $form->hidden('created_by', 'Created by')->default(Auth::guard('admin')->user()->id);
+        $form->hidden('updated_by', 'Updated by')->default(Auth::guard('admin')->user()->id);
+        // $form->number('deleted_by', __('Deleted by'));
 
         return $form;
     }

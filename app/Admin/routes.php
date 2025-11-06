@@ -26,4 +26,10 @@ Route::group([
     $router->resource('temoignages', TemoignageController::class);
     $router->resource('agences', AgenceController::class);
     $router->resource('newsletters', NewsletterController::class);
+
+     $router->resource('caroussels', CarousselController::class);
+       $router->resource('parametres-globauxes', ParametresGlobauxController::class);
+        $router->resource('reseau-socials', ReseauSocialController::class);
+         $router->resource('service-agences', ServiceAgenceController::class);
+          $router->resource('type-carousels', TypeCarousselController::class);
 });

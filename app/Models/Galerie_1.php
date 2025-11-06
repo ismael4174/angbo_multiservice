@@ -12,10 +12,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Galerie
- * 
+ *
  * @property int $id
  * @property string|null $titre
- * @property int $type_carousel_id
  * @property string $fichier
  * @property string|null $type
  * @property string|null $description
@@ -26,18 +25,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int|null $updated_by
  * @property string|null $deleted_at
  * @property int|null $deleted_by
- * 
- * @property TypeCarousel $type_carousel
  *
  * @package App\Models
  */
 class Galerie extends Model
 {
-	use SoftDeletes;
+	// use SoftDeletes;
 	protected $table = 'galerie';
 
 	protected $casts = [
-		'type_carousel_id' => 'int',
 		'est_visible' => 'bool',
 		'created_by' => 'int',
 		'updated_by' => 'int',
@@ -46,7 +42,6 @@ class Galerie extends Model
 
 	protected $fillable = [
 		'titre',
-		'type_carousel_id',
 		'fichier',
 		'type',
 		'description',
@@ -55,9 +50,4 @@ class Galerie extends Model
 		'updated_by',
 		'deleted_by'
 	];
-
-	public function type_carousel()
-	{
-		return $this->belongsTo(TypeCarousel::class);
-	}
 }
