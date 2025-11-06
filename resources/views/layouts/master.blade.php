@@ -290,39 +290,21 @@ Mobile Menu
     <!--==============================
 Header Area
 ==============================-->
-    <header class="as-header header-layout2">
+    <header class="as-header header-layout3">
         <div class="navbar-top">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xxl-7 col-lg-6 text-lg-start text-center">
-                        <div class="header-links d-lg-inline-block d-none">
+                    <div class="col-xl-6 col-lg-5 text-lg-start text-center">
+                        <p class="header-text">Bienvenue sur notre plateforme multiservice</p>
+                    </div>
+                    <div class="col-xl-6 col-lg-7 align-self-center text-lg-end text-center">
+                        <div class="header-links">
                             <ul>
                                 <li><i class="far fa-phone"></i><a href="tel:+25625921589">+(163)-1202-0088</a></li>
                                 <li>
                                     <i class="far fa-envelope"></i>
                                     <a href="mailto:help24/7@gmail.com">help24/7@gmail.com</a>
                                 </li>
-                                <li class="d-xxl-block d-none">
-                                    <i class="far fa-location-dot"></i>
-                                    <a href="mailto:help24/7@gmail.com">835 Middle Country Rd, NY 11784, USA</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xxl-5 col-lg-6 align-self-center text-lg-end text-center">
-                        <div class="header-links">
-                            <ul>
-                                {{-- <li>
-                                    <button type="button" class="sideCartToggler">
-                                        Track Your Order
-                                    </button>
-                                </li> --}}
-                                {{-- <li>
-                                    <i class="far fa-user"></i>
-                                    <a href="contact">Login</a>
-                                    <i class="fa-sharp fa-solid fa-slash-forward me-1 ms-1 text-white"></i><a
-                                        href="contact">Sign Up</a>
-                                </li> --}}
                                 <li>
                                     <div class="header-social">
                                         <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
@@ -339,16 +321,16 @@ Header Area
         </div>
         <div class="sticky-wrapper">
             <!-- Main Menu Area -->
-            <div class="menu-area">
-                <div class="logo-bg-shape"></div>
-                <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="menu-wrap-area">
+                    <div class="logo-bg-shape"></div>
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="/"><img src="assets/img/logo-2.svg" alt="dealaro"></a>
+                                <a href="/"><img src="assets/img/logo.svg" alt="Dealaro"></a>
                             </div>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-auto me-xl-auto">
                             <div class="menu-area">
                                 <nav class="main-menu d-none d-lg-inline-block">
                                     <ul>
@@ -377,34 +359,35 @@ Header Area
                                             </ul>
                                         </li>
 
+                                        {{-- <li class="menu-item-has-children">
+                                        <a href="#">BLOG</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog">Blog Page</a></li>
+                                            <li><a href="blog-details">Blog Details</a></li>
+                                        </ul>
+                                    </li> --}}
+
+                                        {{-- <li class="menu-item-has-children">
+                                        <a href="#">PAGES</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="about">About Us</a></li>
+                                            <li><a href="team">Team Page</a></li>
+                                            <li><a href="team-details">Team Details</a></li>
+                                            <li><a href="project-details">Project Details</a></li>
+                                            <li><a href="shop">Shop</a></li>
+                                            <li><a href="shop-details">Shop Details</a></li>
+                                            <li><a href="cart">Cart Page</a></li>
+                                            <li><a href="checkout">Checkout</a></li>
+                                            <li><a href="wishlist">Wishlist</a></li>
+                                            <li><a href="testimonial">Testimonial</a></li>
+                                            <li><a href="error">Error Page</a></li>
+                                        </ul>
+                                    </li> --}}
+
                                         <li>
                                             <a href="agence">AGENCES</a>
                                         </li>
 
-                                        {{-- <li class="menu-item-has-children">
-                                            <a href="#">BLOG</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog">Blog Page</a></li>
-                                                <li><a href="blog-details">Blog Details</a></li>
-                                            </ul>
-                                        </li> --}}
-
-                                        {{-- <li class="menu-item-has-children">
-                                            <a href="#">PAGES</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="about">A propos</a></li>
-                                                <li><a href="team">Equipe</a></li>
-                                                <li><a href="team-details">Détails Equipe</a></li>
-                                                <li><a href="project-details">Détails Projets</a></li>
-                                                <li><a href="shop">Vente</a></li>
-                                                <li><a href="shop-details">Détails Vente</a></li>
-                                                <li><a href="cart">Panier</a></li>
-                                                <li><a href="checkout">Checkout</a></li>
-                                                <li><a href="wishlist">Liste</a></li>
-                                                <li><a href="testimonial">Témoignage</a></li>
-                                                <li><a href="error">Page d'erreur</a></li>
-                                            </ul>
-                                        </li> --}}
                                         <li>
                                             <a href="contact">CONTACT</a>
                                         </li>
@@ -416,15 +399,14 @@ Header Area
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <div class="header-button">
-                                {{-- <button type="button" class="icon-btn bg-none searchBoxToggler"><i
-                                        class="fa-regular fa-magnifying-glass"></i></button>
+                                {{-- <button type="button" class="icon-btn bg-none searchBoxToggler"><i class="fa-regular fa-magnifying-glass"></i></button>
 
-                                <button type="button" class="icon-btn bg-none sideCartToggler">
-                                    <i class="fa-light fa-cart-shopping"></i>
-                                    <span class="badge">4</span>
-                                </button> --}}
+                            <button type="button" class="icon-btn bg-none sideCartToggler">
+                                <i class="fa-light fa-cart-shopping"></i>
+                                <span class="badge">4</span>
+                            </button> --}}
 
-                                <a href="/admin" class="as-btn style4 d-none d-xl-block">Se Connecter</a>
+                                <a href="/admin" class="as-btn d-none d-xxl-block">SE CONNECTER</a>
                             </div>
                         </div>
                     </div>
@@ -438,55 +420,29 @@ Header Area
     <!--==============================
         Footer Area
 ==============================-->
-    <footer class="footer-wrapper footer-layout2" data-bg-src="assets/img/bg/footer_bg_2.png">
-        <div class="anime-img-1 shape-mockup jump d-none d-lg-block" data-right="0" data-top="120px"><img
-                src="assets/img/bg/footer_bg_2-shape.png" alt="img"></div>
-
-        <div class="container">
-            <div class="footer-top">
-                <div class="row align-items-center">
-                    <div class="col-xl-2">
-                        <div class="footer-logo2 text-xl-start text-center">
-                            <a href="/"><img src="assets/img/logo-white2_2.svg" alt="Dealaro"></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-10">
-                        <div class="newsletter-wrap">
-                            <div class="newsletter-content">
-                                <h3 class="newsletter-title">Abonnez-vous à notre newsletter
-                                    Pour les dernières actualités</h3>
-                            </div>
-                            <form class="subscribe-form style2" action="{{ route('news.submit') }}" method="POST">
-                                <div class="form-group">
-                                    {{-- <input class="form-control" type="nom" placeholder="nom"
-                                        required="">
-                                    <input class="form-control" type="prenom" placeholder="prenom"
-                                        required=""> --}}
-                                    <input class="form-control" type="email" placeholder="Email Address"
-                                        required="">
-                                </div>
-                                <button type="submit" class="as-btn style5">SOUSCRIRE</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="widget-area space2-bottom">
+    <footer class="footer-wrapper footer-layout3" data-bg-src="assets/img/bg/footer_bg_3.png">
+        <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-md-6 col-xxl-3 col-xl-3">
                         <div class="widget footer-widget">
-                            <h3 class="widget_title">About Company <span class="line"></span></h3>
                             <div class="as-widget-about">
-
-                                <p class="about-text">Centric aplications productize before front end vortals visualize
-                                    front end is results and value added assertively extend effective methodologies.</p>
-                                <div class="as-social pt-2">
+                                <div class="footer-logo">
+                                    <a href="/"><img src="assets/img/logo.svg" alt="Dealaro"></a>
+                                </div>
+                                <p class="about-text">Fusce varius, dolor tempor interdum tristiquei bibendum.</p>
+                                <ul class="footer-info-list">
+                                    <li class="footer-info"><i class="fa-solid fa-phone"></i><a
+                                            href="tel:(+163)-1202-0088">(+163)-1202-0088</a></li>
+                                    <li class="footer-info"><i class="fa-solid fa-envelope"></i><a
+                                            href="mailto:info@dealaro.com">info@dealaro.com</a></li>
+                                </ul>
+                                <div class="as-social pt-25">
                                     <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
                                     <a href="https://www.goggle.com/"><i class="fa-brands fa-google"></i></a>
                                     <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a>
+                                    <a href="https://www.pinterest.com/"><i
+                                            class="fa-brands fa-pinterest-p"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -509,58 +465,40 @@ Header Area
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
-                        <div class="widget footer-widget">
-                            <h3 class="widget_title">Contact Us</h3>
-                            <ul class="footer-info-list style2">
-                                <li class="footer-info"><i class="fa-solid fa-phone"></i><a
-                                        href="tel:+(163)-1202-0088">+(163)-1202-0088</a></li>
-                                <li class="footer-info"><i class="fa-solid fa-phone"></i><a
-                                        href="tel:+(163)-1202-0099">+(163)-1202-0099</a></li>
-                                <li class="footer-info"><i class="fa-solid fa-envelope"></i><a
-                                        href="mailto:info@dealaro.com">info@dealaro.com</a></li>
-                                <li class="footer-info"><i class="fa-solid fa-location-dot"></i><a
-                                        href="https://www.google.com/maps">835 Middle Country Rd, NY <br>
-                                        11784, USA</a></li>
-                            </ul>
+                        <div class="widget footer-widget widget_nav_menu">
+                            <h3 class="widget_title">our servises</h3>
+                            <div class="menu-all-pages-container">
+                                <ul class="menu2">
+                                    <li><a href="service">Air Freight</a></li>
+                                    <li><a href="service">Ocean Freight</a></li>
+                                    <li><a href="service">Warehousing</a></li>
+                                    <li><a href="service">Cargo Insurance
+                                        </a></li>
+                                    <li><a href="service">Road Freight</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
-                        <div class="widget footer-widget">
-                            <h3 class="widget_title">Popular Posts</h3>
-                            <div class="recent-post-wrap">
-                                <div class="recent-post">
-                                    <div class="media-img">
-                                        <a href="blog-details"><img src="assets/img/widget/footer-recent-post-1.png"
-                                                alt="Blog Image"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="recent-post-meta">
-                                            <a href="blog"><i class="fa-regular fa-clock"></i>15th April, 2023</a>
-                                        </div>
-                                        <h4 class="post-title"><a class="text-inherit" href="blog-details">How To
-                                                Start Car Engine Here</a></h4>
-                                    </div>
-                                </div>
-                                <div class="recent-post">
-                                    <div class="media-img">
-                                        <a href="blog-details"><img src="assets/img/widget/footer-recent-post-2.png"
-                                                alt="Blog Image"></a>
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="recent-post-meta">
-                                            <a href="blog"><i class="fa-regular fa-clock"></i>20th June, 2023</a>
-                                        </div>
-                                        <h4 class="post-title"><a class="text-inherit" href="blog-details">How To
-                                                Stop Car Engine Here</a></h4>
-                                    </div>
-                                </div>
+                        <div class="widget newsletter-widget footer-widget">
+                            <h3 class="widget_title">Subscribe</h3>
+                            <p class="footer-text">Get latest updates & offers Now.</p>
+                            <form class="newsletter-form">
+                                <input class="form-control" type="email" placeholder="Enter Email Address"
+                                    required="">
+                                <button type="submit" class="as-btn"><i
+                                        class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+                            <div class="company-info mt-35">
+                                <h6 class="info-title"><i class="fa-light fa-clock"></i> Opening Time</h6>
+                                <span class="info-details"> Mon-Sat : 8:00AM - 5:00PM</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="copyright-wrap" style="background: #1B1F29; border-color: #2A2F3D;">
+        <div class="copyright-wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -588,7 +526,6 @@ Header Area
             </path>
         </svg>
     </div>
-
     <!--==============================
 All Js File
 ============================== -->
