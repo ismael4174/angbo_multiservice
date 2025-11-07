@@ -928,7 +928,7 @@ Process Area
                 <div class="col-md-6 col-lg-4 process-box-wrap">
                     <div class="process-box">
                         <div class="process-box_icon" data-bg-src="assets/img/bg/process-icon-bg.svg">
-                            <img class="process-icon" src="assets/img/icon/process-icon-3-1.svg" alt="icon">
+                            <img class="process-icon" src="assets/img/icon/process-icon-3-1.svg" style="height: 90px; width:90px;" alt="icon">
                             <div class="process-box_number">01</div>
                             <img class="arrow" src="assets/img/icon/arrow-left.svg" alt="img">
                         </div>
@@ -941,7 +941,7 @@ Process Area
                 <div class="col-md-6 col-lg-4 process-box-wrap">
                     <div class="process-box">
                         <div class="process-box_icon" data-bg-src="assets/img/bg/process-icon-bg.svg">
-                            <img class="process-icon" src="assets/img/icon/process-icon-3-2.svg" alt="icon">
+                            <img class="process-icon" src="assets/img/icon/process-icon-3-2.svg" style="height: 90px; width:90px;"  alt="icon">
                             <div class="process-box_number">02</div>
                             <img class="arrow mt-5" src="assets/img/icon/arrow-left2.svg" alt="img">
                         </div>
@@ -953,7 +953,7 @@ Process Area
                 <div class="col-md-6 col-lg-4 process-box-wrap">
                     <div class="process-box">
                         <div class="process-box_icon" data-bg-src="assets/img/bg/process-icon-bg.svg">
-                            <img class="process-icon" src="assets/img/icon/process-icon-3-3.svg" alt="icon">
+                            <img class="process-icon" src="assets/img/icon/process-icon-3-3.svg" style="height: 90px; width:90px;"  alt="icon">
                             <div class="process-box_number">03</div>
                         </div>
                         <h2 class="process-box_title box-title">Emballage et distribution</h2>
