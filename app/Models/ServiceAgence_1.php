@@ -11,12 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ServiceAgence
- * 
+ *
  * @property int $id
  * @property string|null $nom
  * @property string|null $logo
- * 
- * @property Collection|AgenceService[] $agence_services
+ *
  * @property Collection|Agence[] $agences
  *
  * @package App\Models
@@ -31,13 +30,8 @@ class ServiceAgence extends Model
 		'logo'
 	];
 
-	public function agence_services()
-	{
-		return $this->hasMany(AgenceService::class, 'service_id');
-	}
-
 	public function agences()
-    {
-        return $this->belongsToMany(Agence::class, 'agence_service', 'service_id', 'agence_id');
-    }
+	{
+		return $this->hasMany(Agence::class, 'service_agences_id');
+	}
 }

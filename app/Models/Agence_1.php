@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Agence
- *
+ * 
  * @property int $id
  * @property string $nom
  * @property string|null $adresse
@@ -22,23 +22,34 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property float $latitude
  * @property float $longitude
  * @property string|null $ville
+ * @property string|null $commune
+ * @property string|null $quartier
+ * @property string|null $localisation
  * @property string|null $pays
  * @property string|null $description
+ * @property Carbon|null $heure_ouverture
+ * @property Carbon|null $heure_fermeture
+ * @property int $service_agences_id
  * @property string|null $statut
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
+ * 
+ * @property ServiceAgence $service_agence
  *
  * @package App\Models
  */
 class Agence extends Model
 {
-	// use SoftDeletes;
+	use SoftDeletes;
 	protected $table = 'agences';
 
 	protected $casts = [
 		'latitude' => 'float',
-		'longitude' => 'float'
+		'longitude' => 'float',
+		'heure_ouverture' => 'datetime',
+		'heure_fermeture' => 'datetime',
+		'service_agences_id' => 'int'
 	];
 
 	protected $fillable = [
@@ -50,8 +61,19 @@ class Agence extends Model
 		'latitude',
 		'longitude',
 		'ville',
+		'commune',
+		'quartier',
+		'localisation',
 		'pays',
 		'description',
+		'heure_ouverture',
+		'heure_fermeture',
+		'service_agences_id',
 		'statut'
 	];
+
+	public function service_agence()
+	{
+		return $this->belongsTo(ServiceAgence::class, 'service_agences_id');
+	}
 }

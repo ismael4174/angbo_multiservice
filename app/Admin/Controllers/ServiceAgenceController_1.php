@@ -27,7 +27,7 @@ class ServiceAgenceController extends AdminController
         $grid = new Grid(new ServiceAgence());
 
         $grid->column('id', __('Id'));
-        $grid->column('nom', __('Nom'));
+        $grid->column('nom', __(key: 'Nom'));
         $grid->column('logo', __('Logo'))->image();
 
         return $grid;

@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Agence;
-use App\Models\ServiceAgence;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -27,13 +26,6 @@ class AgenceController extends AdminController
     {
         $grid = new Grid(new Agence());
 
-        // On sélectionne uniquement les champs de la table agence
-        $grid->model()
-            ->select('agences.*')
-            ->distinct() // pour éviter les doublons
-            ->orderBy('id', 'asc')
-            ->with('service_agence'); // charge la relation sans multiplier les lignes
-
         $grid->column('id', __('Id'));
         $grid->column('nom', __('Nom'));
         $grid->column('adresse', __('Adresse'));
@@ -48,29 +40,12 @@ class AgenceController extends AdminController
         $grid->column('localisation', __('Localisation'));
         $grid->column('pays', __('Pays'));
         $grid->column('description', __('Description'));
-        $grid->column('heure_ouverture', __('Heure ouverture'))->display(function ($date) {
-            return \Carbon\Carbon::parse($date)->format('d/m/Y');
-        });
-        $grid->column('heure_fermeture', __('Heure fermeture'))->display(function ($date) {
-            return \Carbon\Carbon::parse($date)->format('d/m/Y');
-        });
-        $grid->column('service_agences_id', __('Service agences'))->display(function ($id) {
-            $query = ServiceAgence::find($id);
-            return $query ? $query->nom : 'Non renseigné';
-        });
-
-        // $grid->column('service_agence', __('Services'))->display(function ($services) {
-        //     if (!$services) return '';
-        //     return collect($services)->pluck('nom')->implode(', ');
-        // });
+        $grid->column('heure_ouverture', __('Heure ouverture'));
+        $grid->column('heure_fermeture', __('Heure fermeture'));
         $grid->column('statut', __('Statut'));
-        $grid->column('created_at', __('Created at'))->display(function ($date) {
-            return \Carbon\Carbon::parse($date)->format('d/m/Y');
-        });
-        // $grid->column('updated_at', __('Updated at'));
-        // $grid->column('deleted_at', __('Deleted at'));
-
-         $grid->quickSearch(['nom', 'telephone', 'ville', 'commune', 'pays']);
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
+        $grid->column('deleted_at', __('Deleted at'));
 
         return $grid;
     }
@@ -101,7 +76,6 @@ class AgenceController extends AdminController
         $show->field('description', __('Description'));
         $show->field('heure_ouverture', __('Heure ouverture'));
         $show->field('heure_fermeture', __('Heure fermeture'));
-        $show->field('service_agences_id', __('Service agences id'));
         $show->field('statut', __('Statut'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -134,10 +108,7 @@ class AgenceController extends AdminController
         $form->textarea('description', __('Description'));
         $form->datetime('heure_ouverture', __('Heure ouverture'))->default(date('Y-m-d H:i:s'));
         $form->datetime('heure_fermeture', __('Heure fermeture'))->default(date('Y-m-d H:i:s'));
-        $form->select('service_agences_id', __('Service agences'))->options(ServiceAgence::all()->pluck('nom', 'id'));
         $form->text('statut', __('Statut'))->default('active');
-
-
 
         return $form;
     }
