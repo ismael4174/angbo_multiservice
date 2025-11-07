@@ -54,6 +54,70 @@
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <style>
+        .contact-box_title a {
+            color: #1e1e1e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-box_title a:hover {
+            color: #4a6cf7;
+        }
+
+        .modal-content {
+            border-radius: 1rem;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        /* Dégradé élégant pour l’en-tête */
+        .bg-gradient {
+            background: linear-gradient(90deg, #007bff, #6610f2);
+        }
+
+        /* Animation d’apparition */
+        .animated-modal {
+            animation: zoomIn 0.3s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.85);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Amélioration du texte */
+        .modal-body p {
+            margin-bottom: 0.6rem;
+            font-size: 15px;
+        }
+
+        /* Bouton moderne */
+        .btn-primary {
+            background-color: #4a6cf7;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #3955d1;
+            transform: scale(1.05);
+        }
+    </style>
+
 </head>
 
 
@@ -294,28 +358,31 @@ Header Area
         <div class="navbar-top">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-6 col-lg-5 text-lg-start text-center">
-                        <p class="header-text">Bienvenue sur notre plateforme multiservice</p>
-                    </div>
-                    <div class="col-xl-6 col-lg-7 align-self-center text-lg-end text-center">
-                        <div class="header-links">
-                            <ul>
-                                <li><i class="far fa-phone"></i><a href="tel:+25625921589">+(163)-1202-0088</a></li>
-                                <li>
-                                    <i class="far fa-envelope"></i>
-                                    <a href="mailto:help24/7@gmail.com">help24/7@gmail.com</a>
-                                </li>
-                                <li>
-                                    <div class="header-social">
-                                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                        {{-- <a href="https://www.vimeo.com/"><i class="fab fa-vimeo-v"></i></a> --}}
-                                    </div>
-                                </li>
-                            </ul>
+                    @foreach ($parametresGlobaux as $parametresGlobau)
+                        <div class="col-xl-6 col-lg-5 text-lg-start text-center">
+                            <p class="header-text">{{ $parametresGlobau->titre }}</p>
                         </div>
-                    </div>
+                        <div class="col-xl-6 col-lg-7 align-self-center text-lg-end text-center">
+                            <div class="header-links">
+                                <ul>
+                                    <li><i class="far fa-phone"></i><a
+                                            href="tel:+25625921589">{{ $parametresGlobau->telephone }}</a></li>
+                                    <li>
+                                        <i class="far fa-envelope"></i>
+                                        <a href="mailto:help24/7@gmail.com">{{ $parametresGlobau->email }}</a>
+                                    </li>
+                                    <li>
+                                        <div class="header-social">
+                                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            {{-- <a href="https://www.vimeo.com/"><i class="fab fa-vimeo-v"></i></a> --}}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -327,7 +394,11 @@ Header Area
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="/"><img src="assets/img/logo.svg" alt="Dealaro"></a>
+                                @foreach ($parametresGlobaux as $parametresGlobau)
+                                    {{-- <a href="/"><img src="assets/img/logo.svg" alt="Dealaro"></a> --}}
+                                    <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
+                                            alt="Dealaro"></a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-auto me-xl-auto">
@@ -427,44 +498,48 @@ Header Area
                     <div class="col-md-6 col-xxl-3 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="as-widget-about">
-                                <div class="footer-logo">
-                                    <a href="/"><img src="assets/img/logo.svg" alt="Dealaro"></a>
-                                </div>
-                                <p class="about-text">Fusce varius, dolor tempor interdum tristiquei bibendum.</p>
-                                <ul class="footer-info-list">
-                                    <li class="footer-info"><i class="fa-solid fa-phone"></i><a
-                                            href="tel:(+163)-1202-0088">(+163)-1202-0088</a></li>
-                                    <li class="footer-info"><i class="fa-solid fa-envelope"></i><a
-                                            href="mailto:info@dealaro.com">info@dealaro.com</a></li>
-                                </ul>
-                                <div class="as-social pt-25">
-                                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                                    <a href="https://www.goggle.com/"><i class="fa-brands fa-google"></i></a>
-                                    <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="https://www.pinterest.com/"><i
-                                            class="fa-brands fa-pinterest-p"></i></a>
-                                </div>
+                                @foreach ($parametresGlobaux as $parametresGlobau)
+                                    <div class="footer-logo">
+                                        <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
+                                                alt="Dealaro"></a>
+                                    </div>
+                                    <p class="about-text">{{$parametresGlobau->titre}}</p>
+                                    <ul class="footer-info-list">
+                                        <li class="footer-info"><i class="fa-solid fa-phone"></i><a
+                                                href="tel:(+163)-1202-0088">{{$parametresGlobau->telephone}}</a></li>
+                                        <li class="footer-info"><i class="fa-solid fa-envelope"></i><a
+                                                href="mailto:info@dealaro.com">{{$parametresGlobau->email}}</a></li>
+                                    </ul>
+                                    <div class="as-social pt-25">
+                                        <a href="https://www.facebook.com/"><i
+                                                class="fa-brands fa-facebook-f"></i></a>
+                                        <a href="https://www.goggle.com/"><i class="fa-brands fa-google"></i></a>
+                                        <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                                        <a href="https://www.pinterest.com/"><i
+                                                class="fa-brands fa-pinterest-p"></i></a>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Useful Links <span class="line"></span></h3>
+                            <h3 class="widget_title">Liens utiles <span class="line"></span></h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu2">
-                                    <li><a href="about">About Us</a></li>
-                                    <li><a href="shop">Car Listing
+                                    <li><a href="/">Accueil
                                         </a></li>
-                                    <li><a href="service">Our Services
+                                    <li><a href="about">A propos</a></li>
+                                    <li><a href="service">Services
                                         </a></li>
-                                    <li><a href="blog">Our Blog
+                                    <li><a href="agence">Agences
                                         </a></li>
-                                    <li><a href="contact">Contact Us</a></li>
+                                    <li><a href="contact">Contactez-nous</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-auto">
+                    {{-- <div class="col-md-6 col-xl-auto">
                         <div class="widget footer-widget widget_nav_menu">
                             <h3 class="widget_title">our servises</h3>
                             <div class="menu-all-pages-container">
@@ -478,11 +553,11 @@ Header Area
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget newsletter-widget footer-widget">
-                            <h3 class="widget_title">Subscribe</h3>
-                            <p class="footer-text">Get latest updates & offers Now.</p>
+                            <h3 class="widget_title">Souscrire</h3>
+                            <p class="footer-text">Obtenez nos dernières actualités & offres</p>
                             <form class="newsletter-form">
                                 <input class="form-control" type="email" placeholder="Enter Email Address"
                                     required="">
@@ -490,8 +565,8 @@ Header Area
                                         class="fa-solid fa-paper-plane"></i></button>
                             </form>
                             <div class="company-info mt-35">
-                                <h6 class="info-title"><i class="fa-light fa-clock"></i> Opening Time</h6>
-                                <span class="info-details"> Mon-Sat : 8:00AM - 5:00PM</span>
+                                <h6 class="info-title"><i class="fa-light fa-clock"></i> Heures d'ouverture</h6>
+                                <span class="info-details"> Lun-Sam : {{$parametresGlobau->heure_ouverture->format('H:i')}} - {{$parametresGlobau->heure_fermerture->format('H:i')}}</span>
                             </div>
                         </div>
                     </div>
@@ -502,10 +577,12 @@ Header Area
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <p class="copyright-text"><i class="fal fa-copyright me-1"></i>Copyright 2023 <a
-                                href="https://themeforest.net/user/themeholy">Dealaro.</a> All Rights Reserved.</p>
+                        {{-- <p class="copyright-text"><i class="fal fa-copyright me-1"></i>Copyright 2023 <a
+                                href="https://themeforest.net/user/themeholy">Dealaro.</a> All Rights Reserved.</p> --}}
+                        <p class="copyright-text"><i class="fal fa-copyright me-1"></i>Copyright 2025 <a
+                                href="">?</a> All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 text-end d-none d-lg-block">
+                    {{-- <div class="col-lg-6 text-end d-none d-lg-block">
                         <div class="footer-links">
                             <ul>
                                 <li><a href="about">Terms of use</a></li>
@@ -513,7 +590,7 @@ Header Area
                                 <li><a href="about">Policy</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

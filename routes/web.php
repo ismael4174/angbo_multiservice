@@ -21,9 +21,11 @@ Route::Post('/souscription', [GeneralController::class, 'news'])->name('news.sub
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/agence', function () {
-    return view('agence');
-});
+// Route::get('/agence', function () {
+//     return view('agence');
+// });
+Route::get('/agence', [GeneralController::class, 'agences']);
+
 Route::get('/blog-details', function () {
     return view('blog-details');
 });

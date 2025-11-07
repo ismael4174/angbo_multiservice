@@ -28,7 +28,7 @@ class ParametresGlobauxController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('nom_directeur', __('Nom directeur'));
-        $grid->column('logo', __('Logo'));
+        $grid->column('logo', __('Logo'))->image();
         $grid->column('nom_entreprise', __('Nom entreprise'));
         $grid->column('localisation', __('Localisation'));
         $grid->column('annee_experience', __('Annee experience'));
@@ -92,7 +92,7 @@ class ParametresGlobauxController extends AdminController
         $form = new Form(new ParametresGlobaux());
 
         $form->text('nom_directeur', __('Nom directeur'));
-        $form->text('logo', __('Logo'));
+        $form->image('logo', __('Logo'))->removable()->uniqueName();
         $form->text('nom_entreprise', __('Nom entreprise'));
         $form->text('localisation', __('Localisation'));
         $form->number('annee_experience', __('Annee experience'));
