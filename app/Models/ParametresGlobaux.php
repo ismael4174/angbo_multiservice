@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ParametresGlobaux
- * 
+ *
  * @property int $id
  * @property string|null $nom_directeur
  * @property string|null $logo
@@ -31,6 +31,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $heure_ouverture
  * @property Carbon|null $heure_fermerture
  * @property string|null $slogan
+ * @property string|null $description
  *
  * @package App\Models
  */
