@@ -29,7 +29,7 @@ class ServiceAgence extends Model
 	];
 
 	public function agences()
-	{
-		return $this->hasMany(Agence::class, 'service_agences_id');
-	}
+    {
+        return $this->belongsToMany(Agence::class, 'agence_service', 'service_id', 'agence_id');
+    }
 }

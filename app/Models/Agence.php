@@ -72,8 +72,13 @@ class Agence extends Model
 		'statut'
 	];
 
-	public function service_agence()
-	{
-		return $this->belongsTo(ServiceAgence::class, 'service_agences_id');
-	}
+	// public function service_agence()
+	// {
+	// 	return $this->belongsTo(ServiceAgence::class, 'service_agences_id');
+	// }
+
+	public function services()
+    {
+        return $this->belongsToMany(ServiceAgence::class, 'agence_service', 'agence_id', 'service_id');
+    }
 }
