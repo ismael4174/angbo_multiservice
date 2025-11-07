@@ -27,8 +27,8 @@ class ServiceAgenceController extends AdminController
         $grid = new Grid(new ServiceAgence());
 
         $grid->column('id', __('Id'));
-        $grid->column('nom', __('Nom'));
-        $grid->column('logo', __('Logo'));
+        $grid->column('nom', __(key: 'Nom'));
+        $grid->column('logo', __('Logo'))->image();
 
         return $grid;
     }
@@ -60,7 +60,7 @@ class ServiceAgenceController extends AdminController
         $form = new Form(new ServiceAgence());
 
         $form->text('nom', __('Nom'));
-        $form->text('logo', __('Logo'));
+        $form->image('logo', __('Logo'))->removable()->uniqueName();
 
         return $form;
     }

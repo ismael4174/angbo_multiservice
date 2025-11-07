@@ -7,20 +7,21 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Agence
- * 
+ *
  * @property int $id
  * @property string $nom
  * @property string|null $adresse
  * @property string|null $telephone
  * @property string|null $email
  * @property string|null $responsable
- * @property float $latitude
- * @property float $longitude
+ * @property float|null $latitude
+ * @property float|null $longitude
  * @property string|null $ville
  * @property string|null $commune
  * @property string|null $quartier
@@ -29,13 +30,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $description
  * @property Carbon|null $heure_ouverture
  * @property Carbon|null $heure_fermeture
- * @property int $service_agences_id
  * @property string|null $statut
+ * @property int $service_agences_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property ServiceAgence $service_agence
+ * @property Collection|AgenceService[] $agence_services
  *
  * @package App\Models
  */
@@ -68,12 +70,18 @@ class Agence extends Model
 		'description',
 		'heure_ouverture',
 		'heure_fermeture',
-		'service_agences_id',
-		'statut'
+		'statut',
+		'service_agences_id'
 	];
 
 	public function service_agence()
 	{
 		return $this->belongsTo(ServiceAgence::class, 'service_agences_id');
+        return $this->belongsToMany(ServiceAgence::class, 'agence_service_agences', 'agences_id', 'service_agences_id');
+	}
+
+	public function agence_services()
+	{
+		return $this->hasMany(AgenceService::class);
 	}
 }
