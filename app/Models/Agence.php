@@ -70,6 +70,7 @@ class Agence extends Model
 		'statut'
 	];
 
+
 	public function agence_services()
 	{
 		return $this->hasMany(AgenceService::class);
