@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agence;
 use App\Models\Caroussel;
 use App\Models\MessagesContact;
 use App\Models\Newsletter;
@@ -11,9 +12,15 @@ use Illuminate\Http\Request;
 
 class GeneralController extends Controller
 {
+    public function agences()
+    {
+        // $agences = Agence::all();
+        $agences = Agence::with('service_agence')->get();;
+        return view('agence', compact('agences'));
+    }
     public function services()
     {
-        // Récupère tous les services
+
         $services = Service::all();
         return view('service', compact('services'));
     }
@@ -50,7 +57,6 @@ class GeneralController extends Controller
     }
     public function news(Request $request)
     {
-        // ✅ Validation des données
         $request->validate([
             'email' => 'required|email|max:255',
         ]);
