@@ -45,6 +45,7 @@ class ParametresGlobauxController extends AdminController
         $grid->column('heure_ouverture', __('Heure ouverture'));
         $grid->column('heure_fermerture', __('Heure fermerture'));
         $grid->column('slogan', __('Slogan'));
+        $grid->column('description', __('Description'));
 
         return $grid;
     }
@@ -78,6 +79,7 @@ class ParametresGlobauxController extends AdminController
         $show->field('heure_ouverture', __('Heure ouverture'));
         $show->field('heure_fermerture', __('Heure fermerture'));
         $show->field('slogan', __('Slogan'));
+        $show->field('description', __('Description'));
 
         return $show;
     }
@@ -109,6 +111,7 @@ class ParametresGlobauxController extends AdminController
         $form->datetime('heure_ouverture', __('Heure ouverture'))->default(date('Y-m-d H:i:s'));
         $form->datetime('heure_fermerture', __('Heure fermerture'))->default(date('Y-m-d H:i:s'));
         $form->text('slogan', __('Slogan'));
+        $form->text('description', __('Description'));
 
         return $form;
     }

@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ServiceAgence
- * 
+ *
  * @property int $id
  * @property string|null $nom
- * 
+ * @property string|null $logo
+ *
  * @property Collection|Agence[] $agences
  *
  * @package App\Models
@@ -25,7 +26,8 @@ class ServiceAgence extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
-		'nom'
+		'nom',
+		'logo'
 	];
 
 	public function agences()

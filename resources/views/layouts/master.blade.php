@@ -116,6 +116,31 @@
             background-color: #3955d1;
             transform: scale(1.05);
         }
+
+        .hover-shadow {
+            transition: all 0.3s ease;
+        }
+
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .animated-modal {
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 
 </head>
@@ -503,12 +528,12 @@ Header Area
                                         <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
                                                 alt="Dealaro"></a>
                                     </div>
-                                    <p class="about-text">{{$parametresGlobau->titre}}</p>
+                                    <p class="about-text">{{ $parametresGlobau->titre }}</p>
                                     <ul class="footer-info-list">
                                         <li class="footer-info"><i class="fa-solid fa-phone"></i><a
-                                                href="tel:(+163)-1202-0088">{{$parametresGlobau->telephone}}</a></li>
+                                                href="tel:(+163)-1202-0088">{{ $parametresGlobau->telephone }}</a></li>
                                         <li class="footer-info"><i class="fa-solid fa-envelope"></i><a
-                                                href="mailto:info@dealaro.com">{{$parametresGlobau->email}}</a></li>
+                                                href="mailto:info@dealaro.com">{{ $parametresGlobau->email }}</a></li>
                                     </ul>
                                     <div class="as-social pt-25">
                                         <a href="https://www.facebook.com/"><i
@@ -566,7 +591,9 @@ Header Area
                             </form>
                             <div class="company-info mt-35">
                                 <h6 class="info-title"><i class="fa-light fa-clock"></i> Heures d'ouverture</h6>
-                                <span class="info-details"> Lun-Sam : {{$parametresGlobau->heure_ouverture->format('H:i')}} - {{$parametresGlobau->heure_fermerture->format('H:i')}}</span>
+                                <span class="info-details"> Lun-Sam :
+                                    {{ $parametresGlobau->heure_ouverture->format('H:i') }} -
+                                    {{ $parametresGlobau->heure_fermerture->format('H:i') }}</span>
                             </div>
                         </div>
                     </div>

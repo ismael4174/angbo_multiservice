@@ -2,8 +2,8 @@
 
 @section('content')
     <!--==============================
-                            Breadcumb
-                        ============================== -->
+                                Breadcumb
+                            ============================== -->
     <div class="breadcumb-wrapper" data-bg-src="assets/img/bg/breadcrumb-bg.png" data-overlay="title" data-opacity="7">
         <!-- bg animated image/ -->
         <div class="container">
@@ -29,33 +29,36 @@
     </div>
 
     <!--==============================
-                    Agence Area
-                    ==============================-->
-    <section class="space">
-        <div class="container">
+                        Agence Area
+                        ==============================-->
+   <section class="space">
+    <div class="container">
+        {{-- ✅ Une seule row pour toutes les agences --}}
+        <div class="row gy-4 justify-content-center">
             @foreach ($agences as $agence)
-                <div class="row gy-30 justify-content-center">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="contact-box">
-                            <div class="contact-box_icon">
-                                <i class="fa fa-headset"></i>
-                            </div>
-                            <div class="contact-box_info">
-                                <h4 class="contact-box_title">
-                                    <a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#agenceModal{{ $agence->id }}">
-                                        {{ $agence->nom }}
-                                    </a>
-                                </h4>
-                                <p class="contact-box_text">{{ $agence->localisation }}</p>
-                            </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-box shadow-sm p-4 rounded-3 text-center transition-all hover-shadow">
+                        <div class="contact-box_icon mb-3">
+                            <i class="fa fa-headset fa-2x text-primary"></i>
+                        </div>
+                        <div class="contact-box_info">
+                            <h4 class="contact-box_title mb-2">
+                                <a href="#" data-bs-toggle="modal"
+                                   data-bs-target="#agenceModal{{ $agence->id }}"
+                                   class="text-decoration-none text-dark fw-bold">
+                                    {{ $agence->nom }}
+                                </a>
+                            </h4>
+                            <p class="contact-box_text text-muted mb-0">
+                                <i class="fa fa-map-marker-alt text-primary me-1"></i>{{ $agence->localisation }}
+                            </p>
                         </div>
                     </div>
                 </div>
 
-
+                {{-- ✅ Modal pour chaque agence --}}
                 <div class="modal fade" id="agenceModal{{ $agence->id }}" tabindex="-1"
-                    aria-labelledby="agenceModalLabel{{ $agence->id }}" aria-hidden="true">
+                     aria-labelledby="agenceModalLabel{{ $agence->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content animated-modal">
                             <div class="modal-header bg-gradient text-white rounded-top-4">
@@ -79,6 +82,7 @@
                                         <p><i class="fa fa-clock text-primary me-2"></i><strong>Ouverture :</strong>
                                             {{ $agence->heure_ouverture->format('H:i') }}</p>
                                     </div>
+
                                     <div class="col-md-6">
                                         <p><i class="fa fa-city text-primary me-2"></i><strong>Ville :</strong>
                                             {{ $agence->ville }}</p>
@@ -92,47 +96,47 @@
                                             {{ $agence->heure_fermeture->format('H:i') }}</p>
                                     </div>
                                 </div>
-                                <hr class="my-3">
-                                {{-- @if ($agence->service_agence)
-                                    <p><i class="fa fa-service text-primary me-2"></i><strong>Services :</strong>
-                                    {{ $agence->service_agence->nom }}</p>
-                                @else
-                                    <p><em>Aucun service associé</em></p>
-                                @endif --}}
 
+                                <hr class="my-3">
+
+                                {{-- ✅ Affichage des services liés à l’agence --}}
                                 @php
-                                    // On groupe les agences par leur nom (ou par leur ID si c’est mieux)
-                                    $groupes = $agences->groupBy('nom');
+                                    $servicesAgences = collect([$agence->service_agence])
+                                        ->filter()
+                                        ->unique('id');
                                 @endphp
 
-                                @foreach ($groupes as $nomAgence => $listeAgences)
-                                    <div class="contact-box">
-                                        {{-- <h4>{{ $nomAgence }}</h4> --}}
-                                        {{-- <p><i
-                                                class="fa fa-map-marker text-primary me-2"></i>{{ $listeAgences->first()->localisation }}
-                                        </p> --}}
+                                @if ($servicesAgences->isNotEmpty())
+                                    <p>
+                                        <i class="fa fa-cogs text-primary me-2"></i>
+                                        <strong>Services :</strong>
+                                    </p>
 
-                                        @php
-                                            // Récupérer tous les noms de services liés à cette agence
-                                            $services = $listeAgences
-                                                ->pluck('service_agence.nom')
-                                                ->unique()
-                                                ->implode(', ');
-                                        @endphp
-
-                                        @if ($services)
-                                            <p><i class="fa fa-cogs text-primary me-2"></i><strong>Services :</strong>
-                                                {{ $services }}</p>
-                                        @else
-                                            <p><em>Aucun service associé</em></p>
-                                        @endif
+                                    <div class="d-flex flex-wrap justify-content-start">
+                                        @foreach ($servicesAgences as $service)
+                                            <div class="text-center me-3 mb-3">
+                                                @if ($service->logo)
+                                                    <img src="{{ asset('uploads/' . $service->logo) }}"
+                                                         alt="{{ $service->nom }}" width="60" height="60"
+                                                         class="rounded shadow-sm mb-1">
+                                                @else
+                                                    <img src="{{ asset('uploads/default.png') }}"
+                                                         alt="Logo par défaut" width="60" height="60"
+                                                         class="rounded shadow-sm mb-1">
+                                                @endif
+                                                <div class="small fw-semibold">{{ $service->nom }}</div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                @endforeach
-
+                                @else
+                                    <p><em>Aucun service associé</em></p>
+                                @endif
 
                                 <hr class="my-3">
-                                <p><i class="fa fa-info-circle text-primary me-2"></i><strong>Description
-                                        :</strong><br>{{ $agence->description ?? 'Aucune description disponible.' }}</p>
+
+                                <p><i class="fa fa-info-circle text-primary me-2"></i><strong>Description :</strong><br>
+                                    {{ $agence->description ?? 'Aucune description disponible.' }}
+                                </p>
                             </div>
 
                             <div class="modal-footer bg-light">
@@ -144,8 +148,13 @@
                     </div>
                 </div>
             @endforeach
-
-
         </div>
-    </section>
+    </div>
+</section>
+
+{{-- Effet hover en CSS --}}
+<style>
+    
+</style>
+
 @endsection

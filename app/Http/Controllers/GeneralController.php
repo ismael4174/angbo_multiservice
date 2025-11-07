@@ -15,7 +15,13 @@ class GeneralController extends Controller
     public function agences()
     {
         // $agences = Agence::all();
-        $agences = Agence::with('service_agence')->get();;
+
+        $agences = Agence::with('service_agence')
+            ->select('agences.*')
+            ->distinct()
+            ->get();
+
+
         return view('agence', compact('agences'));
     }
     public function services()
