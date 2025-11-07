@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Agence;
-use App\Models\ServiceAgence;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -44,7 +43,6 @@ class AgenceController extends AdminController
         $grid->column('heure_ouverture', __('Heure ouverture'));
         $grid->column('heure_fermeture', __('Heure fermeture'));
         $grid->column('statut', __('Statut'));
-        $grid->column('service_agences_id', __('Service agences id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
         $grid->column('deleted_at', __('Deleted at'));
@@ -79,7 +77,6 @@ class AgenceController extends AdminController
         $show->field('heure_ouverture', __('Heure ouverture'));
         $show->field('heure_fermeture', __('Heure fermeture'));
         $show->field('statut', __('Statut'));
-        $show->field('service_agences_id', __('Service agences id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
         $show->field('deleted_at', __('Deleted at'));
@@ -112,7 +109,6 @@ class AgenceController extends AdminController
         $form->datetime('heure_ouverture', __('Heure ouverture'))->default(date('Y-m-d H:i:s'));
         $form->datetime('heure_fermeture', __('Heure fermeture'))->default(date('Y-m-d H:i:s'));
         $form->text('statut', __('Statut'))->default('active');
-        $form->number('service_agences_id', __('Service agences id'))->options(ServiceAgence::all()->pluck('nom', 'id'));
 
         return $form;
     }

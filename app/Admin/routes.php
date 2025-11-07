@@ -32,4 +32,5 @@ Route::group([
     $router->resource('reseau-socials', ReseauSocialController::class);
     $router->resource('service-agences', ServiceAgenceController::class);
     $router->resource('type-carousels', TypeCarousselController::class);
+     $router->resource('agence-services', AgenceServiceController::class);
 });
