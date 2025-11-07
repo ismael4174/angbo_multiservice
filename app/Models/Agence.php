@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Agence
- * 
+ *
  * @property int $id
  * @property string $nom
  * @property string|null $adresse
@@ -34,44 +34,49 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
+ *
  * @property Collection|AgenceService[] $agence_services
  *
  * @package App\Models
  */
 class Agence extends Model
 {
-	use SoftDeletes;
-	protected $table = 'agences';
+    use SoftDeletes;
+    protected $table = 'agences';
 
-	protected $casts = [
-		'latitude' => 'float',
-		'longitude' => 'float',
-		'heure_ouverture' => 'datetime',
-		'heure_fermeture' => 'datetime'
-	];
+    protected $casts = [
+        'latitude' => 'float',
+        'longitude' => 'float',
+        'heure_ouverture' => 'datetime',
+        'heure_fermeture' => 'datetime'
+    ];
 
-	protected $fillable = [
-		'nom',
-		'adresse',
-		'telephone',
-		'email',
-		'responsable',
-		'latitude',
-		'longitude',
-		'ville',
-		'commune',
-		'quartier',
-		'localisation',
-		'pays',
-		'description',
-		'heure_ouverture',
-		'heure_fermeture',
-		'statut'
-	];
+    protected $fillable = [
+        'nom',
+        'adresse',
+        'telephone',
+        'email',
+        'responsable',
+        'latitude',
+        'longitude',
+        'ville',
+        'commune',
+        'quartier',
+        'localisation',
+        'pays',
+        'description',
+        'heure_ouverture',
+        'heure_fermeture',
+        'statut'
+    ];
 
-	public function agence_services()
-	{
-		return $this->hasMany(AgenceService::class);
-	}
+    public function agence_services()
+    {
+        return $this->hasMany(AgenceService::class);
+    }
+
+    public function service_agences()
+    {
+        return $this->belongsToMany(ServiceAgence::class, 'agence_service', 'agence_id', 'service_id');
+    }
 }

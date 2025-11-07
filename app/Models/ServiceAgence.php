@@ -11,11 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ServiceAgence
- * 
+ *
  * @property int $id
  * @property string|null $nom
  * @property string|null $logo
- * 
+ *
  * @property Collection|AgenceService[] $agence_services
  * @property Collection|Agence[] $agences
  *
@@ -23,21 +23,21 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ServiceAgence extends Model
 {
-	protected $table = 'service_agences';
-	public $timestamps = false;
+    protected $table = 'service_agences';
+    public $timestamps = false;
 
-	protected $fillable = [
-		'nom',
-		'logo'
-	];
+    protected $fillable = [
+        'nom',
+        'logo'
+    ];
 
-	public function agence_services()
-	{
-		return $this->hasMany(AgenceService::class, 'service_id');
-	}
+    public function agence_services()
+    {
+        return $this->hasMany(AgenceService::class, 'service_id');
+    }
 
-	public function agences()
-	{
-		return $this->hasMany(Agence::class, 'service_agences_id');
-	}
+    public function agences()
+    {
+        return $this->belongsToMany(Agence::class, 'agence_service', 'service_id', 'agence_id');
+    }
 }
