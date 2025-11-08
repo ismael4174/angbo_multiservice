@@ -29,7 +29,7 @@ class AgenceServiceController extends AdminController
         $grid = new Grid(new AgenceService());
 
         $grid->column('agence_id', __('Agence'))->display(function ($id) {
-            $query = ServiceAgence::find($id);
+            $query = Agence::find($id);
             return $query ? $query->nom : 'Non renseigné';
         });
         $grid->column('service_id', __('Service'))->display(function ($id) {

@@ -17,11 +17,10 @@ class GeneralController extends Controller
     {
         // $agences = Agence::all();
 
-        $agences = Agence::with('service_agence')
-            ->select('agences.*')
-            ->distinct()
-            ->get();
-
+         $agences = Agence::with('service_agences')
+        ->select('agences.*')
+        ->orderBy('nom')
+        ->get();
 
         return view('agence', compact('agences'));
     }

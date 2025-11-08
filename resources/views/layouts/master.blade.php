@@ -385,7 +385,7 @@ Header Area
                 <div class="row">
                     @foreach ($parametresGlobaux as $parametresGlobau)
                         <div class="col-xl-6 col-lg-5 text-lg-start text-center">
-                            <p class="header-text">{{ $parametresGlobau->titre }}</p>
+                            <p class="header-text">{{ $parametresGlobau->slogan }}</p>
                         </div>
                         <div class="col-xl-6 col-lg-7 align-self-center text-lg-end text-center">
                             <div class="header-links">
@@ -443,9 +443,9 @@ Header Area
                                             <a href="/">ACCUEIL</a>
                                         </li>
 
-                                        <li>
+                                        {{-- <li>
                                             <a href="about">A PROPOS</a>
-                                        </li>
+                                        </li> --}}
 
                                         <li class="menu-item-has-children">
                                             <a href="#">SERVICES</a>
@@ -528,7 +528,8 @@ Header Area
                                         <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
                                                 alt="Dealaro"></a>
                                     </div>
-                                    <p class="about-text">{{ $parametresGlobau->titre }}</p>
+                                    <p class="about-text">{{ $parametresGlobau->slogan
+                                     }}</p>
                                     <ul class="footer-info-list">
                                         <li class="footer-info"><i class="fa-solid fa-phone"></i><a
                                                 href="tel:(+163)-1202-0088">{{ $parametresGlobau->telephone }}</a></li>
@@ -554,7 +555,7 @@ Header Area
                                 <ul class="menu2">
                                     <li><a href="/">Accueil
                                         </a></li>
-                                    <li><a href="about">A propos</a></li>
+                                    {{-- <li><a href="about">A propos</a></li> --}}
                                     <li><a href="service">Services
                                         </a></li>
                                     <li><a href="agence">Agences
