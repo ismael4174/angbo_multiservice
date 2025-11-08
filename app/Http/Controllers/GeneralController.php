@@ -6,6 +6,7 @@ use App\Models\Agence;
 use App\Models\Caroussel;
 use App\Models\MessagesContact;
 use App\Models\Newsletter;
+use App\Models\ParametresGlobaux;
 use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -35,7 +36,8 @@ class GeneralController extends Controller
         // Récupère tous les caroussel
         $slides = Caroussel::all()->where('type_carousel_id', 1);
         $services = Service::all()->where('type_service_id', 1);
-        return view('welcome', compact('slides','services'));
+        $abouts = ParametresGlobaux::all();
+        return view('welcome', compact('slides','services','abouts'));
     }
 
     public function stre(Request $request)
