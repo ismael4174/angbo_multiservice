@@ -34,7 +34,8 @@ class GeneralController extends Controller
     {
         // Récupère tous les caroussel
         $slides = Caroussel::all()->where('type_carousel_id', 1);
-        return view('welcome', compact('slides'));
+        $services = Service::all()->where('type_service_id', 1);
+        return view('welcome', compact('slides','services'));
     }
 
     public function stre(Request $request)
