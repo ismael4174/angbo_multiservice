@@ -38,6 +38,7 @@
 
         <div class="container">
             <div class="row">
+                @foreach ($parametresGlobaux as $parametresGlobau)
                 <div class="col-lg-6">
                     <div class="about-thumb-wrap3 mb-lg-0 mb-5">
                         <div class="shape-mockup jump" data-top="98px" data-left="-39px">
@@ -46,7 +47,7 @@
                         <div class="thumb-1"><img src="assets/img/about/about_3_1.png" alt="img"></div>
                         <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
                         <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
-                            <h3 class="counter-title"><span class="counter-number">22</span></h3>
+                            <h3 class="counter-title"><span class="counter-number">{{ $parametresGlobau->annee_experience }}</span></h3>
                             <span class="counter-text">Années <br>
                                 d'Expérience</span>
                         </div>
@@ -55,27 +56,23 @@
                 <div class="col-lg-6">
                     <div class="title-area about-wrap-3 mb-0">
                         <h3 class="sub-title">À PROPOS DE NOTRE ENTREPRISE</h3>
-                        <h2 class="sec-title">About Dealaro Transport &
-                            Logistic Solutions.</h2>
-                        <p class="content">Quickly predominate cross functional outsourcing before enterprise-wide
-                            expertise. Enthusiastically architect bleeding-edge models whereas prospective
-                            web-readiness. Energistically disseminate quality benefits.</p>
+                        <h2 class="sec-title">{{ $parametresGlobau->nom_entreprise }}</h2>
+                        <p class="content">{{ $parametresGlobau->description }}</p>
 
                         <div class="list-column2">
                             <div class="checklist">
                                 <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> We’re Here When You Need
-                                        Us</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> Service & Maintenance
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_1 }}</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_2 }}
                                     </li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> In House Financing</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_3 }}</li>
                                 </ul>
                             </div>
                             <div class="checklist">
                                 <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> Best Collection</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> Famous Brands</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img">Trusted Car Dealer</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_4 }}</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_5 }}</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img">{{ $parametresGlobau->caracteristique_6 }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -84,11 +81,12 @@
                         <div class="about-grid">
                             <div class="media-body">
                                 <img src="assets/img/about/signeture2.svg" alt="img">
-                                <p class="about-profile-desig">CEO, Of Company</p>
+                                <p class="about-profile-desig">{{ $parametresGlobau->nom_directeur }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
         </div>
