@@ -1,14 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-
-   <!--==============================
-    Hero Area 03
-==============================-->
+    <!--==============================
+                Hero Area 03
+            ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
-        <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1"
-            data-dots="true" data-arrows="true" data-xl-arrows="true" data-ml-arrows="true"
-            data-adaptive-height="true">
+        <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true"
+            data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
             @foreach ($slides as $slide)
                 <div class="as-hero-slide">
                     <div class="as-hero-bg" data-bg-src="{{ asset('uploads/' . $slide->photo) }}"></div>
@@ -34,12 +32,13 @@
     <!--======== / Hero Section ========-->
 
     <!--==============================
-    About Area 3
-==============================-->
+                About Area 3
+            ==============================-->
     <section class="about-area3 space-bottom space-extra-top">
 
         <div class="container">
             <div class="row">
+                @foreach ($parametresGlobaux as $parametresGlobau)
                 <div class="col-lg-6">
                     <div class="about-thumb-wrap3 mb-lg-0 mb-5">
                         <div class="shape-mockup jump" data-top="98px" data-left="-39px">
@@ -48,7 +47,7 @@
                         <div class="thumb-1"><img src="assets/img/about/about_3_1.png" alt="img"></div>
                         <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
                         <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
-                            <h3 class="counter-title"><span class="counter-number">22</span></h3>
+                            <h3 class="counter-title"><span class="counter-number">{{ $parametresGlobau->annee_experience }}</span></h3>
                             <span class="counter-text">Années <br>
                                 d'Expérience</span>
                         </div>
@@ -57,27 +56,23 @@
                 <div class="col-lg-6">
                     <div class="title-area about-wrap-3 mb-0">
                         <h3 class="sub-title">À PROPOS DE NOTRE ENTREPRISE</h3>
-                        <h2 class="sec-title">About Dealaro Transport &
-                            Logistic Solutions.</h2>
-                        <p class="content">Quickly predominate cross functional outsourcing before enterprise-wide
-                            expertise. Enthusiastically architect bleeding-edge models whereas prospective
-                            web-readiness. Energistically disseminate quality benefits.</p>
+                        <h2 class="sec-title">{{ $parametresGlobau->nom_entreprise }}</h2>
+                        <p class="content">{{ $parametresGlobau->description }}</p>
 
                         <div class="list-column2">
                             <div class="checklist">
                                 <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> We’re Here When You Need
-                                        Us</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> Service & Maintenance
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_1 }}</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_2 }}
                                     </li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> In House Financing</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_3 }}</li>
                                 </ul>
                             </div>
                             <div class="checklist">
                                 <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> Best Collection</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> Famous Brands</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img">Trusted Car Dealer</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_4 }}</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_5 }}</li>
+                                    <li><img src="assets/img/icon/check.svg" alt="img">{{ $parametresGlobau->caracteristique_6 }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -86,131 +81,57 @@
                         <div class="about-grid">
                             <div class="media-body">
                                 <img src="assets/img/about/signeture2.svg" alt="img">
-                                <p class="about-profile-desig">CEO, Of Company</p>
+                                <p class="about-profile-desig">{{ $parametresGlobau->nom_directeur }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
         </div>
     </section>
     <!--==============================
-    Service Area 03
-==============================-->
+                Service Area 03
+            ==============================-->
     <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
                 <span class="sub-title"><span class="double-line"></span> NOS SERVICES</span>
                 <h2 class="sec-title">Découvrez nos services</h2>
             </div>
-            <div class="service-slider2 row as-carousel g-0" data-slide-show="3" data-lg-slide-show="3"
-                data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1" data-dots="false"
-                data-arrows="true" data-xl-arrows="true" data-ml-arrows="true">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card style2">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-3-1b.svg" alt="icon">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-icon-3-1.svg" alt="icon">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Sea Transportation</a></h3>
-                        <p class="service-card_text">Energistically reconceptualize ubiquitous solution wherea
-                            market-driven expertise. Synergistical empower parallel processes with highly efficient
-                            infomediaries.</p>
-                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
-                    </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card style2">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-3-2b.svg" alt="icon">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-icon-3-2.svg" alt="icon">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Air Transportation</a></h3>
-                        <p class="service-card_text">Transport reconceptualize ubiquitous solution wherea market-driven
-                            expertise. Synergistical empower parallel processes with highly efficient infomediaries.</p>
-                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card style2">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-3-3b.svg" alt="icon">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-icon-3-3.svg" alt="icon">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Road Transportation</a></h3>
-                        <p class="service-card_text">Reconceptualize energistically ubiquitous solution wherea
-                            market-driven expertise. Synergistical empower parallel processes with highly efficient
-                            infomediaries.</p>
-                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card style2">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-3-1b.svg" alt="icon">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-icon-3-1.svg" alt="icon">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Sea Transportation</a></h3>
-                        <p class="service-card_text">Energistically reconceptualize ubiquitous solution wherea
-                            market-driven expertise. Synergistical empower parallel processes with highly efficient
-                            infomediaries.</p>
-                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card style2">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-3-2b.svg" alt="icon">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-icon-3-2.svg" alt="icon">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Air Transportation</a></h3>
-                        <p class="service-card_text">Transport reconceptualize ubiquitous solution wherea market-driven
-                            expertise. Synergistical empower parallel processes with highly efficient infomediaries.</p>
-                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card style2">
-                        <div class="bg-shadow-icon">
-                            <img src="assets/img/service/service-icon-3-3b.svg" alt="icon">
-                        </div>
-                        <div class="service-card_icon">
-                            <img src="assets/img/service/service-icon-3-3.svg" alt="icon">
-                        </div>
-                        <h3 class="service-card_title h4"><a href="service-details">Road Transportation</a></h3>
-                        <p class="service-card_text">Reconceptualize energistically ubiquitous solution wherea
-                            market-driven expertise. Synergistical empower parallel processes with highly efficient
-                            infomediaries.</p>
-                        {{-- <a class="line-btn" href="service-details">READ MORE</a> --}}
-                    </div>
-                </div>
-
-            </div>
-
-            {{-- <p class="text-center mt-4 mb-0">Ligistic & Transport Solutions Saves Your Time. <a class="line-btn ms-1"
-                    href="service-details">Find Your Solutions <i class="fa fa-arrow-right"></i></a></p> --}}
         </div>
     </div>
+    </div>
+
+    <div class="container">
+        <div class="service-slider row as-carousel g-0" data-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2"
+            data-sm-slide-show="1" data-xs-slide-show="1" data-dots="true" data-xl-dots="true" data-ml-dots="true"
+            data-lg-dots="true">
+            @foreach ($services as $service)
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="display: flex;">
+                    <div class="service-card w-100" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
+                        <h3 class="service-card_title"><a href="">{{ $service->titre }}</a></h3>
+                        <p class="service-card_text">{{ $service->description }}</p>
+                        <div class="service-card_img">
+                            <div class="service-card_icon">
+                                <img class="svg-img" style="height: 50px; width:50px;"src="assets/img/icon/airplane.svg" alt="img">
+                            </div>
+                            <div class="thumb" style="height: 200px; width:351px;">
+                                <img src="{{ asset('uploads/' . $service->image) }}" alt="service">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    <br>
 
     <!--==============================
-    Why-choose-us Area 03
-==============================-->
+                Why-choose-us Area 03
+            ==============================-->
     {{-- <div class="wcu-area-3" data-bg-src="assets/img/bg/wcu-bg.png">
         <div class="container-fluid p-0">
             <div class="row gx-0">
@@ -264,8 +185,8 @@
         </div>
     </div> --}}
     <!--==============================
-    Counter Area 03
-==============================-->
+                Counter Area 03
+            ==============================-->
     {{-- <div class="container space-top pt-xl-0 pb-xl-0">
         <div class="counter-area3 text-center" data-bg-src="assets/img/bg/counter_bg.png">
             <div class="row gy-25 justify-content-center">
@@ -317,8 +238,8 @@
         </div>
     </div> --}}
     <!--==============================
-    Team Area 02
-==============================-->
+                Team Area 02
+            ==============================-->
     {{-- <section class="team-area-2 space">
         <div class="container">
             <div class="title-area text-center">
@@ -504,8 +425,8 @@
         </div>
     </section> --}}
     <!--==============================
-Process Area
-==============================-->
+            Process Area
+            ==============================-->
     <section class="process-sec bg-smoke2 space" data-bg-src="assets/img/bg/work-process-bg.png">
         <div class="container">
             <div class="title-area text-center">
@@ -516,7 +437,8 @@ Process Area
                 <div class="col-md-6 col-lg-4 process-box-wrap">
                     <div class="process-box">
                         <div class="process-box_icon" data-bg-src="assets/img/bg/process-icon-bg.svg">
-                            <img class="process-icon" src="assets/img/icon/process-icon-3-1.svg" style="height: 90px; width:90px;" alt="icon">
+                            <img class="process-icon" src="assets/img/icon/process-icon-3-1.svg"
+                                style="height: 90px; width:90px;" alt="icon">
                             <div class="process-box_number">01</div>
                             <img class="arrow" src="assets/img/icon/arrow-left.svg" alt="img">
                         </div>
@@ -529,7 +451,8 @@ Process Area
                 <div class="col-md-6 col-lg-4 process-box-wrap">
                     <div class="process-box">
                         <div class="process-box_icon" data-bg-src="assets/img/bg/process-icon-bg.svg">
-                            <img class="process-icon" src="assets/img/icon/process-icon-3-2.svg" style="height: 90px; width:90px;"  alt="icon">
+                            <img class="process-icon" src="assets/img/icon/process-icon-3-2.svg"
+                                style="height: 90px; width:90px;" alt="icon">
                             <div class="process-box_number">02</div>
                             <img class="arrow mt-5" src="assets/img/icon/arrow-left2.svg" alt="img">
                         </div>
@@ -541,7 +464,8 @@ Process Area
                 <div class="col-md-6 col-lg-4 process-box-wrap">
                     <div class="process-box">
                         <div class="process-box_icon" data-bg-src="assets/img/bg/process-icon-bg.svg">
-                            <img class="process-icon" src="assets/img/icon/process-icon-3-3.svg" style="height: 90px; width:90px;"  alt="icon">
+                            <img class="process-icon" src="assets/img/icon/process-icon-3-3.svg"
+                                style="height: 90px; width:90px;" alt="icon">
                             <div class="process-box_number">03</div>
                         </div>
                         <h2 class="process-box_title box-title">Emballage et distribution</h2>
@@ -553,8 +477,8 @@ Process Area
         </div>
     </section>
     <!--==============================
-Price Area
-==============================-->
+            Price Area
+            ==============================-->
     {{-- <section class="space">
         <div class="container">
             <div class="row justify-content-center">
@@ -672,8 +596,8 @@ Price Area
         </div>
     </section> --}}
     <!--==============================
-    Portfolio Area 02
-==============================-->
+                Portfolio Area 02
+            ==============================-->
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="9"
         data-bg-src="assets/img/portfolio/portfolio2_bg.png">
         <div class="container">
@@ -790,15 +714,14 @@ Price Area
     </div>
     <!--==============================
 
-    Blog Area 2
-==============================-->
+                Blog Area 2
+            ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
 
         </div>
     </section>
     <!--==============================
-        Footer Area
-==============================-->
-
+                    Footer Area
+            ==============================-->
 @endsection
