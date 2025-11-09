@@ -598,8 +598,10 @@
     <!--==============================
                 Portfolio Area 02
             ==============================-->
-    <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="9"
-        data-bg-src="assets/img/portfolio/portfolio2_bg.png">
+
+    <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
+        data-bg-src="assets/img/portfolio/R.jpeg">
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
