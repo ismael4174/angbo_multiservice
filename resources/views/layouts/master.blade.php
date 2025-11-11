@@ -398,10 +398,15 @@ Header Area
                                     </li>
                                     <li>
                                         <div class="header-social">
-                                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            {{-- <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                             <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a> --}}
                                             {{-- <a href="https://www.vimeo.com/"><i class="fab fa-vimeo-v"></i></a> --}}
+                                            @foreach ($reseaux as $reseau)
+                                                <a href="{{ $reseau->lien }}" target="_blank">
+                                                    <i class="{{ $reseau->icone }}"></i>
+                                                </a>
+                                            @endforeach
                                         </div>
                                     </li>
                                 </ul>
@@ -528,8 +533,7 @@ Header Area
                                         <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
                                                 alt="Dealaro"></a>
                                     </div>
-                                    <p class="about-text">{{ $parametresGlobau->slogan
-                                     }}</p>
+                                    <p class="about-text">{{ $parametresGlobau->slogan }}</p>
                                     <ul class="footer-info-list">
                                         <li class="footer-info"><i class="fa-solid fa-phone"></i><a
                                                 href="tel:(+163)-1202-0088">{{ $parametresGlobau->telephone }}</a></li>
@@ -537,12 +541,11 @@ Header Area
                                                 href="mailto:info@dealaro.com">{{ $parametresGlobau->email }}</a></li>
                                     </ul>
                                     <div class="as-social pt-25">
-                                        <a href="https://www.facebook.com/"><i
-                                                class="fa-brands fa-facebook-f"></i></a>
-                                        <a href="https://www.goggle.com/"><i class="fa-brands fa-google"></i></a>
-                                        <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                                        <a href="https://www.pinterest.com/"><i
-                                                class="fa-brands fa-pinterest-p"></i></a>
+                                        @foreach ($reseaux as $reseau)
+                                            <a href="{{ $reseau->lien }}" target="_blank">
+                                                <i class="{{ $reseau->icone }}"></i>
+                                            </a>
+                                        @endforeach
                                     </div>
                                 @endforeach
                             </div>

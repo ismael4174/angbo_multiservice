@@ -7,6 +7,7 @@ use App\Models\Caroussel;
 use App\Models\MessagesContact;
 use App\Models\Newsletter;
 use App\Models\ParametresGlobaux;
+use App\Models\ReseauSocial;
 use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,10 +18,10 @@ class GeneralController extends Controller
     {
         // $agences = Agence::all();
 
-         $agences = Agence::with('service_agences')
-        ->select('agences.*')
-        ->orderBy('nom')
-        ->get();
+        $agences = Agence::with('service_agences')
+            ->select('agences.*')
+            ->orderBy('nom')
+            ->get();
 
         return view('agence', compact('agences'));
     }
@@ -36,7 +37,7 @@ class GeneralController extends Controller
         $slides = Caroussel::all()->where('type_carousel_id', 1);
         $services = Service::all()->where('type_service_id', 1);
         $abouts = ParametresGlobaux::all();
-        return view('welcome', compact('slides','services','abouts'));
+        return view('welcome', compact('slides', 'services', 'abouts'));
     }
 
     public function stre(Request $request)
@@ -80,4 +81,10 @@ class GeneralController extends Controller
         // ✅ Redirection + message succès
         return redirect()->back()->with('success', ' Souscription effective !');
     }
+
+    // public function index()
+    // {
+    //     $reseaux = ReseauSocial::all();
+    //     return view('layouts.master', compact('reseaux'));
+    // }
 }

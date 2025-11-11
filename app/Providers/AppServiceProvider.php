@@ -31,8 +31,12 @@ class AppServiceProvider extends ServiceProvider
 
         View::share([
 
-            'reseauxSociaux' => ReseauSocial::all(),
+            'reseaux' => ReseauSocial::all(),
             'parametresGlobaux' => ParametresGlobaux::all(),
         ]);
+
+        View::composer('*', function ($view) {
+            $view->with('reseaux', ReseauSocial::all());
+        });
     }
 }
