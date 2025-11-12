@@ -45,7 +45,7 @@ class Service extends Model
 		'type_service_id' => 'int',
 		'ordre_affichage' => 'int',
 		'est_actif' => 'bool',
-        'galerie' => 'json',
+        'galerie' => 'array',
 		'created_by' => 'int',
 		'updated_by' => 'int',
 		'deleted_by' => 'int'
