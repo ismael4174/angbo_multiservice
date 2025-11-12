@@ -2,8 +2,8 @@
 
 @section('content')
     <!--==============================
-                Hero Area 03
-            ==============================-->
+                        Hero Area 03
+                    ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
         <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true"
             data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
@@ -32,68 +32,75 @@
     <!--======== / Hero Section ========-->
 
     <!--==============================
-                About Area 3
-            ==============================-->
+                        About Area 3
+                    ==============================-->
     <section class="about-area3 space-bottom space-extra-top">
 
         <div class="container">
             <div class="row">
                 @foreach ($parametresGlobaux as $parametresGlobau)
-                <div class="col-lg-6">
-                    <div class="about-thumb-wrap3 mb-lg-0 mb-5">
-                        <div class="shape-mockup jump" data-top="98px" data-left="-39px">
-                            <img class="about-thumb-bg3" src="assets/img/about/about_shape3.png" alt="img">
-                        </div>
-                        <div class="thumb-1"><img src="assets/img/about/about_3_1.png" alt="img"></div>
-                        <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
-                        <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
-                            <h3 class="counter-title"><span class="counter-number">{{ $parametresGlobau->annee_experience }}</span></h3>
-                            <span class="counter-text">Années <br>
-                                d'Expérience</span>
+                    <div class="col-lg-6">
+                        <div class="about-thumb-wrap3 mb-lg-0 mb-5">
+                            <div class="shape-mockup jump" data-top="98px" data-left="-39px">
+                                <img class="about-thumb-bg3" src="assets/img/about/about_shape3.png" alt="img">
+                            </div>
+                            <div class="thumb-1"><img src="assets/img/about/about_3_1.png" alt="img"></div>
+                            <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
+                            <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
+                                <h3 class="counter-title"><span
+                                        class="counter-number">{{ $parametresGlobau->annee_experience }}</span></h3>
+                                <span class="counter-text">Années <br>
+                                    d'Expérience</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="title-area about-wrap-3 mb-0">
-                        <h3 class="sub-title">À PROPOS DE NOTRE ENTREPRISE</h3>
-                        <h2 class="sec-title">{{ $parametresGlobau->nom_entreprise }}</h2>
-                        <p class="content">{{ $parametresGlobau->description }}</p>
+                    <div class="col-lg-6">
+                        <div class="title-area about-wrap-3 mb-0">
+                            <h3 class="sub-title">À PROPOS DE NOTRE ENTREPRISE</h3>
+                            <h2 class="sec-title">{{ $parametresGlobau->nom_entreprise }}</h2>
+                            <p class="content">{{ $parametresGlobau->description }}</p>
 
-                        <div class="list-column2">
-                            <div class="checklist">
-                                <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_1 }}</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_2 }}
-                                    </li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_3 }}</li>
-                                </ul>
+                            <div class="list-column2">
+                                <div class="checklist">
+                                    <ul>
+                                        <li><img src="assets/img/icon/check.svg" alt="img">
+                                            {{ $parametresGlobau->caracteristique_1 }}</li>
+                                        <li><img src="assets/img/icon/check.svg" alt="img">
+                                            {{ $parametresGlobau->caracteristique_2 }}
+                                        </li>
+                                        <li><img src="assets/img/icon/check.svg" alt="img">
+                                            {{ $parametresGlobau->caracteristique_3 }}</li>
+                                    </ul>
+                                </div>
+                                <div class="checklist">
+                                    <ul>
+                                        <li><img src="assets/img/icon/check.svg" alt="img">
+                                            {{ $parametresGlobau->caracteristique_4 }}</li>
+                                        <li><img src="assets/img/icon/check.svg" alt="img">
+                                            {{ $parametresGlobau->caracteristique_5 }}</li>
+                                        <li><img src="assets/img/icon/check.svg"
+                                                alt="img">{{ $parametresGlobau->caracteristique_6 }}</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="checklist">
-                                <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_4 }}</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_5 }}</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img">{{ $parametresGlobau->caracteristique_6 }}</li>
-                                </ul>
+                        </div>
+                        <div class="about-btn-group" style="display: flex; justify-content: flex-end;">
+                            <div class="about-grid">
+                                <div class="media-body">
+                                    <img src="assets/img/about/signeture2.svg" alt="img">
+                                    <p class="about-profile-desig">{{ $parametresGlobau->nom_directeur }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="about-btn-group" style="display: flex; justify-content: flex-end;">
-                        <div class="about-grid">
-                            <div class="media-body">
-                                <img src="assets/img/about/signeture2.svg" alt="img">
-                                <p class="about-profile-desig">{{ $parametresGlobau->nom_directeur }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
             </div>
         </div>
         </div>
     </section>
     <!--==============================
-                Service Area 03
-            ==============================-->
+                        Service Area 03
+                    ==============================-->
     <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
@@ -111,12 +118,14 @@
             data-lg-dots="true">
             @foreach ($services as $service)
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="display: flex;">
-                    <div class="service-card w-100" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
+                    <div class="service-card w-100"
+                        style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
                         <h3 class="service-card_title"><a href="">{{ $service->titre }}</a></h3>
                         <p class="service-card_text">{{ $service->description }}</p>
                         <div class="service-card_img">
                             <div class="service-card_icon">
-                                <img class="svg-img" style="height: 50px; width:50px;"src="assets/img/icon/airplane.svg" alt="img">
+                                <img class="svg-img" style="height: 50px; width:50px;"src="assets/img/icon/airplane.svg"
+                                    alt="img">
                             </div>
                             <div class="thumb" style="height: 200px; width:351px;">
                                 <img src="{{ asset('uploads/' . $service->image) }}" alt="service">
@@ -130,8 +139,8 @@
     <br>
 
     <!--==============================
-                Why-choose-us Area 03
-            ==============================-->
+                        Why-choose-us Area 03
+                    ==============================-->
     {{-- <div class="wcu-area-3" data-bg-src="assets/img/bg/wcu-bg.png">
         <div class="container-fluid p-0">
             <div class="row gx-0">
@@ -185,8 +194,8 @@
         </div>
     </div> --}}
     <!--==============================
-                Counter Area 03
-            ==============================-->
+                        Counter Area 03
+                    ==============================-->
     {{-- <div class="container space-top pt-xl-0 pb-xl-0">
         <div class="counter-area3 text-center" data-bg-src="assets/img/bg/counter_bg.png">
             <div class="row gy-25 justify-content-center">
@@ -238,8 +247,8 @@
         </div>
     </div> --}}
     <!--==============================
-                Team Area 02
-            ==============================-->
+                        Team Area 02
+                    ==============================-->
     {{-- <section class="team-area-2 space">
         <div class="container">
             <div class="title-area text-center">
@@ -425,8 +434,8 @@
         </div>
     </section> --}}
     <!--==============================
-            Process Area
-            ==============================-->
+                    Process Area
+                    ==============================-->
     <section class="process-sec bg-smoke2 space" data-bg-src="assets/img/bg/work-process-bg.png">
         <div class="container">
             <div class="title-area text-center">
@@ -477,8 +486,8 @@
         </div>
     </section>
     <!--==============================
-            Price Area
-            ==============================-->
+                    Price Area
+                    ==============================-->
     {{-- <section class="space">
         <div class="container">
             <div class="row justify-content-center">
@@ -596,8 +605,8 @@
         </div>
     </section> --}}
     <!--==============================
-                Portfolio Area 02
-            ==============================-->
+                        Portfolio Area 02
+                    ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
         data-bg-src="assets/img/portfolio/R.jpeg">
@@ -616,7 +625,25 @@
         <div class="portfolio-slider-wrap overflow-hidden">
             <div class="portfolio-slider2 row">
                 <div class="item col">
-                    <div class="portfolio-card2">
+
+                    @foreach ($services as $service)
+                        @foreach ($service->galerie ?? [] as $image)
+                            <div class="portfolio-card2 col-md-4 mb-3">
+                                <div class="portfolio-card_img">
+                                    <img src="{{ asset('uploads/' . $image) }}" alt="img"
+                                        class="img-fluid rounded shadow">
+                                </div>
+                                <div class="card_content">
+                                    <div>
+                                        <h3 class="card_title box-title text-white">{{$service->titre}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endforeach
+
+
+                    {{-- <div class="portfolio-card2">
                         <div class="portfolio-card_img">
                             <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
                         </div>
@@ -625,105 +652,22 @@
                                 <h3 class="card_title box-title text-white">international air freight</h3>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
     <!--==============================
 
-                Blog Area 2
-            ==============================-->
+                        Blog Area 2
+                    ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
 
         </div>
     </section>
     <!--==============================
-                    Footer Area
-            ==============================-->
+                            Footer Area
+                    ==============================-->
 @endsection

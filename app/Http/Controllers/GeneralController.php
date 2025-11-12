@@ -38,6 +38,7 @@ class GeneralController extends Controller
         $slides = Caroussel::all()->where('type_carousel_id', 1);
         $services = Service::all()->where('type_service_id', 1);
         $abouts = ParametresGlobaux::all();
+        // $produits = Produit::whereIn('service_id', [4, 5, 6, 7, 8])->get();
         return view('welcome', compact('slides', 'services', 'abouts'));
     }
 
