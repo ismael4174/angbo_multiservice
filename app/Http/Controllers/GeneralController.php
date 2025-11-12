@@ -7,6 +7,7 @@ use App\Models\Caroussel;
 use App\Models\MessagesContact;
 use App\Models\Newsletter;
 use App\Models\ParametresGlobaux;
+use App\Models\Produit;
 use App\Models\ReseauSocial;
 use App\Models\Service;
 use Carbon\Carbon;
@@ -82,9 +83,18 @@ class GeneralController extends Controller
         return redirect()->back()->with('success', ' Souscription effective !');
     }
 
-    // public function index()
-    // {
-    //     $reseaux = ReseauSocial::all();
-    //     return view('layouts.master', compact('reseaux'));
-    // }
+    public function vehicule()
+    {
+        $slide2s = Caroussel::all()->where('type_carousel_id', 3);
+        $service1s = Service::all()->where('type_service_id', 2);
+        $produits = Produit::whereIn('service_id', [9, 10, 11, 12, 13, 14])->get();
+        return view('vehicule', compact('slide2s', 'service1s', 'produits'));
+    }
+    public function piece()
+    {
+        $slide1s = Caroussel::all()->where('type_carousel_id', 2);
+        $service2s = Service::all()->where('type_service_id', 3);
+
+        return view('piece', compact('slide1s', 'service2s'));
+    }
 }

@@ -192,55 +192,23 @@ Mobile Menu
             </div>
             <div class="as-mobile-menu">
                 <ul>
-                    <li class="menu-item-has-children">
-                        <a href="#">HOME</a>
-                        <ul class="sub-menu">
-                            <li><a href="/">Home Automotive Repair</a></li>
-                            <li><a href="home-car-dealer">Home Car Dealer</a></li>
-                            <li><a href="home-logistic">Home Logistic Dealer</a></li>
-                        </ul>
+
+                    <li>
+                        <a href="/">ACCUEIL</a>
                     </li>
 
                     <li>
-                        <a href="about">ABOUT</a>
+                        <a href="{{ route('vente.vehicule') }}">ACHAT / LOCATION</a>
                     </li>
 
-                    <li class="menu-item-has-children">
-                        <a href="#">SERVICES</a>
-                        <ul class="sub-menu">
-                            <li><a href="service">Service Page</a></li>
-                            <li><a href="service-details">Service Details</a></li>
-                        </ul>
+                    <li>
+                        <a href="{{ route('vente.piece') }}">PIECES DETACHEES</a>
                     </li>
 
                     <li>
                         <a href="agence">AGENCE</a>
                     </li>
 
-                    <li class="menu-item-has-children">
-                        <a href="#">BLOG</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog">Blog Page</a></li>
-                            <li><a href="blog-details">Blog Details</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="menu-item-has-children">
-                        <a href="#">PAGES</a>
-                        <ul class="sub-menu">
-                            <li><a href="about">About Us</a></li>
-                            <li><a href="team">Team Page</a></li>
-                            <li><a href="team-details">Team Details</a></li>
-                            <li><a href="project-details">Project Details</a></li>
-                            <li><a href="shop">Shop</a></li>
-                            <li><a href="shop-details">Shop Details</a></li>
-                            <li><a href="cart">Cart Page</a></li>
-                            <li><a href="checkout">Checkout</a></li>
-                            <li><a href="wishlist">Wishlist</a></li>
-                            <li><a href="testimonial">Testimonial</a></li>
-                            <li><a href="error">Error Page</a></li>
-                        </ul>
-                    </li>
                     <li>
                         <a href="contact">CONTACT</a>
                     </li>
@@ -448,42 +416,25 @@ Header Area
                                             <a href="/">ACCUEIL</a>
                                         </li>
 
-                                        {{-- <li>
-                                            <a href="about">A PROPOS</a>
-                                        </li> --}}
+                                        <li>
+                                            <a href="{{ route('vente.vehicule') }}">ACHAT / LOCATION  </a>
+                                        </li>
 
-                                        <li class="menu-item-has-children">
+                                        <li>
+                                            <a href="{{ route('vente.piece') }}">PIECES DETACHEES</a>
+                                        </li>
+
+
+
+                                        {{-- <li class="menu-item-has-children">
                                             <a href="#">SERVICES</a>
                                             <ul class="sub-menu">
                                                 <li><a href="service">Service Page</a></li>
                                                 <li><a href="service-details">Service Details</a></li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
 
-                                        {{-- <li class="menu-item-has-children">
-                                        <a href="#">BLOG</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog">Blog Page</a></li>
-                                            <li><a href="blog-details">Blog Details</a></li>
-                                        </ul>
-                                    </li> --}}
 
-                                        {{-- <li class="menu-item-has-children">
-                                        <a href="#">PAGES</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about">About Us</a></li>
-                                            <li><a href="team">Team Page</a></li>
-                                            <li><a href="team-details">Team Details</a></li>
-                                            <li><a href="project-details">Project Details</a></li>
-                                            <li><a href="shop">Shop</a></li>
-                                            <li><a href="shop-details">Shop Details</a></li>
-                                            <li><a href="cart">Cart Page</a></li>
-                                            <li><a href="checkout">Checkout</a></li>
-                                            <li><a href="wishlist">Wishlist</a></li>
-                                            <li><a href="testimonial">Testimonial</a></li>
-                                            <li><a href="error">Error Page</a></li>
-                                        </ul>
-                                    </li> --}}
 
                                         <li>
                                             <a href="agence">AGENCES</a>
@@ -530,13 +481,15 @@ Header Area
                             <div class="as-widget-about">
                                 @foreach ($parametresGlobaux as $parametresGlobau)
                                     <div class="footer-logo">
-                                        <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
+                                        <a href="/"><img
+                                                src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
                                                 alt="Dealaro"></a>
                                     </div>
                                     <p class="about-text">{{ $parametresGlobau->slogan }}</p>
                                     <ul class="footer-info-list">
                                         <li class="footer-info"><i class="fa-solid fa-phone"></i><a
-                                                href="tel:(+163)-1202-0088">{{ $parametresGlobau->telephone }}</a></li>
+                                                href="tel:(+163)-1202-0088">{{ $parametresGlobau->telephone }}</a>
+                                        </li>
                                         <li class="footer-info"><i class="fa-solid fa-envelope"></i><a
                                                 href="mailto:info@dealaro.com">{{ $parametresGlobau->email }}</a></li>
                                     </ul>

@@ -43,6 +43,8 @@ Route::get('/contact', function () {
 });
 // Route::get('/contact', [MessagesContactController::class, 'stre'])->name('contact');
 Route::Post('/contact', [GeneralController::class, 'stre'])->name('contact.submit');
+Route::get('/achat_location_vehicule', [GeneralController::class, 'vehicule'])->name('vente.vehicule');
+Route::get('/achat_piece', [GeneralController::class, 'piece'])->name('vente.piece');
 
 
 Route::get('/error', function () {
