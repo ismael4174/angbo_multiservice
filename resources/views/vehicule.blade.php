@@ -2,8 +2,8 @@
 
 @section('content')
     <!--==============================
-                                        Hero Area 03
-                                    ==============================-->
+                                                Hero Area 03
+                                            ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
         <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true"
             data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
@@ -35,9 +35,9 @@
 
 
     <!--==============================
-            Produits / Véhicules
-    ===============================-->
-    <section class="product-area space-top space-extra-bottom">
+                     Véhicules
+            ===============================-->
+    {{-- <section class="product-area space-top space-extra-bottom">
         <div class="container">
             <div class="title-area text-center mb-4">
                 <span class="sub-title"><span class="double-line"></span> NOS VÉHICULES</span>
@@ -127,6 +127,135 @@
                 @endforelse
             </div>
         </div>
+    </section> --}}
+
+    <section class="product-area space-top space-extra-bottom">
+        <div class="container">
+            <div class="title-area text-center mb-4">
+                <span class="sub-title"><span class="double-line"></span> NOS VÉHICULES</span>
+                <h2 class="sec-title">Découvrez nos choix de véhicules</h2>
+            </div>
+
+            <!-- 🔹 Filtres (affichés une seule fois) -->
+            <form method="GET" class="row justify-content-center mb-5">
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <select name="marque_id" class="form-select" onchange="this.form.submit()">
+                        <option value="">Toutes les marques</option>
+                        @foreach ($marques as $marque)
+                            <option value="{{ $marque->id }}" {{ $marque_id == $marque->id ? 'selected' : '' }}>
+                                {{ $marque->nom }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <select name="type_transac" class="form-select" onchange="this.form.submit()">
+                        <option value="">Tous les types</option>
+                        <option value="vente" {{ $type_transac == 'vente' ? 'selected' : '' }}>Vente</option>
+                        <option value="location" {{ $type_transac == 'location' ? 'selected' : '' }}>Location</option>
+                    </select>
+                </div>
+            </form>
+
+            <!-- 🔹 Grille de véhicules (4 colonnes sur grand écran) -->
+            <div class="row g-4">
+                @forelse ($vehicules as $vehicule)
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="card shadow-sm h-100 border-0">
+                            <div class="position-relative">
+                                <img src="{{ asset('uploads/' . $vehicule->image_principale) }}" class="card-img-top"
+                                    alt="{{ $vehicule->titre }}"
+                                    style="height:230px; object-fit:cover; border-radius:10px 10px 0 0;">
+                                @if ($vehicule->disponible)
+                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponible</span>
+                                @else
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Indisponible</span>
+                                @endif
+                            </div>
+
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ $vehicule->titre }}</h5>
+                                <p class="text-muted mb-1">
+                                    <strong>Marque :</strong> {{ $vehicule->marque->nom ?? '—' }}<br>
+                                    <strong>Type :</strong> {{ ucfirst($vehicule->type_transac) }}
+                                </p>
+                                <p class="card-text text-muted flex-grow-1">{{ Str::limit($vehicule->description, 80) }}
+                                </p>
+
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <strong>{{ number_format($vehicule->prix, 0, ',', ' ') }}
+                                        {{ $vehicule->devise }}</strong>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#vehiculeModal{{ $vehicule->id }}">
+                                        Détails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal détail -->
+                    <div class="modal fade" id="vehiculeModal{{ $vehicule->id }}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white">
+                                    <h5 class="modal-title">{{ $vehicule->titre }}</h5>
+                                    <button type="button" class="btn-close btn-close-white"
+                                        data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <img src="{{ asset('uploads/' . $vehicule->image_principale) }}"
+                                                class="img-fluid rounded shadow-sm" alt="{{ $vehicule->titre }}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Description</h6>
+                                            <p>{{ $vehicule->description }}</p>
+
+                                            @if (!empty($vehicule->galerie))
+                                                <h6>Galerie</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    @foreach ($vehicule->galerie as $img)
+                                                        <img src="{{ asset('uploads/' . $img) }}" class="img-thumbnail"
+                                                            style="width:80px; height:80px; object-fit:cover;">
+                                                    @endforeach
+                                                </div>
+                                            @endif
+
+                                            <div class="mt-3">
+                                                <strong>Prix :</strong> {{ number_format($vehicule->prix, 0, ',', ' ') }}
+                                                {{ $vehicule->devise }}<br>
+                                                <strong>Marque :</strong> {{ $vehicule->marque->nom ?? '—' }}<br>
+                                                <strong>Type :</strong> {{ ucfirst($vehicule->type_transac) }}
+                                            </div>
+
+                                            @if ($vehicule->whatsapp_contact)
+                                                @php
+                                                    $message = "Bonjour, je suis intéressé par la voiture : {$vehicule->marque->nom} {$vehicule->modele} ({$vehicule->annee}).";
+                                                    $whatsappLink =
+                                                        "https://wa.me/{$vehicule->whatsapp_contact}?text=" .
+                                                        urlencode($message);
+                                                @endphp
+                                                <a href="{{ $whatsappLink }}" target="_blank" class="btn btn-success mt-3">
+                                                    <i class="fab fa-whatsapp"></i> Intéressé
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-center text-muted">Aucun véhicule disponible pour le moment.</p>
+                @endforelse
+            </div>
+        </div>
     </section>
 
 
@@ -138,9 +267,11 @@
 
 
 
+
+
     <!--==============================
-                                        Service Area 03
-                                    ==============================-->
+                                                Service Area 03
+                                            ==============================-->
     <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
@@ -153,9 +284,9 @@
     </div>
 
     <div class="container">
-        <div class="service-slider row as-carousel g-0" data-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2"
-            data-sm-slide-show="1" data-xs-slide-show="1" data-dots="true" data-xl-dots="true" data-ml-dots="true"
-            data-lg-dots="true">
+        <div class="service-slider row as-carousel g-0" data-slide-show="3" data-lg-slide-show="3"
+            data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1" data-dots="true" data-xl-dots="true"
+            data-ml-dots="true" data-lg-dots="true">
             @foreach ($service1s as $service1)
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="display: flex;">
                     <div class="service-card w-100"
@@ -183,8 +314,8 @@
 
 
     <!--==============================
-                                        Portfolio Area 02
-                                    ==============================-->
+                                                Portfolio Area 02
+                                            ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
         data-bg-src="uploads/images/neuf.jpg">
@@ -219,8 +350,8 @@
     </div>
     <!--==============================
 
-                                        Blog Area 2
-                                    ==============================-->
+                                                Blog Area 2
+                                            ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
 

@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $localisation
  * @property int|null $annee_experience
  * @property string|null $titre
+ * @property string|null $image1
+ * @property string|null $image2
  * @property string|null $caracteristique_1
  * @property string|null $caracteristique_2
  * @property string|null $caracteristique_3
@@ -53,6 +55,8 @@ class ParametresGlobaux extends Model
 		'localisation',
 		'annee_experience',
 		'titre',
+		'image1',
+		'image2',
 		'caracteristique_1',
 		'caracteristique_2',
 		'caracteristique_3',

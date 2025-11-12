@@ -33,6 +33,8 @@ class ParametresGlobauxController extends AdminController
         $grid->column('localisation', __('Localisation'));
         $grid->column('annee_experience', __('Annee experience'));
         $grid->column('titre', __('Titre'));
+        $grid->column('image1', __('Image 1'))->image();
+        $grid->column('image2', __('Image 2'))->image();
         $grid->column('caracteristique_1', __('Caracteristique 1'));
         $grid->column('caracteristique_2', __('Caracteristique 2'));
         $grid->column('caracteristique_3', __('Caracteristique 3'));
@@ -67,6 +69,8 @@ class ParametresGlobauxController extends AdminController
         $show->field('localisation', __('Localisation'));
         $show->field('annee_experience', __('Annee experience'));
         $show->field('titre', __('Titre'));
+        $show->field('image1', __('Image 1'));
+        $show->field('image2', __('Image 2'));
         $show->field('caracteristique_1', __('Caracteristique 1'));
         $show->field('caracteristique_2', __('Caracteristique 2'));
         $show->field('caracteristique_3', __('Caracteristique 3'));
@@ -99,6 +103,8 @@ class ParametresGlobauxController extends AdminController
         $form->text('localisation', __('Localisation'));
         $form->number('annee_experience', __('Annee experience'));
         $form->text('titre', __('Titre'));
+        $form->image('image1', __('Image 1'))->removable()->uniqueName();
+        $form->image('image2', __('Image 2'))->removable()->uniqueName();
         $form->text('caracteristique_1', __('Caracteristique 1'));
         $form->text('caracteristique_2', __('Caracteristique 2'));
         $form->text('caracteristique_3', __('Caracteristique 3'));
