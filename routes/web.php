@@ -50,6 +50,9 @@ Route::get('/achat_piece', [GeneralController::class, 'piece'])->name('vente.pie
 Route::get('/error', function () {
     return view('error');
 });
+Route::get('/index', function () {
+    return view('index');
+});
 Route::get('/home-car-dealer', function () {
     return view('home-car-dealer');
 });

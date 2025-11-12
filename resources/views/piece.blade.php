@@ -2,8 +2,8 @@
 
 @section('content')
     <!--==============================
-                Hero Area 03
-            ==============================-->
+                        Hero Area 03
+                    ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
         <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true"
             data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
@@ -32,68 +32,103 @@
     <!--======== / Hero Section ========-->
 
     <!--==============================
-                About Area 3
-            ==============================-->
-    <section class="about-area3 space-bottom space-extra-top">
-
+                    Produits / Véhicules
+            ===============================-->
+    <section class="product-area space-top space-extra-bottom">
         <div class="container">
-            <div class="row">
-                @foreach ($parametresGlobaux as $parametresGlobau)
-                <div class="col-lg-6">
-                    <div class="about-thumb-wrap3 mb-lg-0 mb-5">
-                        <div class="shape-mockup jump" data-top="98px" data-left="-39px">
-                            <img class="about-thumb-bg3" src="assets/img/about/about_shape3.png" alt="img">
-                        </div>
-                        <div class="thumb-1"><img src="assets/img/about/about_3_1.png" alt="img"></div>
-                        <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
-                        <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
-                            <h3 class="counter-title"><span class="counter-number">{{ $parametresGlobau->annee_experience }}</span></h3>
-                            <span class="counter-text">Années <br>
-                                d'Expérience</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="title-area about-wrap-3 mb-0">
-                        <h3 class="sub-title">À PROPOS DE NOTRE ENTREPRISE</h3>
-                        <h2 class="sec-title">{{ $parametresGlobau->nom_entreprise }}</h2>
-                        <p class="content">{{ $parametresGlobau->description }}</p>
+            <div class="title-area text-center mb-4">
+                <span class="sub-title"><span class="double-line"></span> NOS VÉHICULES</span>
+                <h2 class="sec-title">Découvrez nos choix de véhicules</h2>
+            </div>
 
-                        <div class="list-column2">
-                            <div class="checklist">
-                                <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_1 }}</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_2 }}
-                                    </li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_3 }}</li>
-                                </ul>
+            <div class="row g-4 justify-content-center">
+                @forelse ($produits as $produit)
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card shadow-sm h-100 border-0">
+                            <div class="position-relative">
+                                <img src="{{ asset('uploads/' . $produit->image_principale) }}" class="card-img-top"
+                                    alt="{{ $produit->titre }}"
+                                    style="height:230px; object-fit:cover; border-radius:10px 10px 0 0;">
+                                @if ($produit->disponible)
+                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponible</span>
+                                @else
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Indisponible</span>
+                                @endif
                             </div>
-                            <div class="checklist">
-                                <ul>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_4 }}</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img"> {{ $parametresGlobau->caracteristique_5 }}</li>
-                                    <li><img src="assets/img/icon/check.svg" alt="img">{{ $parametresGlobau->caracteristique_6 }}</li>
-                                </ul>
+
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ $produit->titre }}</h5>
+                                <p class="card-text text-muted flex-grow-1">{{ Str::limit($produit->description, 80) }}</p>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <strong>{{ number_format($produit->prix, 0, ',', ' ') }} {{ $produit->devise }}</strong>
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#produitModal{{ $produit->id }}">
+                                        Détails
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="about-btn-group" style="display: flex; justify-content: flex-end;">
-                        <div class="about-grid">
-                            <div class="media-body">
-                                <img src="assets/img/about/signeture2.svg" alt="img">
-                                <p class="about-profile-desig">{{ $parametresGlobau->nom_directeur }}</p>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="produitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark text-white">
+                                    <h5 class="modal-title">{{ $produit->titre }}</h5>
+                                    <button type="button" class="btn-close btn-close-white"
+                                        data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <img src="{{ asset('uploads/' . $produit->image_principale) }}"
+                                                class="img-fluid rounded shadow-sm" alt="{{ $produit->titre }}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Description</h6>
+                                            <p>{{ $produit->description }}</p>
+
+                                            @if (!empty($produit->galerie))
+                                                <h6>Galerie</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    @foreach ($produit->galerie as $img)
+                                                        <img src="{{ asset('uploads/' . $img) }}" class="img-thumbnail"
+                                                            style="width:80px; height:80px; object-fit:cover;">
+                                                    @endforeach
+                                                </div>
+                                            @endif
+
+                                            <div class="mt-3">
+                                                <strong>Prix :</strong> {{ number_format($produit->prix, 0, ',', ' ') }}
+                                                {{ $produit->devise }}<br>
+                                                <strong>Service :</strong> {{ $produit->service->titre ?? '—' }}
+                                            </div>
+                                            @if ($produit->whatsapp_link)
+                                                <a href="{{ $produit->whatsapp_link }}" target="_blank"
+                                                    class="btn btn-success mt-3">
+                                                    <i class="fab fa-whatsapp"></i> Contacter sur WhatsApp
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                @empty
+                    <p class="text-center text-muted">Aucun produit disponible pour le moment.</p>
+                @endforelse
             </div>
         </div>
-        </div>
     </section>
+
     <!--==============================
-                Service Area 03
-            ==============================-->
+                        Service Area 03
+                    ==============================-->
     <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
@@ -111,12 +146,14 @@
             data-lg-dots="true">
             @foreach ($service2s as $service2)
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="display: flex;">
-                    <div class="service-card w-100" style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
+                    <div class="service-card w-100"
+                        style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
                         <h3 class="service-card_title"><a href="">{{ $service2->titre }}</a></h3>
                         <p class="service-card_text">{{ $service2->description }}</p>
                         <div class="service-card_img">
                             <div class="service-card_icon">
-                                <img class="svg-img" style="height: 50px; width:50px;"src="assets/img/icon/airplane.svg" alt="img">
+                                <img class="svg-img" style="height: 50px; width:50px;"src="assets/img/icon/cat-icon-3.svg"
+                                    alt="img">
                             </div>
                             <div class="thumb" style="height: 200px; width:351px;">
                                 <img src="{{ asset('uploads/' . $service2->image) }}" alt="service">
@@ -130,8 +167,8 @@
     <br>
 
     <!--==============================
-                Why-choose-us Area 03
-            ==============================-->
+                        Why-choose-us Area 03
+                    ==============================-->
     {{-- <div class="wcu-area-3" data-bg-src="assets/img/bg/wcu-bg.png">
         <div class="container-fluid p-0">
             <div class="row gx-0">
@@ -185,8 +222,8 @@
         </div>
     </div> --}}
     <!--==============================
-                Counter Area 03
-            ==============================-->
+                        Counter Area 03
+                    ==============================-->
     {{-- <div class="container space-top pt-xl-0 pb-xl-0">
         <div class="counter-area3 text-center" data-bg-src="assets/img/bg/counter_bg.png">
             <div class="row gy-25 justify-content-center">
@@ -238,8 +275,8 @@
         </div>
     </div> --}}
     <!--==============================
-                Team Area 02
-            ==============================-->
+                        Team Area 02
+                    ==============================-->
     {{-- <section class="team-area-2 space">
         <div class="container">
             <div class="title-area text-center">
@@ -425,8 +462,8 @@
         </div>
     </section> --}}
     <!--==============================
-            Process Area
-            ==============================-->
+                    Process Area
+                    ==============================-->
     {{-- <section class="process-sec bg-smoke2 space" data-bg-src="assets/img/bg/work-process-bg.png">
         <div class="container">
             <div class="title-area text-center">
@@ -477,8 +514,8 @@
         </div>
     </section> --}}
     <!--==============================
-            Price Area
-            ==============================-->
+                    Price Area
+                    ==============================-->
     <section class="space">
         <div class="container">
             <div class="row justify-content-center">
@@ -596,8 +633,8 @@
         </div>
     </section>
     <!--==============================
-                Portfolio Area 02
-            ==============================-->
+                        Portfolio Area 02
+                    ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
         data-bg-src="assets/img/portfolio/R.jpeg">
@@ -632,14 +669,14 @@
     </div>
     <!--==============================
 
-                Blog Area 2
-            ==============================-->
+                        Blog Area 2
+                    ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
 
         </div>
     </section>
     <!--==============================
-                    Footer Area
-            ==============================-->
+                            Footer Area
+                    ==============================-->
 @endsection

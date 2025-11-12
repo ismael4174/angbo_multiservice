@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Agence;
 use App\Models\Caroussel;
+use App\Models\Marque;
 use App\Models\MessagesContact;
 use App\Models\Newsletter;
 use App\Models\ParametresGlobaux;
 use App\Models\Produit;
 use App\Models\ReseauSocial;
 use App\Models\Service;
+use App\Models\Vehicule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -84,18 +86,49 @@ class GeneralController extends Controller
         return redirect()->back()->with('success', ' Souscription effective !');
     }
 
-    public function vehicule()
+    // public function vehicule()
+    // {
+    //     $slide2s = Caroussel::all()->where('type_carousel_id', 3);
+    //     $service1s = Service::all()->where('type_service_id', 2);
+    //     $produits = Produit::whereIn('service_id', [9, 10, 11, 12, 13, 14])->get();
+    //     return view('vehicule', compact('slide2s', 'service1s', 'produits'));
+    // }
+
+    public function vehicule(Request $request)
     {
         $slide2s = Caroussel::all()->where('type_carousel_id', 3);
         $service1s = Service::all()->where('type_service_id', 2);
-        $produits = Produit::whereIn('service_id', [9, 10, 11, 12, 13, 14])->get();
-        return view('vehicule', compact('slide2s', 'service1s', 'produits'));
+        // Récupérer les paramètres de filtre depuis l’URL
+        $marque_id = $request->get('marque_id');
+        $type_transac = $request->get('type_transac');
+
+        // Base de la requête
+        $query = Vehicule::with('marque');
+
+        // Filtrer par marque si sélectionnée
+        if ($marque_id) {
+            $query->where('marque_id', $marque_id);
+        }
+
+        // Filtrer par type de transaction (vente ou location)
+        if ($type_transac) {
+            $query->where('type_transac', $type_transac);
+        }
+
+        // Récupérer la liste finale
+        $vehicules = $query->get();
+
+        // Pour le menu de tri (liste des marques disponibles)
+        $marques = Marque::all();
+
+        return view('vehicule', compact('service1s','slide2s','vehicules', 'marques', 'marque_id', 'type_transac'));
     }
+
     public function piece()
     {
         $slide1s = Caroussel::all()->where('type_carousel_id', 2);
         $service2s = Service::all()->where('type_service_id', 3);
-
-        return view('piece', compact('slide1s', 'service2s'));
+        $produits = Produit::all()->whereIn('service_id', [15, 16, 17, 18, 19, 20]);
+        return view('piece', compact('slide1s', 'service2s','produits'));
     }
 }
