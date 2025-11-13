@@ -38,7 +38,7 @@
         <div class="container">
             <div class="title-area text-center mb-4">
                 <span class="sub-title"><span class="double-line"></span> NOS VÉHICULES</span>
-                <h2 class="sec-title">Découvrez nos choix de véhicules</h2>
+                <h2 class="sec-title">Découvrez nos choix de pièces détachées</h2>
             </div>
 
             <div class="row g-4 justify-content-center">
