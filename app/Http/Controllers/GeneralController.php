@@ -86,13 +86,7 @@ class GeneralController extends Controller
         return redirect()->back()->with('success', ' Souscription effective !');
     }
 
-    // public function vehicule()
-    // {
-    //     $slide2s = Caroussel::all()->where('type_carousel_id', 3);
-    //     $service1s = Service::all()->where('type_service_id', 2);
-    //     $produits = Produit::whereIn('service_id', [9, 10, 11, 12, 13, 14])->get();
-    //     return view('vehicule', compact('slide2s', 'service1s', 'produits'));
-    // }
+
 
     public function vehicule(Request $request)
     {
@@ -124,11 +118,31 @@ class GeneralController extends Controller
         return view('vehicule', compact('service1s','slide2s','vehicules', 'marques', 'marque_id', 'type_transac'));
     }
 
+
+    // public function vehicule(Request $request)
+    // {
+    //     $slide2s = Caroussel::where('type_carousel_id', 3)->get();
+    //     $service1s = Service::where('type_service_id', 2)->get();
+
+    //     // Récupération des véhicules avec leurs marques
+    //     $vehicules = Vehicule::with('marque')
+    //         ->where('archive', false)
+    //         ->get()
+    //         ->groupBy(['type_transac', 'marque_id']); // On garde le groupBy, mais Blade doit s'adapter
+
+    //     // Marques et types distincts pour les onglets
+    //     $marques = Marque::all();
+    //     $types = ['vente' => 'Vente', 'location' => 'Location'];
+
+    //     return view('vehicule', compact('service1s', 'slide2s', 'vehicules', 'marques', 'types'));
+    // }
+
+
     public function piece()
     {
         $slide1s = Caroussel::all()->where('type_carousel_id', 2);
         $service2s = Service::all()->where('type_service_id', 3);
         $produits = Produit::all()->whereIn('service_id', [15, 16, 17, 18, 19, 20]);
-        return view('piece', compact('slide1s', 'service2s','produits'));
+        return view('piece', compact('slide1s', 'service2s', 'produits'));
     }
 }
