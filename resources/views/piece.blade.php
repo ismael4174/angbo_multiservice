@@ -331,7 +331,7 @@
     <!--==============================
                                     Service Area 03
                                 ==============================-->
-    <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
+    {{-- <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
                 <span class="sub-title"><span class="double-line"></span> NOS SERVICES</span>
@@ -365,12 +365,12 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </div> --}}
     <br>
 
     <!--==============================
-                                    Portfolio Area 02
-                                ==============================-->
+            Portfolio Area 02
+     ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
         data-bg-src="assets/img/portfolio/R.jpeg">
@@ -388,18 +388,16 @@
     <div class="container-fluid p-0">
         <div class="portfolio-slider-wrap overflow-hidden">
             <div class="portfolio-slider2 row">
-                <div class="item col">
-                    <div class="portfolio-card2">
-                        <div class="portfolio-card_img">
-                            <img src="assets/img/portfolio/portfolio_2-1.png" alt="img">
-                        </div>
-                        <div class="card_content">
-                            <div>
-                                <h3 class="card_title box-title text-white">international air freight</h3>
+                @foreach ($service2s as $service2)
+                    @foreach ($service2->galerie ?? [] as $image)
+                        <div class="portfolio-card2 col-md-4 mb-3">
+                            <div class="portfolio-card_img">
+                                <img src="{{ asset('uploads/' . $image) }}" alt="img"
+                                    class="img-fluid rounded shadow">
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endforeach
             </div>
         </div>
     </div>

@@ -37,97 +37,7 @@
     <!--==============================
                      Véhicules
             ===============================-->
-    {{-- <section class="product-area space-top space-extra-bottom">
-        <div class="container">
-            <div class="title-area text-center mb-4">
-                <span class="sub-title"><span class="double-line"></span> NOS VÉHICULES</span>
-                <h2 class="sec-title">Découvrez nos choix de véhicules</h2>
-            </div>
 
-            <div class="row g-4 justify-content-center">
-                @forelse ($produits as $produit)
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card shadow-sm h-100 border-0">
-                            <div class="position-relative">
-                                <img src="{{ asset('uploads/' . $produit->image_principale) }}" class="card-img-top"
-                                    alt="{{ $produit->titre }}"
-                                    style="height:230px; object-fit:cover; border-radius:10px 10px 0 0;">
-                                @if ($produit->disponible)
-                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponible</span>
-                                @else
-                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Indisponible</span>
-                                @endif
-                            </div>
-
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ $produit->titre }}</h5>
-                                <p class="card-text text-muted flex-grow-1">{{ Str::limit($produit->description, 80) }}</p>
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <strong>{{ number_format($produit->prix, 0, ',', ' ') }} {{ $produit->devise }}</strong>
-                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#produitModal{{ $produit->id }}">
-                                        Détails
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="produitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-dark text-white">
-                                    <h5 class="modal-title">{{ $produit->titre }}</h5>
-                                    <button type="button" class="btn-close btn-close-white"
-                                        data-bs-dismiss="modal"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <img src="{{ asset('uploads/' . $produit->image_principale) }}"
-                                                class="img-fluid rounded shadow-sm" alt="{{ $produit->titre }}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h6>Description</h6>
-                                            <p>{{ $produit->description }}</p>
-
-                                            @if (!empty($produit->galerie))
-                                                <h6>Galerie</h6>
-                                                <div class="d-flex flex-wrap gap-2">
-                                                    @foreach ($produit->galerie as $img)
-                                                        <img src="{{ asset('uploads/' . $img) }}" class="img-thumbnail"
-                                                            style="width:80px; height:80px; object-fit:cover;">
-                                                    @endforeach
-                                                </div>
-                                            @endif
-
-                                            <div class="mt-3">
-                                                <strong>Prix :</strong> {{ number_format($produit->prix, 0, ',', ' ') }}
-                                                {{ $produit->devise }}<br>
-                                                <strong>Service :</strong> {{ $produit->service->titre ?? '—' }}
-                                            </div>
-                                            @if ($produit->whatsapp_link)
-                                                <a href="{{ $produit->whatsapp_link }}" target="_blank"
-                                                    class="btn btn-success mt-3">
-                                                    <i class="fab fa-whatsapp"></i> Contacter sur WhatsApp
-                                                </a>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p class="text-center text-muted">Aucun produit disponible pour le moment.</p>
-                @endforelse
-            </div>
-        </div>
-    </section> --}}
 
     <section class="product-area space-top space-extra-bottom">
         <div class="container">
@@ -269,6 +179,8 @@
 
 
 
+
+
     <!--==============================
                                                 Service Area 03
                                             ==============================-->
@@ -343,9 +255,7 @@
                         </div>
                     @endforeach
                 @endforeach
-
             </div>
-
         </div>
     </div>
     <!--==============================
