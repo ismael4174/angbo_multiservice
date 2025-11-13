@@ -2,8 +2,8 @@
 
 @section('content')
     <!--==============================
-                                    Hero Area 03
-                                ==============================-->
+                                                    Hero Area 03
+                                                ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
         <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true"
             data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
@@ -32,101 +32,10 @@
     <!--======== / Hero Section ========-->
 
     <!--==============================
-                                pieces
-                        ===============================-->
+                                                pieces
+                                        ===============================-->
+
     {{-- <section class="product-area space-top space-extra-bottom">
-        <div class="container">
-            <div class="title-area text-center mb-4">
-                <span class="sub-title"><span class="double-line"></span> NOS PIECES</span>
-                <h2 class="sec-title">Découvrez nos choix de pièces détachées</h2>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                @forelse ($produits as $produit)
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card shadow-sm h-100 border-0">
-                            <div class="position-relative">
-                                <img src="{{ asset('uploads/' . $produit->image_principale) }}" class="card-img-top"
-                                    alt="{{ $produit->titre }}"
-                                    style="height:230px; object-fit:cover; border-radius:10px 10px 0 0;">
-                                @if ($produit->disponible)
-                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Disponible</span>
-                                @else
-                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Indisponible</span>
-                                @endif
-                            </div>
-
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ $produit->titre }}</h5>
-                                <p class="card-text text-muted flex-grow-1">{{ Str::limit($produit->description, 80) }}</p>
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <strong>{{ number_format($produit->prix, 0, ',', ' ') }} {{ $produit->devise }}</strong>
-                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#produitModal{{ $produit->id }}">
-                                        Détails
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="produitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-dark text-white">
-                                    <h5 class="modal-title">{{ $produit->titre }}</h5>
-                                    <button type="button" class="btn-close btn-close-white"
-                                        data-bs-dismiss="modal"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <img src="{{ asset('uploads/' . $produit->image_principale) }}"
-                                                class="img-fluid rounded shadow-sm" alt="{{ $produit->titre }}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h6>Description</h6>
-                                            <p>{{ $produit->description }}</p>
-
-                                            @if (!empty($produit->galerie))
-                                                <h6>Galerie</h6>
-                                                <div class="d-flex flex-wrap gap-2">
-                                                    @foreach ($produit->galerie as $img)
-                                                        <img src="{{ asset('uploads/' . $img) }}" class="img-thumbnail"
-                                                            style="width:80px; height:80px; object-fit:cover;">
-                                                    @endforeach
-                                                </div>
-                                            @endif
-
-                                            <div class="mt-3">
-                                                <strong>Prix :</strong> {{ number_format($produit->prix, 0, ',', ' ') }}
-                                                {{ $produit->devise }}<br>
-                                                <strong>Service :</strong> {{ $produit->service->titre ?? '—' }}
-                                            </div>
-                                            @if ($produit->whatsapp_link)
-                                                <a href="{{ $produit->whatsapp_link }}" target="_blank"
-                                                    class="btn btn-success mt-3">
-                                                    <i class="fab fa-whatsapp"></i> Contacter sur WhatsApp
-                                                </a>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p class="text-center text-muted">Aucun produit disponible pour le moment.</p>
-                @endforelse
-            </div>
-        </div>
-    </section> --}}
-
-    <section class="product-area space-top space-extra-bottom">
         <div class="container">
             <div class="title-area text-center mb-4">
                 <span class="sub-title"><span class="double-line"></span> NOS PIECES</span>
@@ -311,7 +220,7 @@
                             </ul>
                         </div>
 
-                        {{-- <div class="widget widget_price_filter">
+                        <div class="widget widget_price_filter">
                             <h4 class="widget_title">Filtrer par prix</h4>
                             <div class="price_slider_wrapper">
                                 <div class="price_slider"></div>
@@ -320,17 +229,292 @@
                                     <span class="from">0</span> — <span class="to">1 000 000</span>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </aside>
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+
+
+
+    {{-- code qui passe 2  --}}
+
+    {{-- @foreach ($produits as $produit)
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="as-product">
+                @if ($produit->disponible)
+                    <span class="tag">NEW</span>
+                @endif
+                <div class="product-img">
+                    <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
+                        alt="{{ $produit->titre }}">
+                </div>
+                <div class="product-content">
+                    <p class="meta">{{ $produit->service->nom ?? 'Service' }}</p>
+                    <h4 class="product-title h5">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#ProduitModal{{ $produit->id }}">
+                            {{ $produit->titre }}
+                        </a>
+                    </h4>
+                    <span class="price">{{ $produit->devise ?? 'FCFA' }}{{ number_format($produit->prix, 2) }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Modal spécifique produit -->
+        <div class="modal fade" id="ProduitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ $produit->titre }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-3">
+                            <!-- Colonne images -->
+                            <div class="col-md-6">
+                                <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
+                                    class="img-fluid mb-2" alt="{{ $produit->titre }}">
+                                @if ($produit->galerie && count($produit->galerie) > 0)
+                                    <div class="d-flex flex-wrap">
+                                        @foreach ($produit->galerie as $img)
+                                            <img src="{{ asset('uploads/' . $img) }}" class="img-fluid me-1 mb-1"
+                                                style="max-width:80px;">
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+
+                            <!-- Colonne infos produit -->
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+
+                                    <li class="list-group-item"><strong>Service:</strong>
+                                        {{ $produit->service->nom ?? 'N/A' }}</li>
+                                    <li class="list-group-item"><strong>Type Produit:</strong>
+                                        {{ $produit->type_produit->nom ?? 'N/A' }}</li>
+                                    <li class="list-group-item"><strong>Titre:</strong> {{ $produit->titre }}</li>
+                                    <li class="list-group-item"><strong>Description:</strong>
+                                        {{ $produit->description }}
+                                    </li>
+                                    <li class="list-group-item"><strong>Prix:</strong>
+                                        {{ number_format($produit->prix, 2) }}</li>
+                                    <li class="list-group-item"><strong>Devise:</strong> {{ $produit->devise }}</li>
+                                    <li class="list-group-item"><strong>Disponibilité:</strong>
+                                        {{ $produit->disponible ? 'Oui' : 'Non' }}</li>
+                                    <li class="list-group-item"><strong>Slug:</strong> {{ $produit->slug }}</li>
+                                </ul>
+
+                                <a href="{{ $produit->whatsapp_link ?? '#' }}" target="_blank" class="btn w-100 mt-3"
+                                    style="background-color: #FFD700; color: #000;"
+                                    onmouseover="this.style.backgroundColor='#FF0000'; this.style.color='#FFF';"
+                                    onmouseout="this.style.backgroundColor='#FFD700'; this.style.color='#000';">
+                                    <i class="fab fa-whatsapp me-2"></i> Contactez-nous
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach --}}
+
 
 
     <!--==============================
-                                    Service Area 03
-                                ==============================-->
+        Product Area
+    ==============================-->
+    {{-- <div class="product-area space text-center" data-bg-src="assets/img/product/product_bg.png">
+        <div class="container">
+            <div class="title-area text-center mb-35">
+                <h3 class="sub-title"><span class="double-line"></span> NOS PRODUITS</h3>
+                <h2 class="sec-title mb-0">Nos produits les plus populaires</h2>
+                <ul class="product-filter-btn nav">
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link active" id="pills-1-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-1">ALL</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link" id="pills-2-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-2">BREAK</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link" id="pills-3-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-3">WHEELS</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link" id="pills-4-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-4">ENGINE</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link" id="pills-5-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-5">OIL</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link" id="pills-6-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-6">LIGHT</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="tab-btn nav-link" id="pills-7-tab" data-bs-toggle="tab"
+                            data-bs-target="#pills-7">OTHER</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="pills-1">
+                            <div class="row as-carousel product-slider g-0" data-slide-show="4" data-lg-slide-show="3"
+                                data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="1" data-arrows="true"
+                                data-xl-arrows="true" data-ml-arrows="true">
+                                <div class="col-xl-3 col-lg-4 col-sm-6">
+                                    <div class="as-product">
+                                        <span class="tag">NEW</span>
+                                        <div class="actions">
+                                            <a class="icon-btn" href="cart"><i class="fa-regular fa-heart"></i></a>
+                                            <a class="icon-btn popup-content" href="#QuickView"><i
+                                                    class="fa-regular fa-eye"></i></a>
+                                            <span class="icon-btn rating-btn"><i class="fa-regular fa-star"></i><span
+                                                    class="rating">4.9</span></span>
+                                        </div>
+                                        <div class="product-img">
+                                            <img src="assets/img/product/product_1_5.png" alt="product image">
+                                        </div>
+                                        <div class="product-content">
+                                            <p class="meta">Car Bearing </p>
+                                            <h4 class="product-title h5"><a href="shop-details">Ball bearing Rolling</a>
+                                            </h4>
+                                            <span class="price">$125.00 <del>$175.00</del></span>
+                                            <a class="as-btn style3" href="checkout"><i
+                                                    class="fa-regular fa-cart-shopping me-2"></i> ADD TO CART</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+
+
+
+   <div class="product-area space text-center" data-bg-src="assets/img/product/product_bg.png">
+    <div class="container">
+        <div class="title-area text-center mb-35">
+            <h3 class="sub-title"><span class="double-line"></span> NOS PRODUITS</h3>
+            <h2 class="sec-title mb-0">Nos produits les plus populaires</h2>
+            <ul class="product-filter-btn nav">
+                <li class="nav-item">
+                    <button class="tab-btn nav-link active" id="pills-1-tab" data-bs-toggle="tab" data-bs-target="#pills-1">ALL</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pills-1">
+                        <div class="row as-carousel product-slider g-0" data-slide-show="4" data-lg-slide-show="3"
+                            data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="1" data-arrows="true"
+                            data-xl-arrows="true" data-ml-arrows="true">
+                            @foreach ($produits as $produit)
+                                <div class="col-xl-3 col-lg-4 col-sm-6">
+                                    <div class="as-product">
+                                        @if ($produit->disponible)
+                                            <span class="tag">NEW</span>
+                                        @endif
+                                        <div class="product-img">
+                                            <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
+                                                alt="{{ $produit->titre }}">
+                                        </div>
+                                        <div class="product-content">
+                                            <p class="meta">{{ $produit->service->nom ?? 'Service' }}</p>
+                                            <h4 class="product-title h5">
+                                                <a role="button" data-bs-toggle="modal"
+                                                    data-bs-target="#ProduitModal{{ $produit->id }}">
+                                                    {{ $produit->titre }}
+                                                </a>
+                                            </h4>
+                                            <span class="price">{{ $produit->devise ?? 'FCFA' }}{{ number_format($produit->prix, 2) }}</span>
+                                            <a class="as-btn style3 mt-2" role="button" data-bs-toggle="modal"
+                                                data-bs-target="#ProduitModal{{ $produit->id }}">
+                                                <i class="fa-regular fa-eye me-2"></i> Détail
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modales déplacées en dehors du carousel -->
+        @foreach ($produits as $produit)
+            <div class="modal fade" id="ProduitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ $produit->titre }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
+                                        class="img-fluid mb-2" alt="{{ $produit->titre }}">
+                                    @if ($produit->galerie && count($produit->galerie) > 0)
+                                        <div class="d-flex flex-wrap">
+                                            @foreach ($produit->galerie as $img)
+                                                <img src="{{ asset('uploads/' . $img) }}"
+                                                    class="img-fluid me-1 mb-1" style="max-width:80px;">
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><strong>Service:</strong> {{ $produit->service->nom ?? 'N/A' }}</li>
+                                        <li class="list-group-item"><strong>Type Produit:</strong> {{ $produit->type_produit->nom ?? 'N/A' }}</li>
+                                        <li class="list-group-item"><strong>Titre:</strong> {{ $produit->titre }}</li>
+                                        <li class="list-group-item"><strong>Description:</strong> {{ $produit->description }}</li>
+                                        <li class="list-group-item"><strong>Prix:</strong> {{ number_format($produit->prix, 2) }}</li>
+                                        <li class="list-group-item"><strong>Devise:</strong> {{ $produit->devise }}</li>
+                                        <li class="list-group-item"><strong>Disponibilité:</strong> {{ $produit->disponible ? 'Oui' : 'Non' }}</li>
+                                        <li class="list-group-item"><strong>Slug:</strong> {{ $produit->slug }}</li>
+                                    </ul>
+                                    <a href="{{ $produit->whatsapp_link ?? '#' }}" target="_blank" class="btn w-100 mt-3"
+                                        style="background-color: #FFD700; color: #000;"
+                                        onmouseover="this.style.backgroundColor='#FF0000'; this.style.color='#FFF';"
+                                        onmouseout="this.style.backgroundColor='#FFD700'; this.style.color='#000';">
+                                        <i class="fab fa-whatsapp me-2"></i> Contactez-nous
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+<!-- Assure-toi que ce script est bien présent avant la fermeture de </body> -->
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> --}}
+
+
+
+
+
+
+    <!--==============================
+                                                    Service Area 03
+                                                ==============================-->
     {{-- <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
         <div class="container">
             <div class="title-area text-center">
@@ -369,8 +553,8 @@
     <br>
 
     <!--==============================
-            Portfolio Area 02
-     ==============================-->
+                            Portfolio Area 02
+                     ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
         data-bg-src="assets/img/portfolio/R.jpeg">
@@ -403,14 +587,14 @@
     </div>
     <!--==============================
 
-                                    Blog Area 2
-                                ==============================-->
+                                                    Blog Area 2
+                                                ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
 
         </div>
     </section>
     <!--==============================
-                                        Footer Area
-                                ==============================-->
+                                                        Footer Area
+                                                ==============================-->
 @endsection

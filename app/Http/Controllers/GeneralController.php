@@ -115,7 +115,7 @@ class GeneralController extends Controller
         // Pour le menu de tri (liste des marques disponibles)
         $marques = Marque::all();
 
-        return view('vehicule', compact('service1s','slide2s','vehicules', 'marques', 'marque_id', 'type_transac'));
+        return view('vehicule', compact('service1s', 'slide2s', 'vehicules', 'marques', 'marque_id', 'type_transac'));
     }
 
 
@@ -142,7 +142,10 @@ class GeneralController extends Controller
     {
         $slide1s = Caroussel::all()->where('type_carousel_id', 2);
         $service2s = Service::all()->where('type_service_id', 3);
-        $produits = Produit::all()->whereIn('service_id', [15, 16, 17, 18, 19, 20]);
+        $produits = Produit::with(['service', 'type_produit'])
+            ->whereIn('service_id', [15, 16, 17, 18, 19, 20])
+            ->get();
+
         return view('piece', compact('slide1s', 'service2s', 'produits'));
     }
 }

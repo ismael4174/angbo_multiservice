@@ -113,7 +113,7 @@ class ProduitController extends AdminController
             ->uniqueName()
             ->sortable()
             ->help('Sélectionnez plusieurs images pour la galerie du produit.');
-        $form->url('whatsapp_link', __('Whatsapp link'));
+        $form->text('whatsapp_link', __('Whatsapp contact'));
         $form->switch('disponible', __('Disponible'))->default(1);
         $form->text('slug', __('Slug'));
         $form->hidden('created_by', 'Created by')->default(Auth::guard('admin')->user()->id);
