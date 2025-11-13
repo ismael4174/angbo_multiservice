@@ -484,9 +484,9 @@
                                         <li class="list-group-item"><strong>Titre:</strong> {{ $produit->titre }}</li>
                                         <li class="list-group-item"><strong>Description:</strong> {{ $produit->description }}</li>
                                         <li class="list-group-item"><strong>Prix:</strong> {{ number_format($produit->prix, 2) }}</li>
-                                        <li class="list-group-item"><strong>Devise:</strong> {{ $produit->devise }}</li>
+                                        {{-- <li class="list-group-item"><strong>Devise:</strong> {{ $produit->devise }}</li> --}}
                                         <li class="list-group-item"><strong>Disponibilité:</strong> {{ $produit->disponible ? 'Oui' : 'Non' }}</li>
-                                        <li class="list-group-item"><strong>Slug:</strong> {{ $produit->slug }}</li>
+                                        {{-- <li class="list-group-item"><strong>Slug:</strong> {{ $produit->slug }}</li> --}}
                                     </ul>
                                     <a href="{{ $produit->whatsapp_link ?? '#' }}" target="_blank" class="btn w-100 mt-3"
                                         style="background-color: #FFD700; color: #000;"
@@ -557,7 +557,7 @@
                      ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
-        data-bg-src="assets/img/portfolio/R.jpeg">
+        data-bg-src="assets/img/portfolio/Pièce_origine_const.jpeg">
 
         <div class="container">
             <div class="row">
