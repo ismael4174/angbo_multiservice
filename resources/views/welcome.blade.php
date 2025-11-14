@@ -44,8 +44,8 @@
                             <div class="shape-mockup jump" data-top="98px" data-left="-39px">
                                 <img class="about-thumb-bg3" src="assets/img/about/about_shape3.png" alt="img">
                             </div>
-                            <div class="thumb-1"><img src="assets/img/about/about_3_1.png" alt="img"></div>
-                            <div class="thumb-2"><img src="assets/img/about/about_3_2.png" alt="img"></div>
+                            <div class="thumb-1"><img src="{{ asset('uploads/' . $parametresGlobau->image1) }}" alt="img"></div>
+                            <div class="thumb-2"><img src="{{ asset('uploads/' . $parametresGlobau->image2) }}" alt="img"></div>
                             <div class="about-counter2" data-bg-src="assets/img/about/about_shape3-2.svg">
                                 <h3 class="counter-title"><span
                                         class="counter-number">{{ $parametresGlobau->annee_experience }}</span></h3>
