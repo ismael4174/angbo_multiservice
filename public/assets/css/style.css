@@ -3805,7 +3805,7 @@ textarea.is-invalid {
 
 .title-area .sub-title {
   display: inline-block;
-  color: var(--theme-color);
+  color: white;
   font-size: 14px;
   font-weight: 700;
   font-family: var(--body-font);
@@ -10339,7 +10339,7 @@ ul.comment-list .as-comment-item:first-child:not(.children .as-comment-item)>.as
 .hero-subtitle {
   font-size: 16px;
   font-weight: 700;
-  color: var(--theme-color);
+  color: white;
   display: inline-block;
   margin-bottom: 8px;
 }
@@ -20553,6 +20553,28 @@ span.select2-selection.select2-selection--single:focus {
 .custom-space-bottom {
   padding-bottom: 275px;
 }
+.badge-glass {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.badge-glass.green {
+    background: rgba(40, 167, 69, 0.7);
+}
+
+.badge-glass.red {
+    background: rgba(220, 53, 69, 0.7);
+}
+
 
 /* Medium devices */
 @media (max-width: 991px) {

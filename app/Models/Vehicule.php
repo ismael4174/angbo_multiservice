@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $titre
  * @property int $marque_id
  * @property string|null $modele
- * @property Carbon|null $annee
+ * @property int|null $annee
  * @property string|null $immatriculation
  * @property string|null $carburant
  * @property int|null $puissance
@@ -48,7 +48,7 @@ class Vehicule extends Model
 
 	protected $casts = [
 		'marque_id' => 'int',
-		'annee' => 'datetime',
+		'annee' => 'int',
 		'puissance' => 'int',
 		'kilometrage' => 'int',
 		'nombre_places' => 'int',
