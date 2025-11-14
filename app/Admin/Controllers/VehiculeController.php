@@ -35,9 +35,7 @@ class VehiculeController extends AdminController
             return $query ? $query->nom : 'Non renseigné';
         });
         $grid->column('modele', __('Modele'));
-        $grid->column('annee', __('Annee'))->display(function ($date) {
-            return Carbon::parse($date)->format('d/m/Y');
-        });
+        $grid->column('annee', __('Annee'));
         $grid->column('immatriculation', __('Immatriculation'));
         $grid->column('carburant', __('Carburant'));
         $grid->column('puissance', __('Puissance'));
@@ -117,7 +115,7 @@ class VehiculeController extends AdminController
         $form->text('titre', __('Titre'));
         $form->select('marque_id', __('Marque id'))->options(Marque::all()->pluck('nom', 'id'));
         $form->text('modele', __('Modele'));
-        $form->date('annee', __('Annee'))->default(date('Y-m-d'));
+        $form->date('annee', __('Annee'))->default(date('Y'));
         $form->text('immatriculation', __('Immatriculation'));
         $form->text('carburant', __('Carburant'));
         $form->number('puissance', __('Puissance'));
