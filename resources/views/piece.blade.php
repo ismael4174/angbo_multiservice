@@ -2,14 +2,15 @@
 
 @section('content')
     <!--==============================
-                                                    Hero Area 03
-                                                ==============================-->
+                                                            Hero Area 03
+                                                        ==============================-->
     <div class="as-hero-wrapper hero-3" id="hero">
         <div class="as-carousel hero-slider-1" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true"
             data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
             @foreach ($slide1s as $slide1)
                 <div class="as-hero-slide">
-                    <div class="as-hero-bg" data-bg-src="{{ asset('uploads/' . $slide1->photo) }}" style="width: 1042px; height: 453px;"></div>
+                    <div class="as-hero-bg" data-bg-src="{{ asset('uploads/' . $slide1->photo) }}"
+                        style="width: 1042px; height: 453px;"></div>
                     <div class="watermark">ANGBO</div>
                     <div class="container">
                         <div class="row">
@@ -32,8 +33,8 @@
     <!--======== / Hero Section ========-->
 
     <!--==============================
-                                                pieces
-                                        ===============================-->
+                                                        pieces
+                                                ===============================-->
 
     {{-- <section class="product-area space-top space-extra-bottom">
         <div class="container">
@@ -322,8 +323,8 @@
 
 
     <!--==============================
-        Product Area
-    ==============================-->
+                Product Area
+            ==============================-->
     {{-- <div class="product-area space text-center" data-bg-src="assets/img/product/product_bg.png">
         <div class="container">
             <div class="title-area text-center mb-35">
@@ -402,159 +403,149 @@
 
 
 
-   <div class="product-area space text-center" data-bg-src="assets/img/product/product_bg.png">
-    <div class="container">
-        <div class="title-area text-center mb-35">
-            <h3 class="sub-title"><span class="double-line"></span> NOS PRODUITS</h3>
-            <h2 class="sec-title mb-0">Nos produits les plus populaires</h2>
-            <ul class="product-filter-btn nav">
-                <li class="nav-item">
-                    <button class="tab-btn nav-link active" id="pills-1-tab" data-bs-toggle="tab" data-bs-target="#pills-1">ALL</button>
-                </li>
-            </ul>
-        </div>
+    <div class="product-area space text-center" data-bg-src="assets/img/product/product_bg.png">
+        <div class="container">
+            <div class="title-area text-center mb-35">
+                <h3 class="sub-title"><span class="double-line"></span> NOS PRODUITS</h3>
+                <h2 class="sec-title mb-0">Nos produits les plus populaires</h2>
+                
+            </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="pills-1">
-                        <div class="row as-carousel product-slider g-0" data-slide-show="4" data-lg-slide-show="3"
-                            data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="1" data-arrows="true"
-                            data-xl-arrows="true" data-ml-arrows="true">
-                            @foreach ($produits as $produit)
-                                <div class="col-xl-3 col-lg-4 col-sm-6">
-                                    <div class="as-product">
-                                        @if ($produit->disponible)
-                                            <span class="tag">NEW</span>
-                                        @endif
-                                        <div class="product-img">
-                                            <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
-                                                alt="{{ $produit->titre }}">
-                                        </div>
-                                        <div class="product-content">
-                                            <p class="meta">{{ $produit->service->nom ?? 'Service' }}</p>
-                                            <h4 class="product-title h5">
-                                                <a role="button" data-bs-toggle="modal"
-                                                    data-bs-target="#ProduitModal{{ $produit->id }}">
-                                                    {{ $produit->titre }}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="pills-1">
+                            <div class="row as-carousel product-slider g-0" data-slide-show="4" data-lg-slide-show="3"
+                                data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="1" data-arrows="true"
+                                data-xl-arrows="true" data-ml-arrows="true">
+                                @foreach ($produits as $produit)
+                                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                                        <div class="as-product">
+                                            <div class="product-img">
+                                                <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
+                                                    alt="{{ $produit->titre }}">
+                                            </div>
+                                            @if ($produit->disponible)
+                                                <span class="badge-glass green">Disponible</span>
+                                            @else
+                                                <span class="badge-glass red">Indisponible</span>
+                                            @endif
+                                            
+                                            <div class="product-content">
+                                                <p class="meta">{{ $produit->service->nom ?? 'Service' }}</p>
+                                                <h4 class="product-title h5">
+                                                    <a role="button" data-bs-toggle="modal"
+                                                        data-bs-target="#ProduitModal{{ $produit->id }}">
+                                                        {{ $produit->titre }}
+                                                    </a>
+                                                </h4>
+                                                <span class="price">{{ number_format($produit->prix) }}
+                                                    {{ $produit->devise ?? 'FCFA' }}</span>
+                                                <a class="as-btn style3 mt-2" role="button" data-bs-toggle="modal"
+                                                    data-bs-target="#ProduitModal{{ $produit->id }}"
+                                                    style="color: white !important">
+                                                    <i class="fa-regular fa-eye me-2"></i> Détail
                                                 </a>
-                                            </h4>
-                                            <span class="price">{{ $produit->devise ?? 'FCFA' }}{{ number_format($produit->prix, 2) }}</span>
-                                            <a class="as-btn style3 mt-2" role="button" data-bs-toggle="modal"
-                                                data-bs-target="#ProduitModal{{ $produit->id }}">
-                                                <i class="fa-regular fa-eye me-2"></i> Détail
-                                            </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modales déplacées en dehors du carousel -->
-        @foreach ($produits as $produit)
-            <div class="modal fade" id="ProduitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">{{ $produit->titre }}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
-                                        class="img-fluid mb-2" alt="{{ $produit->titre }}">
-                                    @if ($produit->galerie && count($produit->galerie) > 0)
-                                        <div class="d-flex flex-wrap">
-                                            @foreach ($produit->galerie as $img)
-                                                <img src="{{ asset('uploads/' . $img) }}"
-                                                    class="img-fluid me-1 mb-1" style="max-width:80px;">
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Service:</strong> {{ $produit->service->nom ?? 'N/A' }}</li>
-                                        <li class="list-group-item"><strong>Type Produit:</strong> {{ $produit->type_produit->nom ?? 'N/A' }}</li>
-                                        <li class="list-group-item"><strong>Titre:</strong> {{ $produit->titre }}</li>
-                                        <li class="list-group-item"><strong>Description:</strong> {{ $produit->description }}</li>
-                                        <li class="list-group-item"><strong>Prix:</strong> {{ number_format($produit->prix, 2) }}</li>
-                                        {{-- <li class="list-group-item"><strong>Devise:</strong> {{ $produit->devise }}</li> --}}
-                                        <li class="list-group-item"><strong>Disponibilité:</strong> {{ $produit->disponible ? 'Oui' : 'Non' }}</li>
-                                        {{-- <li class="list-group-item"><strong>Slug:</strong> {{ $produit->slug }}</li> --}}
-                                    </ul>
-                                    <a href="{{ $produit->whatsapp_link ?? '#' }}" target="_blank" class="btn w-100 mt-3"
-                                        style="background-color: #FFD700; color: #000;"
-                                        onmouseover="this.style.backgroundColor='#FF0000'; this.style.color='#FFF';"
-                                        onmouseout="this.style.backgroundColor='#FFD700'; this.style.color='#000';">
-                                        <i class="fab fa-whatsapp me-2"></i> Contactez-nous
-                                    </a>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>
 
-<!-- Assure-toi que ce script est bien présent avant la fermeture de </body> -->
-{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> --}}
-
-
-
-
-
-
-    <!--==============================
-                                                    Service Area 03
-                                                ==============================-->
-    {{-- <div class="service-area-3 space-top" data-bg-src="assets/img/bg/service_bg3.png">
-        <div class="container">
-            <div class="title-area text-center">
-                <span class="sub-title"><span class="double-line"></span> NOS SERVICES</span>
-                <h2 class="sec-title">Découvrez nos services</h2>
-            </div>
-
-        </div>
-    </div>
-    </div>
-
-    <div class="container">
-        <div class="service-slider row as-carousel g-0" data-slide-show="3" data-lg-slide-show="3"
-            data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1" data-dots="true" data-xl-dots="true"
-            data-ml-dots="true" data-lg-dots="true">
-            @foreach ($service2s as $service2)
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="display: flex;">
-                    <div class="service-card w-100"
-                        style="display: flex; flex-direction: column; justify-content: space-between; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); height: 100%;">
-                        <h3 class="service-card_title"><a href="">{{ $service2->titre }}</a></h3>
-                        <p class="service-card_text">{{ $service2->description }}</p>
-                        <div class="service-card_img">
-                            <div class="service-card_icon">
-                                <img class="svg-img" style="height: 50px; width:50px;"src="assets/img/icon/cat-icon-3.svg"
-                                    alt="img">
+            <!-- Modales déplacées en dehors du carousel -->
+            @foreach ($produits as $produit)
+                <div class="modal fade" id="ProduitModal{{ $produit->id }}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{ $produit->titre }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
-                            <div class="thumb" style="height: 200px; width:351px;">
-                                <img src="{{ asset('uploads/' . $service2->image) }}" alt="service">
+                            <div class="modal-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <img src="{{ $produit->image_principale ? asset('uploads/' . $produit->image_principale) : asset('assets/img/product/default.png') }}"
+                                            class="img-fluid mb-2" alt="{{ $produit->titre }}">
+                                        @if ($produit->galerie && count($produit->galerie) > 0)
+                                            <div class="d-flex flex-wrap">
+                                                @foreach ($produit->galerie as $img)
+                                                    <img src="{{ asset('uploads/' . $img) }}" class="img-fluid me-1 mb-1"
+                                                        style="max-width:80px;">
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><strong>Service:</strong>
+                                                {{ $produit->service->nom ?? 'N/A' }}</li>
+                                            <li class="list-group-item"><strong>Type Produit:</strong>
+                                                {{ $produit->type_produit->nom ?? 'N/A' }}</li>
+                                            <li class="list-group-item"><strong>Titre:</strong> {{ $produit->titre }}</li>
+                                            <li class="list-group-item"><strong>Description:</strong>
+                                                {{ $produit->description }}</li>
+                                            <li class="list-group-item"><strong>Prix:</strong>
+                                                {{ number_format($produit->prix, 2) }}</li>
+                                            {{-- <li class="list-group-item"><strong>Devise:</strong> {{ $produit->devise }}</li> --}}
+                                            <li class="list-group-item"><strong>Disponibilité:</strong>
+                                                {{ $produit->disponible ? 'Oui' : 'Non' }}</li>
+                                            {{-- <li class="list-group-item"><strong>Slug:</strong> {{ $produit->slug }}</li> --}}
+                                        </ul>
+                                        @if ($produit->whatsapp_link)
+                                            @php
+                                                $titre = $produit->titre;
+                                                $service = $produit->service->nom ?? '';
+                                                $typeProd = $produit->type_produit->nom ?? '';
+                                                $lien = url()->current() . "#ProduitModal{$produit->id}";
+                                                $image = $produit->image_principale
+                                                    ? asset('uploads/' . $produit->image_principale)
+                                                    : '';
+                                                $prix =
+                                                    number_format($produit->prix, 0, ',', ' ') .
+                                                    ' ' .
+                                                    ($produit->devise ?? '');
+
+                                                // Photo d'abord pour favoriser l'aperçu WhatsApp
+                                                $message =
+                                                    ($image ? $image . "\n" : '') .
+                                                    "Bonjour, je suis intéressé par cette pièce.\n" .
+                                                    "Titre: {$titre}\n" .
+                                                    ($service ? "Service: {$service}\n" : '') .
+                                                    ($typeProd ? "Type: {$typeProd}\n" : '') .
+                                                    "Lien: {$lien}\n" .
+                                                    "Prix: {$prix}";
+
+                                                $whatsappUrl =
+                                                    "https://wa.me/{$produit->whatsapp_link}?text=" .
+                                                    urlencode($message);
+                                            @endphp
+                                            <a href="{{ $whatsappUrl }}" target="_blank" class="btn btn-success mt-3">
+                                                <i class="fab fa-whatsapp"></i> Intéressé
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-    </div> --}}
+    </div>
+
+    <!-- Assure-toi que ce script est bien présent avant la fermeture de </body> -->
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> --}}
+
+
     <br>
 
     <!--==============================
-                            Portfolio Area 02
-                     ==============================-->
+                                    Portfolio Area 02
+                             ==============================-->
 
     <section class="portfolio-area-2 space-top" data-overlay="title" data-opacity="7"
         data-bg-src="assets/img/portfolio/Pièce_origine_const.jpeg">
@@ -587,14 +578,14 @@
     </div>
     <!--==============================
 
-                                                    Blog Area 2
-                                                ==============================-->
+                                                            Blog Area 2
+                                                        ==============================-->
     <section class="blog-area space" id="blog-sec">
         <div class="container">
 
         </div>
     </section>
     <!--==============================
-                                                        Footer Area
-                                                ==============================-->
+                                                                Footer Area
+                                                        ==============================-->
 @endsection
