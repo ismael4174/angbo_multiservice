@@ -1,35 +1,35 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="fr">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dealaro - Automotive, Car Dealer & Logistic HTML Template</title>
-    <meta name="author" content="Themeholy">
-    <meta name="description" content="Dealaro - Automotive, Car Dealer & Repair HTML Template">
-    <meta name="keywords" content="Dealaro - Automotive, Car Dealer & Repair HTML Template">
+    <title>AMS - Angbo MultiServices</title>
+    <meta name="author" content="Ibrain">
+    <meta name="description" content="AMS - Angbo MultiServices">
+    <meta name="keywords" content="AMS - Angbo MultiServices">
     <meta name="robots" content="INDEX,FOLLOW">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon.png">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/favicon.png">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -55,6 +55,42 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
+    .preloader {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #ffffff;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 9999;
+}
+.preloader-inner {
+text-align: center;
+}
+.loader-logo img {
+width: 120px;
+height: auto;
+animation: fadeLogo 5s ease-in-out infinite;
+}
+.loader-spinner {
+margin: 20px auto 0;
+width: 40px;
+height: 40px;
+border: 4px solid #ddd;
+border-top: 4px solid #000;
+border-radius: 50%;
+animation: spin 1s linear infinite;
+}
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+@keyframes fadeLogo {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.4; }
+}
         .contact-box_title a {
             color: #1e1e1e;
             text-decoration: none;
@@ -150,7 +186,7 @@
     <!--==============================
     Preloader
 ==============================-->
-    <div class="preloader">
+    <!--<div class="preloader">
         <button class="as-btn style2 preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
             <div class="loading-window">
@@ -170,7 +206,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+    <!-- Preloader with custom site logo -->
+<div class="preloader">
+<!--<button class="as-btn style2 preloaderCls">Cancel Preloader</button>
+--><div class="preloader-inner">
+<div class="loading-window">
+<div class="loader-logo">
+<img src="assets/img/favicons/favicon.png" alt="Site Logo" />
+</div>
+<div class="loader-spinner"></div>
+</div>
+</div>
+</div>
     <!--==============================
     Sidemenu
 ============================== -->
@@ -188,7 +236,7 @@ Mobile Menu
         <div class="as-menu-area text-center">
             <button class="as-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="/"><img src="assets/img/logo-2.svg" alt="dealaro"></a>
+                <a href="/"><img src="assets/img/logo_2.png" style="width: 220px; height: 60px;" alt="dealaro"></a>
             </div>
             <div class="as-mobile-menu">
                 <ul>
@@ -395,7 +443,7 @@ Header Area
                                 @foreach ($parametresGlobaux as $parametresGlobau)
                                     {{-- <a href="/"><img src="assets/img/logo.svg" alt="Dealaro"></a> --}}
                                     <a href="/"><img src="{{ asset('uploads/' . $parametresGlobau->logo) }}"
-                                            alt="Dealaro"></a>
+                                            style="width: 220px; height: 60px;" alt="Dealaro"></a>
                                 @endforeach
                             </div>
                         </div>
