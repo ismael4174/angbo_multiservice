@@ -3805,7 +3805,7 @@ textarea.is-invalid {
 
 .title-area .sub-title {
   display: inline-block;
-  color: white;
+  color: var(--theme-color);
   font-size: 14px;
   font-weight: 700;
   font-family: var(--body-font);
@@ -20575,6 +20575,24 @@ span.select2-selection.select2-selection--single:focus {
     background: rgba(220, 53, 69, 0.7);
 }
 
+
+/* Enhance interactivity for detail buttons */
+.as-btn.style3 {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.as-btn.style3:hover,
+.as-btn.style3:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+.as-btn.style3:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
 
 /* Medium devices */
 @media (max-width: 991px) {

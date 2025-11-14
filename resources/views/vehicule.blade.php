@@ -97,8 +97,8 @@
                                     <strong>{{ number_format($vehicule->prix, 0, ',', ' ') }}
                                         {{ $vehicule->devise }}</strong>
                                     <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#vehiculeModal{{ $vehicule->id }}">
-                                        Détails
+                                        data-bs-target="#vehiculeModal{{ $vehicule->id }}" style="background-color: #000080;"  >
+                                        <i class="fa-regular fa-eye me-2"></i> Détails
                                     </button>
                                 </div>
                             </div>

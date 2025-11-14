@@ -4,7 +4,7 @@
     <!--==============================
                                     Breadcumb
                                 ============================== -->
-    <div class="breadcumb-wrapper" data-bg-src="assets/img/bg/breadcrumb-bg.png" data-overlay="title" data-opacity="7">
+    <div class="breadcumb-wrapper" data-bg-src="assets/img/19615.jpg" data-overlay="title" data-opacity="7">
         <!-- bg animated image/ -->
         <div class="container">
             <div class="row">
@@ -15,12 +15,6 @@
                             <li><a href="home-child-care">ACCUEIL</a></li>
                             <li class="active">Agences</li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="breadcumb-thumb">
-                        {{-- <img src="assets/img/normal/breadcumb-thumb.png" alt="img"> --}}
-                        <img src="assets/img/normal/recep.jpg" alt="img">
                     </div>
                 </div>
             </div>
@@ -70,6 +64,22 @@
                                 </div>
 
                                 <div class="modal-body p-4">
+                                    @php
+                                        $now = \Carbon\Carbon::now();
+                                        $isSunday = $now->isSunday();
+                                        $open = $agence->heure_ouverture ? $now->copy()->setTimeFromTimeString($agence->heure_ouverture->format('H:i')) : null;
+                                        $close = $agence->heure_fermeture ? $now->copy()->setTimeFromTimeString($agence->heure_fermeture->format('H:i')) : null;
+                                        $isOpen = !$isSunday && $open && $close && $now->between($open, $close);
+                                    @endphp
+                                    <div class="mb-3">
+                                        @if ($isSunday)
+                                            <span class="badge-glass red">Fermée (Dimanche)</span>
+                                        @elseif ($isOpen)
+                                            <span class="badge-glass green">Ouvert</span>
+                                        @else
+                                            <span class="badge-glass red">Fermée</span>
+                                        @endif
+                                    </div>
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <p><i class="fa fa-map-marker-alt text-primary me-2"></i><strong>Adresse
