@@ -9,7 +9,7 @@
             data-arrows="true" data-xl-arrows="true" data-ml-arrows="true" data-adaptive-height="true">
             @foreach ($slide1s as $slide1)
                 <div class="as-hero-slide">
-                    <div class="as-hero-bg" data-bg-src="{{ asset('uploads/' . $slide1->photo) }}"></div>
+                    <div class="as-hero-bg" data-bg-src="{{ asset('uploads/' . $slide1->photo) }}" style="width: 1042px; height: 453px;"></div>
                     <div class="watermark">ANGBO</div>
                     <div class="container">
                         <div class="row">
